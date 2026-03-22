@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>MASESORA · Dinamismo Empresarial</title>
+  <meta name="description" content="Construimos sistemas autónomos que generan dinero. Hacemos que la IA trabaje para tu empresa. Sin miedo, salta al vacío — nosotros te damos los motores."/>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fraunces:ital,wght@0,300;0,700;0,900;1,300;1,700&family=DM+Sans:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <style>
+:root{
+  --bg:#0a0a08;--bg2:#111110;--bg3:#1a1a17;
+  --off:#f5f2eb;--off2:#e8e4d8;
+  --gold:#c8a84b;--gold2:#e8c96a;--golddim:rgba(200,168,75,.12);--goldbdr:rgba(200,168,75,.25);
+  --red:#e83c2a;--reddim:rgba(232,60,42,.1);
+  --tq:#0abfbc;--tqdim:rgba(10,191,188,.1);--tqbdr:rgba(10,191,188,.22);
+  --bdr:rgba(255,255,255,.08);--bdr2:rgba(255,255,255,.04);
+  --t:#fff;--t2:rgba(255,255,255,.6);--t3:rgba(255,255,255,.28);--t4:rgba(255,255,255,.1);
+  --bebas:'Bebas Neue',sans-serif;
+  --fraunces:'Fraunces',serif;
+  --mono:'IBM Plex Mono',monospace;
+  --sans:'DM Sans',system-ui,sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--bg);color:var(--t);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+
+/* ── ANIMATIONS ──────────────────────────────────────── */
+@keyframes fadeUp{from{opacity:0;transform:translateY(32px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+@keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+@keyframes rotateSlow{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+@keyframes glowPulse{0%,100%{opacity:.4}50%{opacity:.9}}
+@keyframes lineGrow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes countUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+@keyframes scanH{0%{transform:translateY(-100%)}100%{transform:translateY(100vh)}}
+
+/* ── PROGRESS BAR ───────────────────────────────────── */
+#pb{position:fixed;top:0;left:0;height:2px;width:0;background:linear-gradient(90deg,var(--gold),var(--red));z-index:9999;transition:width .1s}
+
+/* ── NAV ────────────────────────────────────────────── */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 48px;background:rgba(10,10,8,.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--bdr);transition:border-color .3s}
+.nlogo{text-decoration:none;display:flex;align-items:baseline;gap:6px}
+
+
+.nright{display:flex;align-items:center;gap:32px}
+.nlinks{display:flex;gap:24px;list-style:none}
+.nlinks a{font-size:.78rem;font-weight:500;color:var(--t2);text-decoration:none;letter-spacing:.04em;transition:color .2s}
+.nlinks a:hover{color:var(--gold)}
+.nbadge{font-family:var(--mono);font-size:.62rem;font-weight:500;color:var(--tq);letter-spacing:.1em;padding:5px 12px;border:1px solid var(--tqbdr);border-radius:999px;background:var(--tqdim);display:flex;align-items:center;gap:6px}
+.nbadge::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--tq);animation:pulse 2s infinite}
+.ncta{padding:9px 22px;border-radius:999px;background:var(--gold);color:var(--bg)!important;font-size:.78rem!important;font-weight:700!important;text-decoration:none;letter-spacing:.06em;transition:filter .2s,transform .15s;white-space:nowrap}
+.ncta:hover{filter:brightness(1.1);transform:translateY(-1px)}
+@media(max-width:860px){.nlinks{display:none}nav{padding:0 24px}}
+
+/* ── TICKER ─────────────────────────────────────────── */
+.ticker{background:var(--gold);overflow:hidden;height:36px;display:flex;align-items:center}
+.ticker-inner{display:flex;white-space:nowrap;animation:ticker 28s linear infinite}
+.ticker-item{font-family:var(--bebas);font-size:1rem;letter-spacing:.14em;color:var(--bg);padding:0 40px}
+.ticker-sep{color:rgba(10,10,8,.4);font-size:.8rem}
+
+/* ── HERO ───────────────────────────────────────────── */
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:110px 48px 80px;position:relative;overflow:hidden;background:var(--bg)}
+
+/* Grid pattern */
+.hero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(200,168,75,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(200,168,75,.035) 1px,transparent 1px);background-size:80px 80px;pointer-events:none}
+
+/* Diagonal slash decorativo */
+.hero-slash{position:absolute;top:-10%;right:-5%;width:55%;height:120%;background:linear-gradient(135deg,transparent 0%,rgba(200,168,75,.025) 40%,rgba(200,168,75,.04) 50%,rgba(200,168,75,.025) 60%,transparent 100%);transform:skewX(-8deg);pointer-events:none}
+
+.scanline{position:absolute;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(200,168,75,.2) 30%,rgba(200,168,75,.4) 50%,rgba(200,168,75,.2) 70%,transparent);animation:scanH 9s linear infinite;pointer-events:none}
+
+.hero-in{max-width:1280px;margin:0 auto;width:100%;position:relative;z-index:1}
+
+.hero-eyebrow{font-family:var(--mono);font-size:.62rem;font-weight:500;color:var(--gold);letter-spacing:.24em;text-transform:uppercase;margin-bottom:24px;display:flex;align-items:center;gap:12px;animation:fadeUp .6s cubic-bezier(.22,1,.36,1) both}
+.hero-eyebrow::before{content:'';width:32px;height:1px;background:var(--gold)}
+
+.hero-h1{font-family:var(--bebas);font-size:clamp(5rem,10vw,11rem);line-height:.95;letter-spacing:.04em;color:var(--off);margin-bottom:0;animation:fadeUp .7s cubic-bezier(.22,1,.36,1) .08s both}
+.hero-h1 .accent{color:var(--gold);display:block}
+.hero-h1 .small{font-size:.42em;letter-spacing:.08em;color:var(--t2);font-family:var(--fraunces);font-weight:300;font-style:italic;display:block;margin-top:8px}
+
+.hero-split{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,.6fr);gap:60px;align-items:end;margin-top:48px;animation:fadeUp .7s cubic-bezier(.22,1,.36,1) .18s both}
+
+.hero-sub{font-size:1.05rem;line-height:1.8;color:var(--t2);font-weight:300;max-width:560px}
+.hero-sub strong{color:var(--off);font-weight:500}
+
+.hero-cta-block{display:flex;flex-direction:column;gap:12px;align-items:flex-end}
+.btn-primary{display:inline-flex;align-items:center;gap:10px;padding:15px 30px;border-radius:999px;background:var(--gold);color:var(--bg);font-weight:700;font-size:.9rem;letter-spacing:.05em;text-decoration:none;border:none;cursor:pointer;transition:filter .15s,transform .15s;white-space:nowrap}
+.btn-primary:hover{filter:brightness(1.1);transform:translateY(-2px)}
+.btn-ghost{display:inline-flex;align-items:center;gap:8px;padding:15px 26px;border-radius:999px;border:1px solid var(--bdr);color:var(--t2);font-size:.86rem;font-weight:500;text-decoration:none;transition:border-color .2s,color .2s;white-space:nowrap}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold)}
+.hero-note{font-family:var(--mono);font-size:.58rem;color:var(--t3);letter-spacing:.1em;text-align:right}
+
+/* Stats bar */
+.hero-stats{display:flex;gap:0;margin-top:60px;padding-top:40px;border-top:1px solid var(--bdr);animation:fadeUp .7s cubic-bezier(.22,1,.36,1) .28s both}
+.hstat{flex:1;padding-right:32px;border-right:1px solid var(--bdr)}
+.hstat:last-child{border-right:none;padding-right:0;padding-left:32px}
+.hstat:not(:first-child):not(:last-child){padding:0 32px}
+.hstat-n{font-family:var(--bebas);font-size:3rem;letter-spacing:.04em;color:var(--off);line-height:1}
+.hstat-n span{color:var(--gold)}
+.hstat-l{font-family:var(--mono);font-size:.6rem;color:var(--t3);letter-spacing:.12em;text-transform:uppercase;margin-top:4px}
+
+@media(max-width:900px){.hero-split{grid-template-columns:1fr}.hero-cta-block{align-items:flex-start}}
+@media(max-width:640px){.hero{padding:100px 24px 60px}.hero-stats{flex-wrap:wrap}.hstat{min-width:50%}}
+
+/* ── SECTION BASE ───────────────────────────────────── */
+section{padding:100px 48px}
+.si{max-width:1280px;margin:0 auto}
+.ey{font-family:var(--mono);font-size:.6rem;font-weight:500;color:var(--t3);letter-spacing:.24em;text-transform:uppercase;margin-bottom:16px}
+.h2{font-family:var(--bebas);font-size:clamp(3rem,5vw,5.5rem);letter-spacing:.04em;color:var(--off);line-height:.95}
+.h2 em{font-family:var(--fraunces);font-style:italic;color:var(--gold);font-size:.85em}
+.h3{font-family:var(--fraunces);font-size:1.35rem;font-weight:700;color:var(--off);line-height:1.25;margin-bottom:10px}
+.lead{font-size:.96rem;line-height:1.85;color:var(--t2);font-weight:300}
+.claim{font-family:var(--fraunces);font-size:1.5rem;font-weight:300;font-style:italic;color:var(--gold2);line-height:1.4;padding:20px 0;border-top:1px solid var(--goldbdr);border-bottom:1px solid var(--goldbdr);margin:28px 0}
+
+/* Reveal */
+.rv{opacity:0;transform:translateY(24px);transition:opacity .75s cubic-bezier(.22,1,.36,1),transform .75s cubic-bezier(.22,1,.36,1)}
+.rv.vi{opacity:1;transform:translateY(0)}
+.rv.d1{transition-delay:.1s}.rv.d2{transition-delay:.2s}.rv.d3{transition-delay:.3s}.rv.d4{transition-delay:.4s}
+
+/* ── C — NARRATIVA ──────────────────────────────────── */
+.narrativa{background:var(--bg2);position:relative;overflow:hidden}
+.narrativa::before{content:'';position:absolute;right:-200px;top:50%;transform:translateY(-50%);width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(232,60,42,.04) 0%,transparent 65%);pointer-events:none}
+
+.narr-in{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:80px;align-items:start}
+
+.narr-timeline{display:flex;flex-direction:column;gap:0;margin-top:24px}
+.narr-item{display:flex;gap:20px;padding:20px 0;border-bottom:1px solid var(--bdr);position:relative;opacity:0;transform:translateX(-16px);transition:opacity .6s,transform .6s}
+.narr-item.vi{opacity:1;transform:translateX(0)}
+.narr-item:last-child{border-bottom:none}
+.narr-year{font-family:var(--bebas);font-size:1rem;letter-spacing:.1em;color:var(--gold);flex-shrink:0;width:56px;padding-top:2px}
+.narr-content-t{font-family:var(--fraunces);font-size:1rem;font-weight:700;color:var(--off);margin-bottom:4px;line-height:1.2}
+.narr-content-d{font-size:.82rem;line-height:1.7;color:var(--t2);font-weight:300}
+
+.narr-right{padding-top:60px}
+.narr-big{font-family:var(--bebas);font-size:clamp(3.5rem,6vw,6rem);letter-spacing:.04em;color:var(--off);line-height:.95;margin-bottom:20px}
+.narr-big span{color:var(--gold);display:block}
+.poder-list{display:flex;flex-direction:column;gap:12px;margin-top:28px}
+.poder-item{display:flex;gap:14px;padding:16px 18px;border:1px solid var(--bdr);border-radius:12px;background:var(--bdr2);transition:border-color .25s,background .25s}
+.poder-item:hover{border-color:var(--goldbdr);background:var(--golddim)}
+.poder-num{font-family:var(--bebas);font-size:1.4rem;color:var(--gold);flex-shrink:0;width:32px;line-height:1}
+.poder-t{font-family:var(--fraunces);font-size:.95rem;font-weight:700;color:var(--off);margin-bottom:3px}
+.poder-d{font-size:.8rem;line-height:1.65;color:var(--t2);font-weight:300}
+@media(max-width:860px){.narr-in{grid-template-columns:1fr;gap:48px}.narr-right{padding-top:0}}
+
+/* ── B — MASESORA + SISTEMAS ────────────────────────── */
+.sistemas{background:var(--bg);position:relative;overflow:hidden}
+.sistemas::after{content:'';position:absolute;left:-300px;bottom:-300px;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(200,168,75,.03) 0%,transparent 65%);pointer-events:none}
+
+.sist-header{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:80px;align-items:end;margin-bottom:72px}
+.sist-cards{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr) minmax(0,1fr);gap:2px;background:var(--bdr);border:1px solid var(--bdr);border-radius:20px;overflow:hidden}
+.sist-card{background:var(--bg2);padding:36px 30px;position:relative;overflow:hidden;transition:background .2s}
+.sist-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
+.sist-card:nth-child(1)::before{background:linear-gradient(90deg,var(--gold),var(--tq))}
+.sist-card:nth-child(2)::before{background:var(--tq)}
+.sist-card:nth-child(3)::before{background:var(--red)}
+.sist-card:hover{background:rgba(255,255,255,.02)}
+.sist-card-tag{font-family:var(--mono);font-size:.58rem;font-weight:600;color:var(--t3);letter-spacing:.18em;text-transform:uppercase;margin-bottom:16px}
+.sist-card:nth-child(1) .sist-card-tag{color:var(--gold)}
+.sist-card:nth-child(2) .sist-card-tag{color:var(--tq)}
+.sist-card:nth-child(3) .sist-card-tag{color:var(--red)}
+.sist-card-badge{display:inline-block;font-family:var(--mono);font-size:.55rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:3px 8px;border-radius:4px;margin-bottom:14px}
+.sist-card:nth-child(1) .sist-card-badge{background:var(--golddim);border:1px solid var(--goldbdr);color:var(--gold)}
+.sist-card:nth-child(2) .sist-card-badge{background:var(--tqdim);border:1px solid var(--tqbdr);color:var(--tq)}
+.sist-card:nth-child(3) .sist-card-badge{background:var(--reddim);border:1px solid rgba(232,60,42,.25);color:var(--red)}
+.sist-features{display:flex;flex-direction:column;gap:8px;margin-top:16px}
+.sist-feat{display:flex;align-items:flex-start;gap:8px;font-size:.8rem;line-height:1.5;color:var(--t2);font-weight:300}
+.sist-feat::before{content:'→';font-family:var(--mono);font-size:.65rem;color:var(--t3);flex-shrink:0;margin-top:2px}
+.sist-cta{margin-top:20px}
+.sist-card-link{display:inline-flex;align-items:center;gap:7px;font-family:var(--mono);font-size:.62rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;transition:gap .2s}
+.sist-card:nth-child(1) .sist-card-link{color:var(--gold)}
+.sist-card:nth-child(2) .sist-card-link{color:var(--tq)}
+.sist-card:nth-child(3) .sist-card-link{color:var(--red)}
+.sist-card-link:hover{gap:12px}
+@media(max-width:900px){.sist-cards{grid-template-columns:1fr}.sist-header{grid-template-columns:1fr;gap:32px}}
+
+/* ── A — TRES PUERTAS ───────────────────────────────── */
+.puertas{background:var(--bg2)}
+.puertas-header{text-align:center;margin-bottom:64px}
+.puertas-header .h2{text-align:center}
+.puertas-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.puerta{padding:0;border-radius:20px;overflow:hidden;border:1px solid var(--bdr);background:var(--bg3);transition:border-color .25s,transform .2s;cursor:pointer}
+.puerta:hover{transform:translateY(-6px)}
+.puerta-top{padding:36px 30px 28px;border-bottom:1px solid var(--bdr)}
+.puerta:nth-child(1){border-color:var(--goldbdr)}
+.puerta:nth-child(2){border-color:var(--tqbdr)}
+.puerta:nth-child(3){border-color:rgba(232,60,42,.25)}
+.puerta:nth-child(1):hover{border-color:var(--gold)}
+.puerta:nth-child(2):hover{border-color:var(--tq)}
+.puerta:nth-child(3):hover{border-color:var(--red)}
+.puerta-ic{font-size:2.2rem;margin-bottom:18px;display:block}
+.puerta-label{font-family:var(--mono);font-size:.6rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;margin-bottom:8px}
+.puerta:nth-child(1) .puerta-label{color:var(--gold)}
+.puerta:nth-child(2) .puerta-label{color:var(--tq)}
+.puerta:nth-child(3) .puerta-label{color:var(--red)}
+.puerta-t{font-family:var(--fraunces);font-size:1.4rem;font-weight:700;color:var(--off);margin-bottom:10px;line-height:1.2}
+.puerta-d{font-size:.83rem;line-height:1.75;color:var(--t2);font-weight:300}
+.puerta-bottom{padding:20px 30px}
+.puerta-cta{display:flex;align-items:center;justify-content:space-between}
+.puerta-cta-text{font-family:var(--mono);font-size:.62rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase}
+.puerta:nth-child(1) .puerta-cta-text{color:var(--gold)}
+.puerta:nth-child(2) .puerta-cta-text{color:var(--tq)}
+.puerta:nth-child(3) .puerta-cta-text{color:var(--red)}
+.puerta-arrow{font-size:1.1rem;transition:transform .2s}
+.puerta:hover .puerta-arrow{transform:translateX(6px)}
+@media(max-width:860px){.puertas-grid{grid-template-columns:1fr}}
+
+/* ── MANIFIESTO ─────────────────────────────────────── */
+.manifiesto{background:var(--bg);text-align:center;padding:120px 48px;position:relative;overflow:hidden}
+.manifiesto::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(200,168,75,.05) 0%,transparent 55%);pointer-events:none}
+.man-in{max-width:900px;margin:0 auto;position:relative}
+.man-q{font-family:var(--bebas);font-size:clamp(3rem,6vw,6.5rem);letter-spacing:.04em;color:var(--off);line-height:.95;margin-bottom:24px}
+.man-q span{color:var(--gold)}
+.man-sub{font-family:var(--fraunces);font-size:1.1rem;font-style:italic;font-weight:300;color:var(--t2);line-height:1.8;max-width:640px;margin:0 auto 48px}
+.man-chips{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:40px}
+.chip{font-family:var(--mono);font-size:.6rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding:6px 12px;border-radius:999px}
+.chip-gold{background:var(--golddim);border:1px solid var(--goldbdr);color:var(--gold)}
+.chip-tq{background:var(--tqdim);border:1px solid var(--tqbdr);color:var(--tq)}
+.chip-dim{background:rgba(255,255,255,.04);border:1px solid var(--bdr);color:var(--t3)}
+.man-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:20px}
+.man-note{font-family:var(--mono);font-size:.58rem;color:var(--t3);letter-spacing:.1em;text-transform:uppercase}
+
+/* ── FOOTER ─────────────────────────────────────────── */
+footer{padding:44px 48px;background:var(--bg);border-top:1px solid var(--bdr)}
+.ft-in{max-width:1280px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+.ft-brand{text-decoration:none}
+.ft-brand-main{font-family:var(--bebas);font-size:1.4rem;letter-spacing:.12em;color:var(--off)}
+.ft-brand-sub{font-family:var(--mono);font-size:.54rem;color:var(--gold);letter-spacing:.16em;text-transform:uppercase;display:block;margin-top:2px}
+.ft-links{display:flex;gap:20px;list-style:none}
+.ft-links a{font-size:.75rem;color:var(--t3);text-decoration:none;transition:color .2s}
+.ft-links a:hover{color:var(--gold)}
+.ft-legal{font-size:.67rem;color:var(--t3)}
+  .nagente{cursor:pointer;transition:background .2s}.nagente:hover{background:rgba(10,191,188,.18)!important}
+.nlogo-svg{height:54px;width:auto;display:block}
+</style>
+</head>
+<body>
+<div id="pb"></div>
+
+<!-- NAV -->
+<nav id="nav">
+  <a class="nlogo" href="#">
+    <svg class="nlogo-svg" viewBox="0 0 580 130" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="ng" x1="0%" y1="100%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#9A7E3A"/><stop offset="35%" stop-color="#C8A84B"/>
+          <stop offset="65%" stop-color="#E8C96A"/><stop offset="100%" stop-color="#B89D52"/>
+        </linearGradient>
+        <linearGradient id="ngs" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#B89D52"/><stop offset="50%" stop-color="#C8A84B"/><stop offset="100%" stop-color="#9A7E3A"/>
+        </linearGradient>
+      </defs>
+      <g transform="translate(10,12)">
+        <path d="M 4,92 C 4,92 9,18 30,18 C 51,18 56,76 74,76 C 92,76 97,18 118,18 C 139,18 143,92 143,92" fill="none" stroke="url(#ng)" stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M 10,97 C 10,97 15,24 34,24 C 53,24 58,82 74,82 C 90,82 95,24 114,24 C 133,24 137,97 137,97" fill="none" stroke="url(#ng)" stroke-width="2" stroke-linecap="round" opacity="0.22"/>
+        <circle cx="4" cy="92" r="4.5" fill="url(#ng)"/>
+        <line x1="143" y1="92" x2="160" y2="46" stroke="url(#ng)" stroke-width="3.5" stroke-linecap="round" opacity="0.75"/>
+        <circle cx="162" cy="41" r="4" fill="url(#ng)" opacity="0.75"/>
+      </g>
+      <g transform="translate(188,10)">
+        <text x="0" y="68" font-family="'Cormorant Garamond','Playfair Display',Georgia,serif" font-size="68" font-weight="700" fill="#F9F7F2" letter-spacing="3">MASESORA</text>
+        <rect x="2" y="76" width="374" height="1" fill="rgba(200,168,75,.25)"/>
+        <text x="2" y="100" font-family="'Cormorant Garamond','Playfair Display',Georgia,serif" font-size="18" font-weight="600" fill="url(#ngs)" letter-spacing="8">DINAMISMO EMPRESARIAL</text>
+      </g>
+    </svg>
+  </a>
+  <div class="nright">
+    <ul class="nlinks">
+      <li><a href="#narrativa">El mundo</a></li>
+      <li><a href="#sistemas">Sistemas</a></li>
+      <li><a href="#puertas">Empieza</a></li>
+    </ul>
+    <button class="nbadge nagente" onclick="toggleAgente()" title="Habla con nuestro agente">
+      🤖 Agente activo
+    </button>
+    <a href="https://masesora.onrender.com/login" class="ncta">Entrar a La Clínica de Empresas →</a>
+  </div>
+</nav>
+
+<!-- TICKER -->
+<div class="ticker" style="margin-top:64px">
+  <div class="ticker-inner">
+    <span class="ticker-item">DINAMISMO EMPRESARIAL</span><span class="ticker-sep">✦</span>
+    <span class="ticker-item">SISTEMAS AUTÓNOMOS</span><span class="ticker-sep">✦</span>
+    <span class="ticker-item">MONETIZAMOS IDEAS</span><span class="ticker-sep">✦</span>
+    <span class="ticker-item">AGENTES QUE TRABAJAN PARA TI</span><span class="ticker-sep">✦</span>
+    <span class="ticker-item">SIN MIEDO AL VACÍO</span><span class="ticker-sep">✦</span>
+    <span class="ticker-item">MAS@FRAME® EN PRODUCCIÓN</span><span class="ticker-sep">✦</span>
+    <span class="ticker-item">DINAMISMO EMPRESARIAL</span><span class="ticker-sep">✦</span>
+    <span class="ticker-item">SISTEMAS AUTÓNOMOS</span><span class="ticker-sep">✦</span>
+    <span class="ticker-item">MONETIZAMOS IDEAS</span><span class="ticker-sep">✦</span>
+    <span class="ticker-item">AGENTES QUE TRABAJAN PARA TI</span><span class="ticker-sep">✦</span>
+    <span class="ticker-item">SIN MIEDO AL VACÍO</span><span class="ticker-sep">✦</span>
+    <span class="ticker-item">MAS@FRAME® EN PRODUCCIÓN</span><span class="ticker-sep">✦</span>
+  </div>
+</div>
+
+<!-- ── HERO ──────────────────────────────────────────── -->
+<section class="hero">
+  <div class="scanline"></div>
+  <div class="hero-in">
+    <div class="hero-eyebrow">Operadora de sistemas autónomos · </div>
+    <h1 class="hero-h1">
+      HACEMOS QUE
+      <span class="accent">LA IA TRABAJE</span>
+      <span class="small">para tu empresa. No al revés.</span>
+    </h1>
+    <div class="hero-split">
+      <div>
+        <p class="hero-sub">
+          En los 80, el poder era tener una empresa local. En el 2026,
+          el poder es <strong>diseñar sistemas donde trabajan agentes.</strong>
+          MASESORA construye esos sistemas — y monetiza las ideas
+          que otros no saben cómo ejecutar.
+        </p>
+      </div>
+      <div class="hero-cta-block">
+        <a href="#sistemas" class="btn-primary">Construye tu sistema →</a>
+        <a href="#narrativa" class="btn-ghost">Ver cómo funciona ↓</a>
+        <p class="hero-note">Sin miedo, salta al vacío —<br>nosotros te damos los motores.</p>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="hstat"><div class="hstat-n" data-target="3">0</div><div class="hstat-l">Tipos de poder</div></div>
+      <div class="hstat"><div class="hstat-n">∞</div><div class="hstat-l">Sistemas por construir</div></div>
+      <div class="hstat"><div class="hstat-n" data-target="1">0</div><div class="hstat-l">Sistema en producción</div></div>
+      <div class="hstat"><div class="hstat-n">HOY</div><div class="hstat-l">El momento es ahora</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── C — NARRATIVA ─────────────────────────────────── -->
+<section class="narrativa" id="narrativa">
+  <div class="si">
+    <div class="narr-in">
+      <div>
+        <div class="ey rv">El mundo ha cambiado</div>
+        <h2 class="h2 rv">EL PODER YA NO<br>ESTÁ <em>donde estaba.</em></h2>
+        <div class="narr-timeline">
+          <div class="narr-item">
+            <div class="narr-year">1980s</div>
+            <div>
+              <div class="narr-content-t">Tener una empresa local era suficiente.</div>
+              <div class="narr-content-d">El acceso a mercado, a empleo y a recursos era local. El asociacionismo y la presencia física marcaban la diferencia.</div>
+            </div>
+          </div>
+          <div class="narr-item">
+            <div class="narr-year">2010s</div>
+            <div>
+              <div class="narr-content-t">Saber tecnología era la ventaja.</div>
+              <div class="narr-content-d">El que digitalizaba antes ganaba. Tener web, CRM, redes sociales era diferenciador. Hasta que todos lo tuvieron.</div>
+            </div>
+          </div>
+          <div class="narr-item">
+            <div class="narr-year">HOY</div>
+            <div>
+              <div class="narr-content-t">Usar ChatGPT ya no diferencia. Automatizar tampoco.</div>
+              <div class="narr-content-d">Los agentes hacen las tareas solos. El poder está en quien diseña los sistemas donde trabajan esos agentes.</div>
+            </div>
+          </div>
+          <div class="narr-item">
+            <div class="narr-year">2026+</div>
+            <div>
+              <div class="narr-content-t">El futuro es de los operadores de sistemas.</div>
+              <div class="narr-content-d">Quien construye la estructura gana. Quien tiene el canal gana. Quien monetiza rápido en sectores con caos y margen alto, gana.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="narr-right rv d2">
+        <div class="narr-big">EL<br>PODER<br>ESTÁ<br>EN:<span>3 MANOS.</span></div>
+        <div class="poder-list">
+          <div class="poder-item rv d1">
+            <div class="poder-num">01</div>
+            <div>
+              <div class="poder-t">Diseñadores de sistemas</div>
+              <div class="poder-d">Crean estructuras donde trabajan agentes. Piensan en procesos completos, no en tareas aisladas.</div>
+            </div>
+          </div>
+          <div class="poder-item rv d2">
+            <div class="poder-num">02</div>
+            <div>
+              <div class="poder-t">Dueños de distribución</div>
+              <div class="poder-d">Tienen clientes y tienen canal. Eso vale más que saber tecnología. La tecnología se contrata.</div>
+            </div>
+          </div>
+          <div class="poder-item rv d3">
+            <div class="poder-num">03</div>
+            <div>
+              <div class="poder-t">Operadores híbridos</div>
+              <div class="poder-d">Dirigen agentes, detectan oportunidades y monetizan rápido. Crean mini-empresas humanas y digitales.</div>
+            </div>
+          </div>
+        </div>
+        <div class="claim rv d4">
+          "DINAMISMO EMPRESARIAL es demostrar que el futuro no nos come — nosotros lo construimos."
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── B — MASESORA + SISTEMAS ───────────────────────── -->
+<section class="sistemas" id="sistemas">
+  <div class="si">
+    <div class="sist-header">
+      <div class="rv">
+        <div class="ey">Lo que construimos</div>
+        <h2 class="h2">MASESORA<br>CONSTRUYE<br><em>sistemas.</em></h2>
+      </div>
+      <div class="rv d2">
+        <p class="lead">No somos una consultora. Somos una constructora de sistemas autónomos que generan dinero en sectores con caos, baja digitalización y margen alto. El primero ya está en producción.</p>
+        <div style="margin-top:20px">
+          <a href="#puertas" class="btn-ghost">Ver cómo participar ↓</a>
+        </div>
+      </div>
+    </div>
+    <div class="sist-cards rv">
+
+      <!-- MAS@FRAME -->
+      <div class="sist-card" style="border-left:3px solid var(--gold2)">
+        <div class="sist-card-tag">Sistema 01 · En producción</div>
+        <span class="sist-card-badge">MAS@FRAME®</span>
+        <h3 class="h3" style="font-size:1.25rem;line-height:1.2">El primer sistema clínico de<br>intervención empresarial.</h3>
+        <p class="lead" style="font-size:.82rem;margin-top:10px;margin-bottom:18px">
+          Diagnóstico, tratamiento y Certificado de Alta con Precision Check automático.
+          Protocolo C0–C6. 10 especialidades. 30 patologías tratables.
+        </p>
+        <!-- Tres acciones -->
+        <div style="display:flex;flex-direction:column;gap:9px;margin-top:auto">
+          <a href="https://masesora.onrender.com/login" class="btn-primary" style="font-size:.8rem;padding:11px 20px;text-align:center;justify-content:center">
+            Entrar a La Clínica de Empresas →
+          </a>
+          <a href="https://ese.masesora.com" style="display:flex;align-items:center;justify-content:center;gap:7px;padding:10px 20px;border-radius:999px;border:1px solid rgba(200,169,75,.35);color:var(--gold2);font-size:.78rem;font-weight:600;letter-spacing:.05em;text-decoration:none;transition:border-color .2s,background .2s" onmouseover="this.style.background='rgba(200,169,75,.08)'" onmouseout="this.style.background='transparent'">
+            ⚕ Empezar diagnóstico gratuito
+          </a>
+          <a href="https://masframe.masesora.com" style="display:flex;align-items:center;justify-content:center;gap:7px;padding:10px 20px;border-radius:999px;border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.5);font-size:.76rem;font-weight:500;letter-spacing:.04em;text-decoration:none;transition:border-color .2s,color .2s" onmouseover="this.style.color='rgba(255,255,255,.8)';this.style.borderColor='rgba(255,255,255,.25)'" onmouseout="this.style.color='rgba(255,255,255,.5)';this.style.borderColor='rgba(255,255,255,.1)'">
+            Saber más sobre MAS@FRAME® ↗
+          </a>
+        </div>
+      </div>
+
+      <!-- Próximo sistema -->
+      <div class="sist-card">
+        <div class="sist-card-tag">Sistema 02 · En construcción</div>
+        <span class="sist-card-badge">TU IDEA</span>
+        <h3 class="h3">Convertimos tu idea de negocio en un sistema autónomo.</h3>
+        <p class="lead" style="font-size:.83rem;margin-top:8px">Identificamos el sector, diseñamos la estructura, construimos los agentes y te entregamos un sistema que trabaja mientras tú duermes.</p>
+        <div class="sist-features">
+          <div class="sist-feat">Sectores con caos + margen alto = oportunidad</div>
+          <div class="sist-feat">Diseño del sistema completo desde cero</div>
+          <div class="sist-feat">Agentes que ejecutan procesos completos</div>
+          <div class="sist-feat">Monetización desde el primer mes</div>
+        </div>
+        <div class="sist-cta">
+          <a href="mailto:info@masesora.com?subject=Quiero construir mi sistema" class="sist-card-link">
+            Hablemos → <span>→</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Inversores -->
+      <div class="sist-card">
+        <div class="sist-card-tag">Sistema 03 · Abierto</div>
+        <span class="sist-card-badge">CO-BUILD</span>
+        <h3 class="h3">Construimos juntos. Tú pones el canal, nosotros el sistema.</h3>
+        <p class="lead" style="font-size:.83rem;margin-top:8px">Si tienes clientes, industria o capital — tienes la mitad del sistema. MASESORA pone la otra mitad. Construimos y operamos juntos.</p>
+        <div class="sist-features">
+          <div class="sist-feat">Socios con canal o cartera de clientes</div>
+          <div class="sist-feat">Inversores en micro-sistemas rentables</div>
+          <div class="sist-feat">Franquicias MAS@FRAME® para asesorías</div>
+          <div class="sist-feat">Participación en la operativa y los beneficios</div>
+        </div>
+        <div class="sist-cta">
+          <a href="mailto:info@masesora.com?subject=Propuesta de co-building" class="sist-card-link">
+            Proponer alianza → <span>→</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── A — TRES PUERTAS ──────────────────────────────── -->
+<section class="puertas" id="puertas">
+  <div class="si">
+    <div class="puertas-header rv">
+      <div class="ey">¿Cuál es tu puerta?</div>
+      <h2 class="h2">SIN MIEDO.<br><em>SALTA AL VACÍO.</em></h2>
+      <p class="lead" style="max-width:560px;margin:16px auto 0">
+        Nosotros te damos los motores. Elige cómo quieres entrar al sistema.
+      </p>
+    </div>
+    <div class="puertas-grid">
+
+      <div class="puerta rv">
+        <div class="puerta-top">
+          <span class="puerta-ic">🏥</span>
+          <div class="puerta-label">Para pymes</div>
+          <h3 class="puerta-t">Mi empresa tiene síntomas. Necesito tratamiento.</h3>
+          <p class="puerta-d">Haz el diagnóstico gratuito con el Escáner de Salud Empresarial. En 10 minutos sabes qué está fallando, con qué urgencia y qué especialidad necesita intervención inmediata.</p>
+        </div>
+        <div class="puerta-bottom">
+          <div class="puerta-cta">
+            <a href="https://ese.masesora.com" style="text-decoration:none">
+              <span class="puerta-cta-text">Empezar diagnóstico gratuito</span>
+            </a>
+            <span class="puerta-arrow" style="color:var(--gold)">→</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="puerta rv d2">
+        <div class="puerta-top">
+          <span class="puerta-ic">⚙️</span>
+          <div class="puerta-label">Para constructores</div>
+          <h3 class="puerta-t">Tengo una idea. Quiero construir mi sistema autónomo.</h3>
+          <p class="puerta-d">Tienes el sector, tienes la visión. Nosotros ponemos la arquitectura, los agentes y la operativa. Construimos juntos un sistema que monetiza desde el primer mes.</p>
+        </div>
+        <div class="puerta-bottom">
+          <div class="puerta-cta">
+            <a href="mailto:info@masesora.com?subject=Quiero construir mi sistema" style="text-decoration:none">
+              <span class="puerta-cta-text">Construir mi sistema</span>
+            </a>
+            <span class="puerta-arrow" style="color:var(--tq)">→</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="puerta rv d3">
+        <div class="puerta-top">
+          <span class="puerta-ic">🚀</span>
+          <div class="puerta-label">Para inversores y socios</div>
+          <h3 class="puerta-t">Tengo capital o canal. Quiero participar en el sistema.</h3>
+          <p class="puerta-d">MAS@FRAME® ya está en producción. Los próximos sistemas están en construcción. Si tienes cartera de clientes, industria específica o capital — hablemos de co-building.</p>
+        </div>
+        <div class="puerta-bottom">
+          <div class="puerta-cta">
+            <a href="mailto:info@masesora.com?subject=Propuesta inversión o alianza" style="text-decoration:none">
+              <span class="puerta-cta-text">Proponer alianza</span>
+            </a>
+            <span class="puerta-arrow" style="color:var(--red)">→</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── MANIFIESTO / CTA FINAL ────────────────────────── -->
+<section class="manifiesto">
+  <div class="man-in">
+    <div class="ey rv" style="color:var(--gold)">El manifiesto</div>
+    <h2 class="man-q rv d1">
+      SIN MIEDO,<br>
+      SALTA AL VACÍO<br>
+      <span>QUE NOSOTROS</span><br>
+      TE DAMOS LOS MOTORES.
+    </h2>
+    <p class="man-sub rv d2">
+      El futuro no nos come. Nosotros lo construimos.
+      La IA no aísla al ser humano — amplifica a quien sabe dirigirla.
+      MASESORA existe para demostrar que el dinamismo empresarial
+      no es una nostalgia de los 80. Es la actitud del 2026.
+    </p>
+    <div class="man-chips rv d3">
+      <span class="chip chip-gold">✦ Dinamismo Empresarial</span>
+      <span class="chip chip-tq">Sistemas en producción</span>
+      <span class="chip chip-dim">Nacional</span>
+      <span class="chip chip-gold">MAS@FRAME® v1.0</span>
+    </div>
+    <div class="man-actions rv d3">
+      <a href="https://masesora.onrender.com/login" class="btn-primary" style="font-size:.95rem;padding:16px 32px">
+        Entrar a La Clínica de Empresas →
+      </a>
+      <a href="https://ese.masesora.com" class="btn-ghost">
+        ⚕ Empezar diagnóstico gratuito
+      </a>
+    </div>
+    <p class="man-note rv d4">masesora.com · info@masesora.com · +34 609 987 436</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="ft-in">
+    <a class="ft-brand" href="#">
+      <div class="ft-brand-main">MASESORA</div>
+      <span class="ft-brand-sub">Dinamismo Empresarial · Operadora de Sistemas Autónomos</span>
+    </a>
+    <ul class="ft-links">
+      <li><a href="https://masesora.onrender.com/login">La Clínica de Empresas</a></li>
+      <li><a href="https://ese.masesora.com">Escáner ESE</a></li>
+      <li><a href="mailto:info@masesora.com">Contacto</a></li>
+      <li><a href="https://instagram.com/masesora">Instagram</a></li>
+      <li><a href="https://linkedin.com/company/masesora">LinkedIn</a></li>
+    </ul>
+    <div class="ft-legal">© 2026 MASESORA · Todos los derechos reservados</div>
+  </div>
+</footer>
+
+<script>
+// Progress bar
+const pb=document.getElementById('pb');
+window.addEventListener('scroll',()=>{pb.style.width=(window.scrollY/(document.body.scrollHeight-window.innerHeight)*100)+'%'},{passive:true});
+
+// Scroll reveal
+const rvs=document.querySelectorAll('.rv');
+const ro=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('vi');ro.unobserve(x.target)}})},{threshold:.08,rootMargin:'0px 0px -24px 0px'});
+rvs.forEach(e=>ro.observe(e));
+
+// Timeline items stagger
+const items=document.querySelectorAll('.narr-item');
+const io=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){const i=Array.from(items).indexOf(x.target);setTimeout(()=>x.target.classList.add('vi'),i*130);io.unobserve(x.target)}})},{threshold:.1});
+items.forEach(e=>io.observe(e));
+
+// Counters
+function ac(el){
+  const t=parseInt(el.dataset.target);
+  if(!t)return;
+  let c=0;const s=Math.ceil(t/18);
+  const ti=setInterval(()=>{c=Math.min(c+s,t);el.textContent=c;if(c>=t)clearInterval(ti)},60);
+}
+const co=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){ac(x.target);co.unobserve(x.target)}})},{threshold:.5});
+document.querySelectorAll('[data-target]').forEach(e=>co.observe(e));
+
+// Nav
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>{
+  nav.style.borderBottomColor=window.scrollY>60?'rgba(200,168,75,.2)':'rgba(255,255,255,.08)';
+},{passive:true});
+</script>
+
+<!-- ── MODAL AGENTE ────────────────────────────────── -->
+<div id="agenteModal" style="display:none;position:fixed;inset:0;z-index:500;display:none;align-items:flex-end;justify-content:flex-end;padding:24px;pointer-events:none">
+  <div id="agenteBox" style="pointer-events:all;width:360px;background:#0a1220;border:1px solid rgba(10,191,188,.25);border-radius:18px;overflow:hidden;box-shadow:0 24px 64px rgba(0,0,0,.5);transform:translateY(20px);opacity:0;transition:transform .35s cubic-bezier(.22,1,.36,1),opacity .35s">
+    <!-- Header -->
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:14px 18px;background:rgba(10,191,188,.06);border-bottom:1px solid rgba(10,191,188,.12)">
+      <div style="display:flex;align-items:center;gap:10px">
+        <div style="width:36px;height:36px;border-radius:50%;background:rgba(10,191,188,.1);border:1px solid rgba(10,191,188,.3);display:flex;align-items:center;justify-content:center;font-size:1.1rem">🤖</div>
+        <div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:.65rem;font-weight:600;color:#0ABFBC;letter-spacing:.1em">AGENTE MASESORA</div>
+          <div style="font-size:.65rem;color:rgba(255,255,255,.4);display:flex;align-items:center;gap:5px;margin-top:1px">
+            <span style="width:5px;height:5px;border-radius:50%;background:#0ABFBC;display:inline-block;animation:pulse 2s infinite"></span>
+            Activo · Demo
+          </div>
+        </div>
+      </div>
+      <button onclick="toggleAgente()" style="background:none;border:none;color:rgba(255,255,255,.35);cursor:pointer;font-size:1.1rem;padding:4px">✕</button>
+    </div>
+    <!-- Chat area -->
+    <div id="chatArea" style="padding:16px;display:flex;flex-direction:column;gap:12px;max-height:320px;overflow-y:auto">
+      <!-- Mensaje inicial del agente -->
+      <div class="amsg-agent">
+        Hola. Soy el agente de MASESORA. Puedo explicarte qué hacemos, cómo construimos sistemas autónomos y cómo puedes participar. ¿Qué quieres saber?
+      </div>
+    </div>
+    <!-- Opciones rápidas -->
+    <div id="quickOpts" style="padding:0 14px 14px;display:flex;flex-direction:column;gap:7px">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:.56rem;color:rgba(255,255,255,.25);letter-spacing:.12em;text-transform:uppercase;margin-bottom:2px">Preguntas frecuentes</div>
+      <button class="aopt" onclick="agentReply('que')">¿Qué es MASESORA?</button>
+      <button class="aopt" onclick="agentReply('masframe')">¿Qué es MAS@FRAME?</button>
+      <button class="aopt" onclick="agentReply('como')">¿Cómo construís un sistema?</button>
+      <button class="aopt" onclick="agentReply('invertir')">Quiero invertir o ser socio</button>
+      <button class="aopt" onclick="agentReply('empezar')">¿Por dónde empiezo?</button>
+    </div>
+  </div>
+</div>
+
+<style>
+.amsg-agent{
+  background:rgba(10,191,188,.07);border:1px solid rgba(10,191,188,.15);
+  border-radius:12px 12px 12px 4px;padding:11px 14px;
+  font-size:.8rem;line-height:1.65;color:rgba(255,255,255,.8);
+  font-family:'DM Sans',sans-serif;font-weight:300;
+  max-width:90%;
+}
+.amsg-user{
+  background:rgba(196,165,90,.08);border:1px solid rgba(196,165,90,.18);
+  border-radius:12px 12px 4px 12px;padding:11px 14px;
+  font-size:.8rem;line-height:1.65;color:rgba(255,255,255,.75);
+  font-family:'DM Sans',sans-serif;font-weight:300;
+  max-width:90%;align-self:flex-end;
+}
+.amsg-typing{
+  background:rgba(10,191,188,.07);border:1px solid rgba(10,191,188,.15);
+  border-radius:12px;padding:11px 14px;
+  font-family:'IBM Plex Mono',monospace;font-size:.7rem;color:#0ABFBC;
+  letter-spacing:.08em;
+}
+.aopt{
+  width:100%;text-align:left;padding:9px 12px;
+  background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);
+  border-radius:8px;color:rgba(255,255,255,.65);
+  font-family:'DM Sans',sans-serif;font-size:.78rem;font-weight:400;
+  cursor:pointer;transition:background .15s,border-color .15s,color .15s;
+}
+.aopt:hover{background:rgba(10,191,188,.08);border-color:rgba(10,191,188,.25);color:rgba(255,255,255,.9)}
+</style>
+
+<script>
+const RESPUESTAS = {
+  que: "MASESORA es una operadora de sistemas autónomos. Construimos micro-sistemas donde trabajan agentes de IA que generan dinero para empresas en sectores con caos, baja digitalización y margen alto. El primer sistema en producción es MAS@FRAME®.",
+  masframe: "MAS@FRAME® es el primer sistema clínico de intervención empresarial. Diagnostica síntomas empresariales, diseña el tratamiento en 7 capas (C0–C6) y certifica el alta con Precision Check automático. Ya está en producción.",
+  como: "Identificamos el sector con mayor oportunidad, diseñamos la arquitectura del sistema, construimos los agentes que ejecutan los procesos y entregamos un sistema operativo que funciona de forma autónoma. El tiempo de entrega depende de la complejidad.",
+  invertir: "Aceptamos socios e inversores. Hay tres formas de participar: trayendo canal o cartera de clientes, co-construyendo un sistema nuevo, o como franquiciado de MAS@FRAME® si tienes una asesoría. Escríbenos a info@masesora.com.",
+  empezar: "Depende de quién eres. Si tienes una empresa con síntomas → empieza con el diagnóstico gratuito en ese.masesora.com. Si tienes una idea de negocio → escríbenos. Si quieres invertir o ser socio → contáctanos en info@masesora.com.",
+};
+
+let agenteOpen = false;
+
+function toggleAgente() {
+  const modal = document.getElementById('agenteModal');
+  const box   = document.getElementById('agenteBox');
+  agenteOpen  = !agenteOpen;
+  if (agenteOpen) {
+    modal.style.display = 'flex';
+    setTimeout(() => { box.style.transform = 'translateY(0)'; box.style.opacity = '1'; }, 10);
+  } else {
+    box.style.transform = 'translateY(20px)';
+    box.style.opacity   = '0';
+    setTimeout(() => { modal.style.display = 'none'; }, 350);
+  }
+}
+
+function agentReply(key) {
+  const chat = document.getElementById('chatArea');
+  const opts  = document.getElementById('quickOpts');
+
+  // Añadir burbuja usuario
+  const preguntas = {
+    que:'¿Qué es MASESORA?', masframe:'¿Qué es MAS@FRAME?',
+    como:'¿Cómo construís un sistema?', invertir:'Quiero invertir o ser socio',
+    empezar:'¿Por dónde empiezo?'
+  };
+  const uMsg = document.createElement('div');
+  uMsg.className = 'amsg-user';
+  uMsg.textContent = preguntas[key];
+  chat.appendChild(uMsg);
+
+  // Typing indicator
+  const typing = document.createElement('div');
+  typing.className = 'amsg-typing';
+  typing.textContent = '···';
+  chat.appendChild(typing);
+  chat.scrollTop = chat.scrollHeight;
+
+  // Ocultar opciones mientras responde
+  opts.style.opacity = '0.4';
+  opts.style.pointerEvents = 'none';
+
+  setTimeout(() => {
+    typing.remove();
+    const aMsg = document.createElement('div');
+    aMsg.className = 'amsg-agent';
+    aMsg.textContent = RESPUESTAS[key];
+    chat.appendChild(aMsg);
+    chat.scrollTop = chat.scrollHeight;
+    opts.style.opacity = '1';
+    opts.style.pointerEvents = 'auto';
+  }, 900);
+}
+</script>
+
+</body>
+</html>
