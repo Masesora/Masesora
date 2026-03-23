@@ -232,6 +232,51 @@ footer{padding:44px 48px;background:var(--bg);border-top:1px solid var(--bdr)}
 .ft-legal{font-size:.67rem;color:var(--t3)}
   .nagente{cursor:pointer;transition:background .2s}.nagente:hover{background:rgba(10,191,188,.18)!important}
 .nlogo-svg{height:54px;width:auto;display:block}
+
+/* ── TOOLTIP VER CÓMO FUNCIONA ──────────────────────── */
+.tooltip-wrap{position:relative;display:inline-block}
+.tooltip-trigger{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:15px 26px;border-radius:999px;
+  border:1px solid var(--bdr);color:var(--t2);
+  font-size:.86rem;font-weight:500;cursor:default;
+  transition:border-color .2s,color .2s;white-space:nowrap;
+  font-family:var(--sans);
+}
+.tooltip-wrap:hover .tooltip-trigger{border-color:var(--gold);color:var(--gold)}
+.tooltip-card{
+  display:none;position:absolute;
+  top:calc(100% + 14px);left:0;
+  width:310px;
+  background:#0d1726;
+  border:1px solid rgba(200,168,75,.25);
+  border-radius:16px;padding:22px;
+  box-shadow:0 24px 56px rgba(0,0,0,.6);
+  z-index:200;
+}
+.tooltip-card::before{
+  content:'';position:absolute;
+  top:-6px;left:32px;
+  width:12px;height:12px;
+  background:#0d1726;
+  border-left:1px solid rgba(200,168,75,.25);
+  border-top:1px solid rgba(200,168,75,.25);
+  transform:rotate(45deg);
+}
+.tooltip-wrap:hover .tooltip-card{display:flex;flex-direction:column;gap:16px}
+.tt-item{display:flex;gap:12px;align-items:flex-start}
+.tt-step{
+  width:24px;height:24px;border-radius:50%;flex-shrink:0;
+  background:rgba(200,168,75,.1);
+  border:1px solid rgba(200,168,75,.3);
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--bebas);font-size:.85rem;
+  color:var(--gold);margin-top:1px;
+}
+.tt-item strong{display:block;font-size:.82rem;
+  color:rgba(255,255,255,.9);margin-bottom:3px;font-family:var(--sans)}
+.tt-item p{font-size:.76rem;color:rgba(255,255,255,.42);
+  font-weight:300;line-height:1.55;margin:0;font-family:var(--sans)}
 </style>
 </head>
 <body>
@@ -240,7 +285,7 @@ footer{padding:44px 48px;background:var(--bg);border-top:1px solid var(--bdr)}
 <!-- NAV -->
 <nav id="nav">
   <a class="nlogo" href="#">
-    <svg class="nlogo-svg" viewBox="0 0 580 130" xmlns="http://www.w3.org/2000/svg">
+    <svg class="nlogo-svg" viewBox="0 0 620 140" xmlns="http://www.w3.org/2000/svg">
       <defs>
         <linearGradient id="ng" x1="0%" y1="100%" x2="100%" y2="0%">
           <stop offset="0%" stop-color="#9A7E3A"/><stop offset="35%" stop-color="#C8A84B"/>
@@ -273,7 +318,7 @@ footer{padding:44px 48px;background:var(--bg);border-top:1px solid var(--bdr)}
     <button class="nbadge nagente" onclick="toggleAgente()" title="Habla con nuestro agente">
       🤖 Agente activo
     </button>
-    <a href="https://masesora.onrender.com/login" class="ncta">Entrar a La Clínica de Empresas →</a>
+    <a href="https://masfront.onrender.com/login" class="ncta">Entrar a La Clínica de Empresas →</a>
   </div>
 </nav>
 
@@ -315,8 +360,33 @@ footer{padding:44px 48px;background:var(--bg);border-top:1px solid var(--bdr)}
         </p>
       </div>
       <div class="hero-cta-block">
-        <a href="#sistemas" class="btn-primary">Construye tu sistema →</a>
-        <a href="#narrativa" class="btn-ghost">Ver cómo funciona ↓</a>
+        <a href="https://wa.me/34609987436" target="_blank" rel="noopener noreferrer" class="btn-primary">Construye tu sistema →</a>
+        <div class="tooltip-wrap">
+          <span class="tooltip-trigger">Ver cómo funciona ↓</span>
+          <div class="tooltip-card">
+            <div class="tt-item">
+              <span class="tt-step">C</span>
+              <div>
+                <strong>El mundo ha cambiado</strong>
+                <p>Usar IA ya no diferencia. El poder está en quien diseña los sistemas donde trabajan los agentes.</p>
+              </div>
+            </div>
+            <div class="tt-item">
+              <span class="tt-step">B</span>
+              <div>
+                <strong>MASESORA construye sistemas</strong>
+                <p>Somos una constructora de sistemas autónomos. MAS@FRAME® es el primero — ya en producción.</p>
+              </div>
+            </div>
+            <div class="tt-item">
+              <span class="tt-step">A</span>
+              <div>
+                <strong>Elige tu puerta</strong>
+                <p>Pyme con síntomas, constructor con idea, o inversor con capital. Nosotros ponemos los motores.</p>
+              </div>
+            </div>
+          </div>
+        </div>
         <p class="hero-note">Sin miedo, salta al vacío —<br>nosotros te damos los motores.</p>
       </div>
     </div>
@@ -428,13 +498,13 @@ footer{padding:44px 48px;background:var(--bg);border-top:1px solid var(--bdr)}
         </p>
         <!-- Tres acciones -->
         <div style="display:flex;flex-direction:column;gap:9px;margin-top:auto">
-          <a href="https://masesora.onrender.com/login" class="btn-primary" style="font-size:.8rem;padding:11px 20px;text-align:center;justify-content:center">
+          <a href="https://masfront.onrender.com/login" class="btn-primary" style="font-size:.8rem;padding:11px 20px;text-align:center;justify-content:center">
             Entrar a La Clínica de Empresas →
           </a>
-          <a href="https://ese.masesora.com" style="display:flex;align-items:center;justify-content:center;gap:7px;padding:10px 20px;border-radius:999px;border:1px solid rgba(200,169,75,.35);color:var(--gold2);font-size:.78rem;font-weight:600;letter-spacing:.05em;text-decoration:none;transition:border-color .2s,background .2s" onmouseover="this.style.background='rgba(200,169,75,.08)'" onmouseout="this.style.background='transparent'">
+          <a href="https://ese-cc2u.onrender.com" style="display:flex;align-items:center;justify-content:center;gap:7px;padding:10px 20px;border-radius:999px;border:1px solid rgba(200,169,75,.35);color:var(--gold2);font-size:.78rem;font-weight:600;letter-spacing:.05em;text-decoration:none;transition:border-color .2s,background .2s" onmouseover="this.style.background='rgba(200,169,75,.08)'" onmouseout="this.style.background='transparent'">
             ⚕ Empezar diagnóstico gratuito
           </a>
-          <a href="https://masframe.masesora.com" style="display:flex;align-items:center;justify-content:center;gap:7px;padding:10px 20px;border-radius:999px;border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.5);font-size:.76rem;font-weight:500;letter-spacing:.04em;text-decoration:none;transition:border-color .2s,color .2s" onmouseover="this.style.color='rgba(255,255,255,.8)';this.style.borderColor='rgba(255,255,255,.25)'" onmouseout="this.style.color='rgba(255,255,255,.5)';this.style.borderColor='rgba(255,255,255,.1)'">
+          <a href="https://masframelanding.onrender.com" style="display:flex;align-items:center;justify-content:center;gap:7px;padding:10px 20px;border-radius:999px;border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.5);font-size:.76rem;font-weight:500;letter-spacing:.04em;text-decoration:none;transition:border-color .2s,color .2s" onmouseover="this.style.color='rgba(255,255,255,.8)';this.style.borderColor='rgba(255,255,255,.25)'" onmouseout="this.style.color='rgba(255,255,255,.5)';this.style.borderColor='rgba(255,255,255,.1)'">
             Saber más sobre MAS@FRAME® ↗
           </a>
         </div>
@@ -453,7 +523,7 @@ footer{padding:44px 48px;background:var(--bg);border-top:1px solid var(--bdr)}
           <div class="sist-feat">Monetización desde el primer mes</div>
         </div>
         <div class="sist-cta">
-          <a href="mailto:info@masesora.com?subject=Quiero construir mi sistema" class="sist-card-link">
+          <a href="/cdn-cgi/l/email-protection#7f161119103f121e0c1a0c100d1e511c1012400c0a1d151a1c0b422e0a161a0d105f1c10110c0b0d0a160d5f12165f0c160c0b1a121e" class="sist-card-link">
             Hablemos → <span>→</span>
           </a>
         </div>
@@ -472,7 +542,7 @@ footer{padding:44px 48px;background:var(--bg);border-top:1px solid var(--bdr)}
           <div class="sist-feat">Participación en la operativa y los beneficios</div>
         </div>
         <div class="sist-cta">
-          <a href="mailto:info@masesora.com?subject=Propuesta de co-building" class="sist-card-link">
+          <a href="/cdn-cgi/l/email-protection#0861666e674865697b6d7b677a69266b6765377b7d6a626d6b7c35587a67787d6d7b7c69286c6d286b67256a7d61646c61666f" class="sist-card-link">
             Proponer alianza → <span>→</span>
           </a>
         </div>
@@ -503,7 +573,7 @@ footer{padding:44px 48px;background:var(--bg);border-top:1px solid var(--bdr)}
         </div>
         <div class="puerta-bottom">
           <div class="puerta-cta">
-            <a href="https://ese.masesora.com" style="text-decoration:none">
+            <a href="https://ese-cc2u.onrender.com" style="text-decoration:none">
               <span class="puerta-cta-text">Empezar diagnóstico gratuito</span>
             </a>
             <span class="puerta-arrow" style="color:var(--gold)">→</span>
@@ -520,7 +590,7 @@ footer{padding:44px 48px;background:var(--bg);border-top:1px solid var(--bdr)}
         </div>
         <div class="puerta-bottom">
           <div class="puerta-cta">
-            <a href="mailto:info@masesora.com?subject=Quiero construir mi sistema" style="text-decoration:none">
+            <a href="/cdn-cgi/l/email-protection#a8c1c6cec7e8c5c9dbcddbc7dac986cbc7c597dbddcac2cdcbdc95f9ddc1cddac788cbc7c6dbdcdaddc1da88c5c188dbc1dbdccdc5c9" style="text-decoration:none">
               <span class="puerta-cta-text">Construir mi sistema</span>
             </a>
             <span class="puerta-arrow" style="color:var(--tq)">→</span>
@@ -537,7 +607,7 @@ footer{padding:44px 48px;background:var(--bg);border-top:1px solid var(--bdr)}
         </div>
         <div class="puerta-bottom">
           <div class="puerta-cta">
-            <a href="mailto:info@masesora.com?subject=Propuesta inversión o alianza" style="text-decoration:none">
+            <a href="/cdn-cgi/l/email-protection#3851565e577855594b5d4b574a59165b5755074b4d5a525d5b4c05684a57484d5d4b4c591851564e5d4a4b51fb8b5618571859545159564259" style="text-decoration:none">
               <span class="puerta-cta-text">Proponer alianza</span>
             </a>
             <span class="puerta-arrow" style="color:var(--red)">→</span>
@@ -572,14 +642,32 @@ footer{padding:44px 48px;background:var(--bg);border-top:1px solid var(--bdr)}
       <span class="chip chip-gold">MAS@FRAME® v1.0</span>
     </div>
     <div class="man-actions rv d3">
-      <a href="https://masesora.onrender.com/login" class="btn-primary" style="font-size:.95rem;padding:16px 32px">
+      <a href="https://masfront.onrender.com/login" class="btn-primary" style="font-size:.95rem;padding:16px 32px">
         Entrar a La Clínica de Empresas →
       </a>
-      <a href="https://ese.masesora.com" class="btn-ghost">
+      <a href="https://ese-cc2u.onrender.com" class="btn-ghost">
         ⚕ Empezar diagnóstico gratuito
       </a>
-    </div>
-    <p class="man-note rv d4">masesora.com · info@masesora.com · +34 609 987 436</p>
+    
+  <div style="margin-top:16px;display:flex;gap:16px;justify-content:center;flex-wrap:wrap">
+    <a href="https://wa.me/34609987436" target="_blank"
+      style="display:flex;align-items:center;gap:8px;color:var(--gold2);
+      font-size:.82rem;text-decoration:none;font-family:var(--sans);
+      transition:opacity .2s" onmouseover="this.style.opacity='.7'"
+      onmouseout="this.style.opacity='1'">
+      💬 609 987 436
+    </a>
+    <span style="color:rgba(255,255,255,.15)">·</span>
+    <a href="mailto:info@masesora.com"
+      style="display:flex;align-items:center;gap:8px;color:var(--gold2);
+      font-size:.82rem;text-decoration:none;font-family:var(--sans);
+      transition:opacity .2s" onmouseover="this.style.opacity='.7'"
+      onmouseout="this.style.opacity='1'">
+      ✉️ info@masesora.com
+    </a>
+  </div>
+</div>
+    <p class="man-note rv d4"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="2940474f466944485a4c5a465b48074a4644">[email&#160;protected]</a> · +34 609 987 436</p>
   </div>
 </section>
 
@@ -591,17 +679,15 @@ footer{padding:44px 48px;background:var(--bg);border-top:1px solid var(--bdr)}
       <span class="ft-brand-sub">Dinamismo Empresarial · Operadora de Sistemas Autónomos</span>
     </a>
     <ul class="ft-links">
-      <li><a href="https://masesora.onrender.com/login">La Clínica de Empresas</a></li>
-      <li><a href="https://ese.masesora.com">Escáner ESE</a></li>
-      <li><a href="mailto:info@masesora.com">Contacto</a></li>
-      <li><a href="https://instagram.com/masesora">Instagram</a></li>
-      <li><a href="https://linkedin.com/company/masesora">LinkedIn</a></li>
-    </ul>
+      <li><a href="https://masfront.onrender.com/login">La Clínica de Empresas</a></li>
+      <li><a href="https://ese-cc2u.onrender.com">Escáner ESE</a></li>
+      <li><a href="/cdn-cgi/l/email-protection#0960676f664964687a6c7a667b68276a6664">Contacto</a></li>
+      </ul>
     <div class="ft-legal">© 2026 MASESORA · Todos los derechos reservados</div>
   </div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 // Progress bar
 const pb=document.getElementById('pb');
 window.addEventListener('scroll',()=>{pb.style.width=(window.scrollY/(document.body.scrollHeight-window.innerHeight)*100)+'%'},{passive:true});
@@ -706,7 +792,7 @@ const RESPUESTAS = {
   masframe: "MAS@FRAME® es el primer sistema clínico de intervención empresarial. Diagnostica síntomas empresariales, diseña el tratamiento en 7 capas (C0–C6) y certifica el alta con Precision Check automático. Ya está en producción.",
   como: "Identificamos el sector con mayor oportunidad, diseñamos la arquitectura del sistema, construimos los agentes que ejecutan los procesos y entregamos un sistema operativo que funciona de forma autónoma. El tiempo de entrega depende de la complejidad.",
   invertir: "Aceptamos socios e inversores. Hay tres formas de participar: trayendo canal o cartera de clientes, co-construyendo un sistema nuevo, o como franquiciado de MAS@FRAME® si tienes una asesoría. Escríbenos a info@masesora.com.",
-  empezar: "Depende de quién eres. Si tienes una empresa con síntomas → empieza con el diagnóstico gratuito en ese.masesora.com. Si tienes una idea de negocio → escríbenos. Si quieres invertir o ser socio → contáctanos en info@masesora.com.",
+  empezar: "Depende de quién eres. Si tienes una empresa con síntomas → empieza con el diagnóstico gratuito en ese-cc2u.onrender.com. Si tienes una idea de negocio → escríbenos. Si quieres invertir o ser socio → contáctanos en info@masesora.com.",
 };
 
 let agenteOpen = false;
@@ -742,27 +828,4 @@ function agentReply(key) {
 
   // Typing indicator
   const typing = document.createElement('div');
-  typing.className = 'amsg-typing';
-  typing.textContent = '···';
-  chat.appendChild(typing);
-  chat.scrollTop = chat.scrollHeight;
-
-  // Ocultar opciones mientras responde
-  opts.style.opacity = '0.4';
-  opts.style.pointerEvents = 'none';
-
-  setTimeout(() => {
-    typing.remove();
-    const aMsg = document.createElement('div');
-    aMsg.className = 'amsg-agent';
-    aMsg.textContent = RESPUESTAS[key];
-    chat.appendChild(aMsg);
-    chat.scrollTop = chat.scrollHeight;
-    opts.style.opacity = '1';
-    opts.style.pointerEvents = 'auto';
-  }, 900);
-}
-</script>
-
-</body>
-</html>
+  typing.class
