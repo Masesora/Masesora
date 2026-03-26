@@ -5,6 +5,15 @@
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
   <title>MASESORA · Dinamismo Empresarial</title>
   <meta name="description" content="Construimos sistemas autónomos que generan dinero. Hacemos que la IA trabaje para tu empresa. Sin miedo, salta al vacío — nosotros te damos los motores."/>
+  <!-- OG / Social -->
+  <meta property="og:type" content="website"/>
+  <meta property="og:title" content="MASESORA · Construimos sistemas autónomos que generan dinero"/>
+  <meta property="og:description" content="MAS@FRAME® — el primer sistema clínico de intervención empresarial. Diagnosticamos, tratamos y certificamos el alta de los síntomas de tu empresa."/>
+  <meta property="og:url" content="https://www.masesora.com"/>
+  <meta property="og:site_name" content="MASESORA"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="MASESORA · Dinamismo Empresarial"/>
+  <meta name="twitter:description" content="Construimos sistemas autónomos que generan dinero real. MAS@FRAME® ya en producción."/>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fraunces:ital,wght@0,300;0,700;0,900;1,300;1,700&family=DM+Sans:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet"/>
   <style>
 :root{
@@ -277,6 +286,20 @@ footer{padding:44px 48px;background:var(--bg);border-top:1px solid var(--bdr)}
   color:rgba(255,255,255,.9);margin-bottom:3px;font-family:var(--sans)}
 .tt-item p{font-size:.76rem;color:rgba(255,255,255,.42);
   font-weight:300;line-height:1.55;margin:0;font-family:var(--sans)}
+
+/* ── AGENTE MODAL FIX ─────────────────────────────── */
+#agenteModal{
+  display:none;position:fixed;inset:0;z-index:500;
+  align-items:flex-end;justify-content:flex-end;padding:24px;
+  pointer-events:none;
+}
+#agenteModal.open{
+  display:flex;pointer-events:all;
+}
+#agenteBox{
+  pointer-events:all;
+  transition:transform .35s cubic-bezier(.22,1,.36,1),opacity .35s;
+}
 </style>
 </head>
 <body>
@@ -325,7 +348,7 @@ footer{padding:44px 48px;background:var(--bg);border-top:1px solid var(--bdr)}
   <div class="nright">
     <ul class="nlinks">
       <li><a href="#narrativa">IDEA</a></li>
-      <li><a href="#sistemas">SISTEMAS</a></li>
+      <li><a href="#clinica">LA CLÍNICA</a></li>
       <li><a href="#puertas">ARRANQUE</a></li>
     </ul>
     <button class="nbadge nagente" onclick="toggleAgente()" title="Habla con nuestro agente">
@@ -344,12 +367,14 @@ footer{padding:44px 48px;background:var(--bg);border-top:1px solid var(--bdr)}
     <span class="ticker-item">AGENTES QUE TRABAJAN PARA TI</span><span class="ticker-sep">✦</span>
     <span class="ticker-item">SIN MIEDO AL VACÍO</span><span class="ticker-sep">✦</span>
     <span class="ticker-item">MAS@FRAME® EN PRODUCCIÓN</span><span class="ticker-sep">✦</span>
+    <span class="ticker-item">MARBITRAGE · COSTA BLANCA</span><span class="ticker-sep">✦</span>
     <span class="ticker-item">DINAMISMO EMPRESARIAL</span><span class="ticker-sep">✦</span>
     <span class="ticker-item">SISTEMAS AUTÓNOMOS</span><span class="ticker-sep">✦</span>
     <span class="ticker-item">MONETIZAMOS IDEAS</span><span class="ticker-sep">✦</span>
     <span class="ticker-item">AGENTES QUE TRABAJAN PARA TI</span><span class="ticker-sep">✦</span>
     <span class="ticker-item">SIN MIEDO AL VACÍO</span><span class="ticker-sep">✦</span>
     <span class="ticker-item">MAS@FRAME® EN PRODUCCIÓN</span><span class="ticker-sep">✦</span>
+    <span class="ticker-item">MARBITRAGE · COSTA BLANCA</span><span class="ticker-sep">✦</span>
   </div>
 </div>
 
@@ -357,11 +382,11 @@ footer{padding:44px 48px;background:var(--bg);border-top:1px solid var(--bdr)}
 <section class="hero">
   <div class="scanline"></div>
   <div class="hero-in">
-    <div class="hero-eyebrow">Operadora de sistemas autónomos · </div>
+    <div class="hero-eyebrow">Operadora de sistemas autónomos · <span style="color:var(--gold);margin-left:4px">MAS@FRAME® en producción · Marbitrage activo · 2026</span></div>
     <h1 class="hero-h1">
-      HACEMOS QUE
-      <span class="accent">LA IA TRABAJE</span>
-      <span class="small">para tu empresa. No al revés.</span>
+      CONSTRUIMOS
+      <span class="accent">SISTEMAS.</span>
+      <span class="small">Generamos dinero real. No informes.</span>
     </h1>
     <div class="hero-split">
       <div>
@@ -375,7 +400,7 @@ footer{padding:44px 48px;background:var(--bg);border-top:1px solid var(--bdr)}
           Construimos sistemas autónomos que generan dinero real en sectores con caos, baja digitalización y margen alto.
           No gestionamos. No asesoramos. Construimos y operamos.
         </p>
-        <a href="#sistemas" style="
+        <a href="#clinica" style="
           display:inline-flex;align-items:center;gap:8px;
           font-family:var(--mono);font-size:.68rem;font-weight:600;
           color:var(--gold);letter-spacing:.16em;text-transform:uppercase;
@@ -391,135 +416,25 @@ footer{padding:44px 48px;background:var(--bg);border-top:1px solid var(--bdr)}
       </div>
     </div>
     <div class="hero-stats">
-      <div class="hstat"><div class="hstat-n" data-target="3">0</div><div class="hstat-l">Tipos de poder</div></div>
-      <div class="hstat"><div class="hstat-n">∞</div><div class="hstat-l">Sistemas por construir</div></div>
-      <div class="hstat"><div class="hstat-n" data-target="1">0</div><div class="hstat-l">Sistema en producción</div></div>
-      <div class="hstat"><div class="hstat-n">HOY</div><div class="hstat-l">El momento es ahora</div></div>
+      <div class="hstat">
+        <div class="hstat-n">∞</div>
+        <div class="hstat-l">Sistemas por construir</div>
+      </div>
+      <div class="hstat">
+        <div class="hstat-n" data-target="360" data-suffix="M">0</div>
+        <div class="hstat-l">Pymes en el mundo</div>
+      </div>
+      <div class="hstat">
+        <div class="hstat-n" data-target="54" data-suffix="B">0</div>
+        <div class="hstat-l">Usuarios de internet</div>
+      </div>
+      <div class="hstat">
+        <div class="hstat-n" data-target="2">0</div>
+        <div class="hstat-l">Sistemas creados</div>
+      </div>
     </div>
-  </div>
-</section>
-<!-- ── LA CLÍNICA DE EMPRESAS ─────────────────────────────── -->
-<section id="clinica" style="
-  background:var(--bg);
-  padding:0;
-  position:relative;
-  overflow:hidden;
-">
-  <!-- Línea superior dorada -->
-  <div style="height:3px;background:linear-gradient(90deg,transparent,var(--gold),var(--gold2),var(--gold),transparent)"></div>
 
-  <div style="
-    max-width:1120px;margin:0 auto;
-    display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);
-    gap:0;min-height:520px;
-  ">
-    <!-- IZQUIERDA — Contenido -->
-    <div style="
-      padding:80px 64px 80px 40px;
-      display:flex;flex-direction:column;justify-content:center;
-      border-right:1px solid rgba(200,168,75,.12);
-    ">
-      <!-- Eyebrow -->
-      <div style="
-        font-family:var(--mono);font-size:.6rem;font-weight:600;
-        color:var(--gold);letter-spacing:.24em;text-transform:uppercase;
-        margin-bottom:20px;display:flex;align-items:center;gap:12px;
-      ">
-        <span style="width:28px;height:1px;background:var(--gold);display:inline-block"></span>
-        Sistema 01 · En producción · 2026
-      </div>
 
-      <!-- Título -->
-      <h2 style="
-        font-family:var(--fraunces);
-        font-size:clamp(2.4rem,4vw,3.8rem);
-        font-weight:700;line-height:1.02;
-        color:var(--off);margin-bottom:6px;
-        letter-spacing:-.01em;
-      ">
-        La Clínica<br>de Empresas.
-      </h2>
-      <div style="
-        font-family:var(--mono);font-size:.72rem;
-        color:var(--gold2);letter-spacing:.18em;
-        text-transform:uppercase;margin-bottom:28px;
-        font-weight:600;
-      ">MAS@FRAME® · Protocolo C0–C6</div>
-
-      <!-- Separador dorado -->
-      <div style="width:48px;height:2px;background:linear-gradient(90deg,var(--gold),transparent);border-radius:1px;margin-bottom:28px"></div>
-
-      <!-- Texto -->
-      <p style="
-        font-size:.98rem;line-height:1.85;font-weight:300;
-        color:rgba(249,247,242,.68);margin-bottom:18px;
-        max-width:480px;
-      ">
-        Tu empresa no está rota. Tiene síntomas. Algunos visibles, otros silenciosos —
-        acumulados durante años de decisiones urgentes, estructuras que no escalan
-        y problemas que nadie nombra en voz alta.
-      </p>
-      <p style="
-        font-size:.98rem;line-height:1.85;font-weight:300;
-        color:rgba(249,247,242,.68);margin-bottom:32px;
-        max-width:480px;
-      ">
-        MAS@FRAME® los diagnostica. Los trata con un protocolo clínico estructurado
-        en 7 capas — sin atajos, sin opiniones, sin informes que nadie implementa.
-        Y cuando el tratamiento funciona, <strong style="color:var(--off)">lo certifica.</strong>
-      </p>
-
-      <!-- Tres pilares -->
-      <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:36px">
-        <div style="display:flex;align-items:flex-start;gap:14px">
-          <div style="
-            width:32px;height:32px;border-radius:50%;flex-shrink:0;
-            background:rgba(200,168,75,.1);border:1px solid rgba(200,168,75,.25);
-            display:flex;align-items:center;justify-content:center;
-            font-family:var(--mono);font-size:.68rem;font-weight:700;color:var(--gold);
-          ">⚕</div>
-          <div>
-            <div style="font-size:.88rem;font-weight:600;color:var(--off);margin-bottom:2px">Diagnóstico clínico gratuito</div>
-            <div style="font-size:.78rem;color:rgba(249,247,242,.42);font-weight:300;line-height:1.5">El Escáner de Salud Empresarial identifica qué está fallando, con qué urgencia y qué especialidad necesita intervención.</div>
-          </div>
-        </div>
-        <div style="display:flex;align-items:flex-start;gap:14px">
-          <div style="
-            width:32px;height:32px;border-radius:50%;flex-shrink:0;
-            background:rgba(200,168,75,.1);border:1px solid rgba(200,168,75,.25);
-            display:flex;align-items:center;justify-content:center;
-            font-family:var(--mono);font-size:.68rem;font-weight:700;color:var(--gold);
-          ">🔬</div>
-          <div>
-            <div style="font-size:.88rem;font-weight:600;color:var(--off);margin-bottom:2px">Tratamiento protocolar C0–C6</div>
-            <div style="font-size:.78rem;color:rgba(249,247,242,.42);font-weight:300;line-height:1.5">7 capas estructuradas. Sin capas saltadas. Cada decisión documentada, cada acción con responsable y fecha.</div>
-          </div>
-        </div>
-        <div style="display:flex;align-items:flex-start;gap:14px">
-          <div style="
-            width:32px;height:32px;border-radius:50%;flex-shrink:0;
-            background:rgba(200,168,75,.1);border:1px solid rgba(200,168,75,.25);
-            display:flex;align-items:center;justify-content:center;
-            font-family:var(--mono);font-size:.68rem;font-weight:700;color:var(--gold);
-          ">🏆</div>
-          <div>
-            <div style="font-size:.88rem;font-weight:600;color:var(--off);margin-bottom:2px">Certificado de Alta oficial</div>
-            <div style="font-size:.78rem;color:rgba(249,247,242,.42);font-weight:300;line-height:1.5">El Precision Check evalúa la coherencia global. Si supera los criterios, el CC emite el alta documentada. Real. Tuya.</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- CTAs -->
-      <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center">
-        <a href="https://masframelanding.onrender.com" target="_blank"
-          class="btn-primary" style="font-size:.88rem;padding:13px 26px">
-          Conocer MAS@FRAME® →
-        </a>
-        <a href="https://ese-cc2u.onrender.com" target="_blank"
-          class="btn-ghost" style="font-size:.84rem;padding:12px 22px">
-          ⚕ Diagnóstico gratuito
-        </a>
-      </div>
     </div>
 
     <!-- DERECHA — Visual dramático -->
@@ -737,7 +652,7 @@ footer{padding:44px 48px;background:var(--bg);border-top:1px solid var(--bdr)}
   <div class="si">
     <div class="puertas-header rv">
       <div class="ey">¿Cuál es tu puerta?</div>
-      <h2 class="h2">SIN MIEDO.<br><em>SALTA AL VACÍO.</em></h2>
+      <h2 class="h2">ELIGE<br><em>TU PUERTA.</em></h2>
       <p class="lead" style="max-width:560px;margin:16px auto 0">
         Nosotros te damos los motores. Elige cómo quieres entrar al sistema.
       </p>
@@ -907,7 +822,7 @@ footer{padding:44px 48px;background:var(--bg);border-top:1px solid var(--bdr)}
         <span style="font-size:.85rem">✉️</span>
         <span style="font-family:'DM Sans',sans-serif;font-size:.82rem;
           color:rgba(255,255,255,.45);letter-spacing:.02em">
-          <span class="__cf_email__" data-cfemail="c3aaada5ac83aea2b0a6b0acb1a2eda0acae">[email&#160;protected]</span>
+          info@masesora.com
         </span>
       </a>
     </div>
@@ -926,14 +841,14 @@ footer{padding:44px 48px;background:var(--bg);border-top:1px solid var(--bdr)}
       <li><a href="https://masfront.onrender.com">La Clínica de Empresas</a></li>
       <li><a href="https://ese-cc2u.onrender.com">Escáner ESE</a></li>
       <li><a href="https://wa.me/34609987436" target="_blank">💬 609 987 436</a></li>
-      <li><a href="/cdn-cgi/l/email-protection#ee87808881ae838f9d8b9d819c8fc08d8183">✉️ <span class="__cf_email__" data-cfemail="6d04030b022d000c1e081e021f0c430e0200">[email&#160;protected]</span></a></li>
+      <li><a href="mailto:info@masesora.com">✉️ info@masesora.com</a></li>
       <li><a href="https://instagram.com/laclinicadeempresas" target="_blank">📸 @laclinicadeempresas</a></li>
     </ul>
     <div class="ft-legal">© 2026 MASESORA · Todos los derechos reservados</div>
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 // Progress bar
 const pb=document.getElementById('pb');
 window.addEventListener('scroll',()=>{pb.style.width=(window.scrollY/(document.body.scrollHeight-window.innerHeight)*100)+'%'},{passive:true});
@@ -948,13 +863,7 @@ const items=document.querySelectorAll('.narr-item');
 const io=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){const i=Array.from(items).indexOf(x.target);setTimeout(()=>x.target.classList.add('vi'),i*130);io.unobserve(x.target)}})},{threshold:.1});
 items.forEach(e=>io.observe(e));
 
-// Counters
-function ac(el){
-  const t=parseInt(el.dataset.target);
-  if(!t)return;
-  let c=0;const s=Math.ceil(t/18);
-  const ti=setInterval(()=>{c=Math.min(c+s,t);el.textContent=c;if(c>=t)clearInterval(ti)},60);
-}
+// Counters (ver función ac() actualizada abajo)
 const co=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){ac(x.target);co.unobserve(x.target)}})},{threshold:.5});
 document.querySelectorAll('[data-target]').forEach(e=>co.observe(e));
 
@@ -963,10 +872,33 @@ const nav=document.getElementById('nav');
 window.addEventListener('scroll',()=>{
   nav.style.borderBottomColor=window.scrollY>60?'rgba(200,168,75,.2)':'rgba(255,255,255,.08)';
 },{passive:true});
+
+// ── AGENTE TOGGLE ────────────────────────────────────
+function toggleAgente(){
+  var modal=document.getElementById('agenteModal');
+  var box=document.getElementById('agenteBox');
+  if(!modal||!box)return;
+  var isOpen=modal.classList.contains('open');
+  if(isOpen){
+    box.style.transform='translateY(20px)';
+    box.style.opacity='0';
+    setTimeout(function(){modal.classList.remove('open');},320);
+  } else {
+    modal.classList.add('open');
+    setTimeout(function(){
+      box.style.transform='translateY(0)';
+      box.style.opacity='1';
+    },10);
+  }
+}
+document.addEventListener('click',function(e){
+  var modal=document.getElementById('agenteModal');
+  if(modal&&modal.classList.contains('open')&&e.target===modal){toggleAgente();}
+});
 </script>
 
 <!-- ── MODAL AGENTE ────────────────────────────────── -->
-<div id="agenteModal" style="display:none;position:fixed;inset:0;z-index:500;align-items:flex-end;justify-content:flex-end;padding:24px;pointer-events:none">
+<div id="agenteModal">
   <div id="agenteBox" style="pointer-events:all;width:360px;background:#0a1220;border:1px solid rgba(10,191,188,.25);border-radius:18px;overflow:hidden;box-shadow:0 24px 64px rgba(0,0,0,.5);transform:translateY(20px);opacity:0;transition:transform .35s cubic-bezier(.22,1,.36,1),opacity .35s">
     <!-- Header -->
     <div style="display:flex;align-items:center;justify-content:space-between;padding:14px 18px;background:rgba(10,191,188,.06);border-bottom:1px solid rgba(10,191,188,.12)">
