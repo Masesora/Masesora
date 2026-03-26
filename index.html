@@ -7,9 +7,11 @@
   <meta name="description" content="Construimos sistemas autónomos que generan dinero. Hacemos que la IA trabaje para tu empresa. Sin miedo, salta al vacío — nosotros te damos los motores."/>
   <!-- OG / Social -->
   <meta property="og:type" content="website"/>
+  <link rel="canonical" href="https://www.masesora.com"/>
   <meta property="og:title" content="MASESORA · Construimos sistemas autónomos que generan dinero"/>
   <meta property="og:description" content="MAS@FRAME® — el primer sistema clínico de intervención empresarial. Diagnosticamos, tratamos y certificamos el alta de los síntomas de tu empresa."/>
   <meta property="og:url" content="https://www.masesora.com"/>
+  <meta property="og:image" content="https://www.masesora.com/og-image.jpg"/>
   <meta property="og:site_name" content="MASESORA"/>
   <meta name="twitter:card" content="summary_large_image"/>
   <meta name="twitter:title" content="MASESORA · Dinamismo Empresarial"/>
@@ -131,7 +133,7 @@ section{padding:100px 48px}
 .narrativa{background:var(--bg2);position:relative;overflow:hidden}
 .narrativa::before{content:'';position:absolute;right:-200px;top:50%;transform:translateY(-50%);width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(232,60,42,.04) 0%,transparent 65%);pointer-events:none}
 
-.narr-in{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:80px;align-items:start}
+.narr-in{display:flex;flex-direction:column;gap:64px;}
 
 .narr-timeline{display:flex;flex-direction:column;gap:0;margin-top:24px}
 .narr-item{display:flex;gap:20px;padding:20px 0;border-bottom:1px solid var(--bdr);position:relative;opacity:0;transform:translateX(-16px);transition:opacity .6s,transform .6s}
@@ -347,9 +349,9 @@ footer{padding:44px 48px;background:var(--bg);border-top:1px solid var(--bdr)}
   </a>
   <div class="nright">
     <ul class="nlinks">
-      <li><a href="#narrativa">IDEA</a></li>
+      <li><a href="#narrativa">LA IDEA</a></li>
       <li><a href="#clinica">LA CLÍNICA</a></li>
-      <li><a href="#puertas">ARRANQUE</a></li>
+      <li><a href="#puertas">¿COMENZAMOS?</a></li>
     </ul>
     <button class="nbadge nagente" onclick="toggleAgente()" title="Habla con nuestro agente">
       🤖 Agente activo
@@ -386,20 +388,22 @@ footer{padding:44px 48px;background:var(--bg);border-top:1px solid var(--bdr)}
     <h1 class="hero-h1">
       CONSTRUIMOS
       <span class="accent">SISTEMAS.</span>
-      <span class="small">Generamos dinero real. No informes.</span>
+      <span class="small">Generamos dinero real. 
+        No informes.</span>
     </h1>
     <div class="hero-split">
       <div>
         <!-- Narrativa integrada C→B→A -->
         <p class="hero-sub" style="margin-bottom:20px">
-          En los años 80, el modelo era simple: montar una empresa, rodearte de personas y crecer despacio.
-          Hoy ese modelo ya no escala. <strong>Las reglas han cambiado — y quien no diseña sistemas, trabaja para quien sí lo hace.</strong>
+          Antes , sí o sí tenías que abrir una persiana para generar negocio. 
+          Con constancia, mantenías clientela y con suerte, superabas crisis y te mantenías en el mercado. 
+        </p> Si realmente tu perfil NO es de influencer, ni te quieres dedicar a redes sociales, ¿HOY, QUÉ TE QUEDA? Aquel modelo, existe, es viable, pero no escala.</p>
+        Masesora nació para adaptarse a ese cambio y llevamos a otros, en nuestro equipo. 
         </p>
+        
         <p class="hero-sub" style="margin-bottom:20px;color:rgba(249,247,242,.55)">
-          MASESORA nació para adaptarse a ese cambio — y para llevar a otros con nosotros.
-          Construimos sistemas autónomos que generan dinero real en sectores con caos, baja digitalización y margen alto.
-          No gestionamos. No asesoramos. Construimos y operamos.
-        </p>
+           </p> Construimos sistemas autónomos que generan dinero real en pymes o emprendedores con capacidad pero que necesitan ayuda, bien por baja digitalización, necesidad de alianzas, o para la puesta en marcha de ideas "de toda la vida en la cabeza". Además con la garantía de margen de beneficio. Si no tiene éxito, no empezamos proyecto. 
+        
         <a href="#clinica" style="
           display:inline-flex;align-items:center;gap:8px;
           font-family:var(--mono);font-size:.68rem;font-weight:600;
@@ -410,166 +414,280 @@ footer{padding:44px 48px;background:var(--bg);border-top:1px solid var(--bdr)}
         </a>
       </div>
       <div class="hero-cta-block">
-        <a href="https://wa.me/34609987436" target="_blank" rel="noopener noreferrer" class="btn-primary">Construye tu sistema →</a>
-        <a href="https://masfront.onrender.com" class="btn-ghost">Entrar a La Clínica →</a>
-        <p class="hero-note">Sin miedo, salta al vacío —<br>nosotros te damos los motores.</p>
+        <p class="hero-note">Sin miedo, es tu momento —<br>nosotros te damos los motores.</p>
       </div>
     </div>
     <div class="hero-stats">
-      <div class="hstat">
-        <div class="hstat-n">∞</div>
-        <div class="hstat-l">Sistemas por construir</div>
-      </div>
-      <div class="hstat">
-        <div class="hstat-n" data-target="360" data-suffix="M">0</div>
-        <div class="hstat-l">Pymes en el mundo</div>
-      </div>
-      <div class="hstat">
-        <div class="hstat-n" data-target="54" data-suffix="B">0</div>
-        <div class="hstat-l">Usuarios de internet</div>
-      </div>
-      <div class="hstat">
-        <div class="hstat-n" data-target="2">0</div>
-        <div class="hstat-l">Sistemas creados</div>
-      </div>
-    </div>
+      <div class="hstat"><div class="hstat-n">∞</div><div class="hstat-l">Sistemas por construir</div></div>
+      <div class="hstat"><div class="hstat-n">360M</div><div class="hstat-l">Pymes en el mundo</div></div>
+      <div class="hstat"><div class="hstat-n">5.4B</div><div class="hstat-l">Usuarios de internet</div></div>
+      <div class="hstat"><div class="hstat-n">2</div><div class="hstat-l">Sistemas creados</div></div></div>
 
 
     </div>
 
-    <!-- DERECHA — Visual dramático -->
+</section>
+
+
+<!-- LA CLINICA DE EMPRESAS -->
+<section id="clinica" style="scroll-margin-top:66px;padding:0;overflow:hidden">
+<!-- NUEVA SECCIÓN: PROPUESTA A+B — Identidad + Timeline -->
     <div style="
-      position:relative;
-      background:linear-gradient(135deg,#070d18 0%,#0a1628 50%,#0f1a35 100%);
-      display:flex;flex-direction:column;
-      align-items:center;justify-content:center;
-      padding:60px 40px;overflow:hidden;
+      background:linear-gradient(135deg,#070d18 0%,#0a1628 40%,#0f1a35 100%);
+      padding:72px 40px 80px;
+      position:relative;overflow:hidden;
     ">
-      <!-- Patrón grid -->
-      <div style="
-        position:absolute;inset:0;
-        background-image:
-          linear-gradient(rgba(200,168,75,.05) 1px,transparent 1px),
-          linear-gradient(90deg,rgba(200,168,75,.05) 1px,transparent 1px);
-        background-size:48px 48px;
-        pointer-events:none;
-      "></div>
+      <!-- Grid pattern -->
+      <div style="position:absolute;inset:0;
+        background-image:linear-gradient(rgba(200,168,75,.04) 1px,transparent 1px),
+          linear-gradient(90deg,rgba(200,168,75,.04) 1px,transparent 1px);
+        background-size:48px 48px;pointer-events:none"></div>
 
-      <!-- Monitor clínico -->
-      <div style="
-        position:relative;z-index:1;
-        width:100%;max-width:300px;
-        background:rgba(255,255,255,.03);
-        border:1px solid rgba(200,168,75,.2);
-        border-radius:16px;overflow:hidden;
-        box-shadow:0 24px 64px rgba(0,0,0,.5),0 0 0 1px rgba(200,168,75,.1);
-      ">
-        <!-- Header monitor -->
-        <div style="
-          background:#07101f;padding:12px 16px;
-          display:flex;justify-content:space-between;align-items:center;
-          border-bottom:1px solid rgba(200,168,75,.15);
-        ">
-          <span style="font-family:var(--mono);font-size:.58rem;color:var(--gold);letter-spacing:.12em;text-transform:uppercase;font-weight:600">Tratamiento activo · UCI-F1</span>
-          <div style="display:flex;gap:5px">
-            <div style="width:8px;height:8px;border-radius:50%;background:#D7263D"></div>
-            <div style="width:8px;height:8px;border-radius:50%;background:var(--gold)"></div>
-            <div style="width:8px;height:8px;border-radius:50%;background:#0ABFBC"></div>
+      <div style="position:relative;z-index:1;max-width:1120px;margin:0 auto">
+
+        <!-- ── BLOQUE A: 3 PILARES ───────────────────── -->
+        <div style="text-align:center;margin-bottom:64px">
+          
+          
+          <!-- Logo MAS@FRAME hexágono -->
+          <div style="display:flex;justify-content:center;margin-bottom:20px">
+            <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" style="width:72px;height:72px">
+              <defs>
+                <linearGradient id="mfhg" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#C8A84B"/>
+                  <stop offset="50%" stop-color="#E8C96A"/>
+                  <stop offset="100%" stop-color="#B89D52"/>
+                </linearGradient>
+              </defs>
+              <rect width="120" height="120" fill="#0F1A35" rx="24"/>
+              <!-- Hexágono exterior -->
+              <polygon points="60,12 95,31 95,69 60,88 25,69 25,31"
+                fill="none" stroke="url(#mfhg)" stroke-width="2.5" opacity="0.9"/>
+              <!-- Hexágono interior -->
+              <polygon points="60,22 85,36 85,64 60,78 35,64 35,36"
+                fill="none" stroke="url(#mfhg)" stroke-width="1" opacity="0.3"/>
+              <!-- M central -->
+              <text x="60" y="70" font-family="'Cormorant Garamond',Georgia,serif"
+                font-size="36" font-weight="700" fill="#F9F7F2"
+                text-anchor="middle">M</text>
+              <!-- Líneas dinámicas -->
+              <line x1="88" y1="25" x2="105" y2="55" stroke="url(#mfhg)" stroke-width="1.5" opacity="0.4"/>
+              <line x1="91" y1="20" x2="108" y2="48" stroke="url(#mfhg)" stroke-width="0.7" opacity="0.2"/>
+            </svg>
+          </div>
+<h2 style="font-family:'Cormorant Garamond',Georgia,serif;
+            font-size:clamp(2.2rem,4vw,3.6rem);font-weight:700;
+            color:#F9F7F2;line-height:1.02;margin-bottom:8px;letter-spacing:-.01em">
+            La Clínica de Empresas
+          </h2>
+          <p style="font-family:'IBM Plex Mono',monospace;font-size:.72rem;
+            color:#C8A84B;letter-spacing:.18em;text-transform:uppercase;
+            font-weight:600;margin-bottom:20px">MAS@FRAME® &nbsp;<a href="https://masframelanding.onrender.com" target="_blank" style="font-family:'IBM Plex Mono',monospace;font-size:.58rem;color:rgba(200,168,75,.5);letter-spacing:.1em;text-transform:uppercase;text-decoration:none;border:1px solid rgba(200,168,75,.2);padding:4px 10px;border-radius:4px">Saber más ↗</a>
+          </p>
+
+          <!-- 3 columnas -->
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:0">
+
+            <div style="padding:28px 24px;background:rgba(255,255,255,.03);
+              border:1px solid rgba(10,191,188,.18);border-radius:16px;
+              border-top:3px solid #0ABFBC;transition:transform .2s"
+              onmouseover="this.style.transform='translateY(-4px)'"
+              onmouseout="this.style.transform='translateY(0)'">
+              
+              <div style="font-family:'Cormorant Garamond',serif;font-size:1.25rem;
+                font-weight:700;color:#F9F7F2;margin-bottom:8px">Diagnóstico</div>
+              <p style="font-size:.82rem;color:rgba(255,255,255,.5);font-weight:300;
+                line-height:1.6;margin:0">
+                El Escáner identifica qué está fallando, con qué urgencia y qué especialidad
+                necesita intervención inmediata.
+              </p>
+              <div style="margin-top:14px;font-family:'IBM Plex Mono',monospace;
+                font-size:.58rem;color:#0ABFBC;letter-spacing:.12em;text-transform:uppercase">
+                10 especialidades · 30 patologías
+              </div>
+            </div>
+
+            <div style="padding:28px 24px;background:rgba(255,255,255,.03);
+              border:1px solid rgba(200,168,75,.2);border-radius:16px;
+              border-top:3px solid #C8A84B;transition:transform .2s"
+              onmouseover="this.style.transform='translateY(-4px)'"
+              onmouseout="this.style.transform='translateY(0)'">
+              
+              <div style="font-family:'Cormorant Garamond',serif;font-size:1.25rem;
+                font-weight:700;color:#F9F7F2;margin-bottom:8px">Tratamiento</div>
+              <p style="font-size:.82rem;color:rgba(255,255,255,.5);font-weight:300;
+                line-height:1.6;margin:0">
+                Protocolo estructurado en 7 capas. Sin atajos. Cada decisión documentada,
+                cada acción con responsable y fecha real.
+              </p>
+              <div style="margin-top:14px;font-family:'IBM Plex Mono',monospace;
+                font-size:.58rem;color:#C8A84B;letter-spacing:.12em;text-transform:uppercase">
+                Protocolo C0–C6 · Sin excepciones
+              </div>
+            </div>
+
+            <div style="padding:28px 24px;background:rgba(255,255,255,.03);
+              border:1px solid rgba(124,92,191,.22);border-radius:16px;
+              border-top:3px solid #7C5CBF;transition:transform .2s"
+              onmouseover="this.style.transform='translateY(-4px)'"
+              onmouseout="this.style.transform='translateY(0)'">
+              
+              <div style="font-family:'Cormorant Garamond',serif;font-size:1.25rem;
+                font-weight:700;color:#F9F7F2;margin-bottom:8px">Alta certificada</div>
+              <p style="font-size:.82rem;color:rgba(255,255,255,.5);font-weight:300;
+                line-height:1.6;margin:0">
+                El Precision Check evalúa la coherencia global. El CC emite el Certificado
+                de Alta. Real. Documentado. Tuyo.
+              </p>
+              <div style="margin-top:14px;font-family:'IBM Plex Mono',monospace;
+                font-size:.58rem;color:#7C5CBF;letter-spacing:.12em;text-transform:uppercase">
+                Precision Check · Score 0–100
+              </div>
+            </div>
+
           </div>
         </div>
-        <!-- KPIs -->
-        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(200,168,75,.08);margin:0">
-          <div style="background:#07101f;padding:12px;text-align:center">
-            <div style="font-family:var(--fraunces);font-size:1.3rem;font-weight:700;color:#D7263D">32%</div>
-            <div style="font-family:var(--mono);font-size:.5rem;color:rgba(255,255,255,.3);letter-spacing:.1em;text-transform:uppercase;margin-top:2px">Liquidez</div>
-          </div>
-          <div style="background:#07101f;padding:12px;text-align:center">
-            <div style="font-family:var(--fraunces);font-size:1.3rem;font-weight:700;color:var(--gold)">C3</div>
-            <div style="font-family:var(--mono);font-size:.5rem;color:rgba(255,255,255,.3);letter-spacing:.1em;text-transform:uppercase;margin-top:2px">Capa activa</div>
-          </div>
-          <div style="background:#07101f;padding:12px;text-align:center">
-            <div style="font-family:var(--fraunces);font-size:1.3rem;font-weight:700;color:#0ABFBC">72</div>
-            <div style="font-family:var(--mono);font-size:.5rem;color:rgba(255,255,255,.3);letter-spacing:.1em;text-transform:uppercase;margin-top:2px">Precisión</div>
-          </div>
-        </div>
-        <!-- Capas C0-C6 -->
-        <div style="padding:16px;display:flex;flex-direction:column;gap:7px">
-          <div style="font-family:var(--mono);font-size:.54rem;color:rgba(255,255,255,.25);letter-spacing:.14em;text-transform:uppercase;margin-bottom:4px">Protocolo C0–C6</div>
-          <!-- C0 completado -->
-          <div style="display:flex;align-items:center;gap:10px">
-            <span style="font-family:var(--mono);font-size:.6rem;font-weight:700;color:#0ABFBC;width:20px">C0</span>
-            <div style="flex:1;height:4px;background:rgba(255,255,255,.06);border-radius:999px;overflow:hidden">
-              <div style="width:100%;height:100%;background:linear-gradient(90deg,#0ABFBC,rgba(10,191,188,.4));border-radius:999px"></div>
+
+        <!-- Separador -->
+        <div style="width:100%;height:1px;background:linear-gradient(90deg,transparent,rgba(200,168,75,.2),transparent);margin-bottom:64px"></div>
+
+        <!-- ── BLOQUE B: TIMELINE C0–C6 ──────────────── -->
+        <div style="text-align:center;margin-bottom:40px">
+          <p style="font-family:'IBM Plex Mono',monospace;font-size:.6rem;
+            color:rgba(255,255,255,.3);letter-spacing:.2em;text-transform:uppercase;
+            margin-bottom:32px">El protocolo · 7 capas · Sin excepciones</p>
+
+          <!-- Timeline -->
+          <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:8px;margin-bottom:40px">
+
+            <!-- C0 -->
+            <div style="display:flex;flex-direction:column;align-items:center;gap:10px">
+              <div style="width:44px;height:44px;border-radius:50%;
+                background:rgba(10,191,188,.12);border:2px solid #0ABFBC;
+                display:flex;align-items:center;justify-content:center;
+                font-family:'IBM Plex Mono',monospace;font-size:.72rem;
+                font-weight:700;color:#0ABFBC">C0</div>
+              <div style="font-size:.72rem;font-weight:600;color:#F9F7F2">Inputs</div>
+              <div style="font-size:.68rem;color:rgba(255,255,255,.35);line-height:1.4">Medimos el punto de partida</div>
             </div>
-            <span style="font-family:var(--mono);font-size:.5rem;color:#0ABFBC;letter-spacing:.08em">✓</span>
-          </div>
-          <div style="display:flex;align-items:center;gap:10px">
-            <span style="font-family:var(--mono);font-size:.6rem;font-weight:700;color:#0ABFBC;width:20px">C1</span>
-            <div style="flex:1;height:4px;background:rgba(255,255,255,.06);border-radius:999px;overflow:hidden">
-              <div style="width:100%;height:100%;background:linear-gradient(90deg,#0ABFBC,rgba(10,191,188,.4));border-radius:999px"></div>
+
+            <!-- C1 -->
+            <div style="display:flex;flex-direction:column;align-items:center;gap:10px">
+              <div style="width:44px;height:44px;border-radius:50%;
+                background:rgba(10,191,188,.12);border:2px solid #0ABFBC;
+                display:flex;align-items:center;justify-content:center;
+                font-family:'IBM Plex Mono',monospace;font-size:.72rem;
+                font-weight:700;color:#0ABFBC">C1</div>
+              <div style="font-size:.72rem;font-weight:600;color:#F9F7F2">Priorizar</div>
+              <div style="font-size:.68rem;color:rgba(255,255,255,.35);line-height:1.4">Focalizamos las causas reales</div>
             </div>
-            <span style="font-family:var(--mono);font-size:.5rem;color:#0ABFBC;letter-spacing:.08em">✓</span>
-          </div>
-          <div style="display:flex;align-items:center;gap:10px">
-            <span style="font-family:var(--mono);font-size:.6rem;font-weight:700;color:#0ABFBC;width:20px">C2</span>
-            <div style="flex:1;height:4px;background:rgba(255,255,255,.06);border-radius:999px;overflow:hidden">
-              <div style="width:100%;height:100%;background:linear-gradient(90deg,#0ABFBC,rgba(10,191,188,.4));border-radius:999px"></div>
+
+            <!-- C2 -->
+            <div style="display:flex;flex-direction:column;align-items:center;gap:10px">
+              <div style="width:44px;height:44px;border-radius:50%;
+                background:rgba(10,191,188,.12);border:2px solid #0ABFBC;
+                display:flex;align-items:center;justify-content:center;
+                font-family:'IBM Plex Mono',monospace;font-size:.72rem;
+                font-weight:700;color:#0ABFBC">C2</div>
+              <div style="font-size:.72rem;font-weight:600;color:#F9F7F2">Decidir</div>
+              <div style="font-size:.68rem;color:rgba(255,255,255,.35);line-height:1.4">Comprometemos una acción real</div>
             </div>
-            <span style="font-family:var(--mono);font-size:.5rem;color:#0ABFBC;letter-spacing:.08em">✓</span>
-          </div>
-          <!-- C3 activo -->
-          <div style="display:flex;align-items:center;gap:10px">
-            <span style="font-family:var(--mono);font-size:.6rem;font-weight:700;color:var(--gold);width:20px">C3</span>
-            <div style="flex:1;height:4px;background:rgba(255,255,255,.06);border-radius:999px;overflow:hidden">
-              <div style="width:65%;height:100%;background:linear-gradient(90deg,var(--gold),rgba(200,168,75,.4));border-radius:999px"></div>
+
+            <!-- C3 — Crítica -->
+            <div style="display:flex;flex-direction:column;align-items:center;gap:10px;
+              position:relative">
+              <div style="position:absolute;top:-22px;font-family:'IBM Plex Mono',monospace;
+                font-size:.52rem;color:#C8A84B;letter-spacing:.1em;white-space:nowrap">
+                ★ CAPA CRÍTICA
+              </div>
+              <div style="width:52px;height:52px;border-radius:50%;
+                background:rgba(200,168,75,.15);border:2px solid #C8A84B;
+                box-shadow:0 0 20px rgba(200,168,75,.3);
+                display:flex;align-items:center;justify-content:center;
+                font-family:'IBM Plex Mono',monospace;font-size:.72rem;
+                font-weight:700;color:#C8A84B">C3</div>
+              <div style="font-size:.72rem;font-weight:700;color:#C8A84B">Comprender</div>
+              <div style="font-size:.68rem;color:rgba(255,255,255,.35);line-height:1.4">El cuello de botella real</div>
             </div>
-            <span style="font-family:var(--mono);font-size:.5rem;color:var(--gold);letter-spacing:.06em">65%</span>
+
+            <!-- C4 -->
+            <div style="display:flex;flex-direction:column;align-items:center;gap:10px">
+              <div style="width:44px;height:44px;border-radius:50%;
+                background:rgba(200,168,75,.12);border:2px solid #C8A84B;
+                display:flex;align-items:center;justify-content:center;
+                font-family:'IBM Plex Mono',monospace;font-size:.72rem;
+                font-weight:700;color:#C8A84B">C4</div>
+              <div style="font-size:.72rem;font-weight:600;color:#F9F7F2">Planificar</div>
+              <div style="font-size:.68rem;color:rgba(255,255,255,.35);line-height:1.4">Con responsables y fechas</div>
+            </div>
+
+            <!-- C5 -->
+            <div style="display:flex;flex-direction:column;align-items:center;gap:10px">
+              <div style="width:44px;height:44px;border-radius:50%;
+                background:rgba(124,92,191,.12);border:2px solid #7C5CBF;
+                display:flex;align-items:center;justify-content:center;
+                font-family:'IBM Plex Mono',monospace;font-size:.72rem;
+                font-weight:700;color:#7C5CBF">C5</div>
+              <div style="font-size:.72rem;font-weight:600;color:#F9F7F2">Ejecutar</div>
+              <div style="font-size:.68rem;color:rgba(255,255,255,.35);line-height:1.4">Checklist con seguimiento real</div>
+            </div>
+
+            <!-- C6 -->
+            <div style="display:flex;flex-direction:column;align-items:center;gap:10px">
+              <div style="width:44px;height:44px;border-radius:50%;
+                background:rgba(124,92,191,.15);border:2px solid #7C5CBF;
+                box-shadow:0 0 16px rgba(124,92,191,.25);
+                display:flex;align-items:center;justify-content:center;
+                font-family:'IBM Plex Mono',monospace;font-size:.72rem;
+                font-weight:700;color:#7C5CBF">C6</div>
+              <div style="font-size:.72rem;font-weight:700;color:#7C5CBF">Alta</div>
+              <div style="font-size:.68rem;color:rgba(255,255,255,.35);line-height:1.4">Certificado oficial emitido</div>
+            </div>
+
           </div>
-          <div style="display:flex;align-items:center;gap:10px">
-            <span style="font-family:var(--mono);font-size:.6rem;font-weight:700;color:rgba(255,255,255,.2);width:20px">C4</span>
-            <div style="flex:1;height:4px;background:rgba(255,255,255,.06);border-radius:999px"></div>
-            <span style="font-family:var(--mono);font-size:.5rem;color:rgba(255,255,255,.2);letter-spacing:.06em">—</span>
+
+          <!-- Línea conectora del timeline -->
+          <div style="position:relative;margin-top:-120px;margin-bottom:80px;pointer-events:none;height:2px">
+            <div style="position:absolute;top:0;left:calc(44px/2 + 8px);right:calc(44px/2 + 8px);height:1px;
+              background:linear-gradient(90deg,#0ABFBC,#0ABFBC 43%,#C8A84B 43%,#C8A84B 71%,#7C5CBF 71%);
+              opacity:.35"></div>
           </div>
-          <div style="display:flex;align-items:center;gap:10px">
-            <span style="font-family:var(--mono);font-size:.6rem;font-weight:700;color:rgba(255,255,255,.2);width:20px">C5</span>
-            <div style="flex:1;height:4px;background:rgba(255,255,255,.06);border-radius:999px"></div>
-            <span style="font-family:var(--mono);font-size:.5rem;color:rgba(255,255,255,.2);letter-spacing:.06em">—</span>
+
+          <!-- CTA único -->
+          <div style="margin-top:48px;display:flex;flex-direction:column;align-items:center;gap:12px">
+            <a href="https://ese-cc2u.onrender.com" target="_blank"
+              style="display:inline-flex;align-items:center;gap:10px;
+              padding:16px 36px;border-radius:999px;
+              background:linear-gradient(135deg,#D4B96A,#B89D52);
+              color:#0F1A35;font-weight:700;font-size:.96rem;
+              letter-spacing:.05em;text-decoration:none;
+              box-shadow:0 12px 36px rgba(200,168,75,.35);
+              transition:transform .15s,filter .15s"
+              onmouseover="this.style.transform='translateY(-3px)';this.style.filter='brightness(1.08)'"
+              onmouseout="this.style.transform='translateY(0)';this.style.filter='none'">
+              Ver la salud de mi empresa →
+            </a>
+            <p style="font-family:'Cormorant Garamond',Georgia,serif;font-size:1.1rem;
+              font-weight:600;color:rgba(200,168,75,.7);letter-spacing:.04em;
+              font-style:italic;margin-top:4px">
+              Gratuito · 10 minutos · Tu código de acceso incluido
+            </p>
           </div>
-          <div style="display:flex;align-items:center;gap:10px">
-            <span style="font-family:var(--mono);font-size:.6rem;font-weight:700;color:rgba(255,255,255,.15);width:20px">C6</span>
-            <div style="flex:1;height:4px;background:rgba(255,255,255,.06);border-radius:999px"></div>
-            <span style="font-family:var(--mono);font-size:.5rem;color:rgba(255,255,255,.15)">ALTA</span>
-          </div>
-        </div>
-        <!-- Footer monitor -->
-        <div style="
-          background:#07101f;border-top:1px solid rgba(200,168,75,.1);
-          padding:10px 16px;display:flex;justify-content:space-between;align-items:center;
-        ">
-          <span style="font-family:var(--mono);font-size:.52rem;color:rgba(255,255,255,.25);letter-spacing:.1em;text-transform:uppercase">PRECISION CHECK · EN PROCESO</span>
-          <span style="font-family:var(--mono);font-size:.6rem;font-weight:700;color:#0ABFBC;padding:3px 8px;border:1px solid rgba(10,191,188,.3);border-radius:4px;background:rgba(10,191,188,.06)">72/100</span>
+
         </div>
       </div>
-
-      <!-- Claim bajo el monitor -->
-      <div style="
-        position:relative;z-index:1;
-        margin-top:24px;text-align:center;
-        max-width:280px;
-      ">
-        <p style="
-          font-family:var(--fraunces);font-size:.95rem;font-style:italic;
-          font-weight:300;color:rgba(249,247,242,.35);line-height:1.6;
-        ">
-          "El resultado no es un informe.<br>Es un alta documentada con evidencia."
-        </p>
-      </div>
+    </div></div>
     </div>
   </div>
 
   <!-- Línea inferior -->
   <div style="height:1px;background:linear-gradient(90deg,transparent,rgba(200,168,75,.15),transparent)"></div>
 </section>
+
+
+
+<!-- ANCHOR CLÍNICA -->
+<div id="clinica" style="scroll-margin-top:66px"></div>
 
 
 
@@ -651,11 +769,9 @@ footer{padding:44px 48px;background:var(--bg);border-top:1px solid var(--bdr)}
 <section class="puertas" id="puertas">
   <div class="si">
     <div class="puertas-header rv">
-      <div class="ey">¿Cuál es tu puerta?</div>
+      <div class="ey">¿Comenzamos?</div>
       <h2 class="h2">ELIGE<br><em>TU PUERTA.</em></h2>
-      <p class="lead" style="max-width:560px;margin:16px auto 0">
-        Nosotros te damos los motores. Elige cómo quieres entrar al sistema.
-      </p>
+      
     </div>
     <div class="puertas-grid">
 
@@ -777,13 +893,12 @@ footer{padding:44px 48px;background:var(--bg);border-top:1px solid var(--bdr)}
     <p class="man-sub rv d2">
       El futuro no nos come. Nosotros lo construimos.
       La IA no aísla al ser humano — amplifica a quien sabe dirigirla.
-      MASESORA existe para demostrar que el dinamismo empresarial
-      no es una nostalgia de los 80. Es la actitud del 2026.
+      DINAMISMO EMPRESARIAL, construimos futuro.
     </p>
     <div class="man-chips rv d3">
       <span class="chip chip-gold">✦ Dinamismo Empresarial</span>
-      <span class="chip chip-tq">Sistemas en producción</span>
-      <span class="chip chip-dim">Nacional</span>
+      <a href="https://ese-cc2u.onrender.com" target="_blank" class="chip chip-tq" style="text-decoration:none;cursor:pointer">Diagnóstico de salud empresarial</a>
+      <span class="chip chip-dim">Marbitrage</span>
       <span class="chip chip-gold">MAS@FRAME® v1.0</span>
     </div>
     <div class="man-actions rv d3" style="display:flex;flex-direction:column;align-items:center;gap:0">
@@ -791,39 +906,39 @@ footer{padding:44px 48px;background:var(--bg);border-top:1px solid var(--bdr)}
       <a href="https://masfront.onrender.com" class="btn-primary"
         style="font-size:1rem;padding:18px 42px;letter-spacing:.06em;
         box-shadow:0 12px 36px rgba(200,168,75,.35);margin-bottom:20px">
-        Entrar a La Clínica de Empresas →
+        Acceder al sistema →
       </a>
       <!-- Separador -->
       <div style="width:1px;height:20px;background:rgba(200,168,75,.2);margin-bottom:20px"></div>
-      <!-- Teléfono — CTA directo -->
+      <!-- Contacto -->
       <a href="tel:+34609987436"
         style="display:flex;align-items:center;gap:12px;text-decoration:none;
-        margin-bottom:10px;transition:transform .2s"
+        margin-bottom:12px;transition:transform .2s"
         onmouseover="this.style.transform='scale(1.04)'"
         onmouseout="this.style.transform='scale(1)'">
         <span style="width:40px;height:40px;border-radius:50%;
           background:rgba(200,168,75,.12);border:1px solid rgba(200,168,75,.3);
-          display:flex;align-items:center;justify-content:center;font-size:1.1rem">
-          📞
-        </span>
+          display:flex;align-items:center;justify-content:center;font-size:1.1rem">📞</span>
         <div style="text-align:left">
           <div style="font-family:'IBM Plex Mono',monospace;font-size:.56rem;
-            color:rgba(255,255,255,.3);letter-spacing:.18em;text-transform:uppercase;
-            margin-bottom:2px">Llamada directa</div>
+            color:rgba(255,255,255,.3);letter-spacing:.18em;text-transform:uppercase;margin-bottom:2px">Llamada directa</div>
           <div style="font-family:'Cormorant Garamond',serif;font-size:1.4rem;
-            font-weight:700;color:var(--gold2);letter-spacing:.04em;line-height:1">
-            609 987 436
-          </div>
+            font-weight:700;color:var(--gold2);letter-spacing:.04em;line-height:1">609 987 436</div>
         </div>
       </a>
-      <!-- Email -->
-      <a href="https://wa.me/34609987436" target="_blank" rel="noopener noreferrer" style="display:flex;align-items:center;gap:10px;text-decoration:none;
-        transition:opacity .2s" onmouseover="this.style.opacity='.7'" onmouseout="this.style.opacity='1'">
+      <a href="/cdn-cgi/l/email-protection#f59c9b939ab598948690869a8794db969a98" style="display:flex;align-items:center;gap:10px;text-decoration:none;
+        margin-bottom:10px;transition:opacity .2s" onmouseover="this.style.opacity='.7'" onmouseout="this.style.opacity='1'">
         <span style="font-size:.85rem">✉️</span>
         <span style="font-family:'DM Sans',sans-serif;font-size:.82rem;
-          color:rgba(255,255,255,.45);letter-spacing:.02em">
-          info@masesora.com
-        </span>
+          color:rgba(255,255,255,.45)"><span class="__cf_email__" data-cfemail="1871767e775875796b7d6b776a79367b7775">[email&#160;protected]</span></span>
+      </a>
+      <a href="https://instagram.com/laclinicadeempresas" target="_blank"
+        style="display:flex;align-items:center;gap:10px;text-decoration:none;
+        transition:opacity .2s"
+        onmouseover="this.style.opacity='.7'" onmouseout="this.style.opacity='1'">
+        <span style="font-size:.85rem">📸</span>
+        <span style="font-family:'DM Sans',sans-serif;font-size:.82rem;
+          color:rgba(255,255,255,.45)">@laclinicadeempresas</span>
       </a>
     </div>
     
@@ -832,23 +947,16 @@ footer{padding:44px 48px;background:var(--bg);border-top:1px solid var(--bdr)}
 
 <!-- FOOTER -->
 <footer>
-  <div class="ft-in">
+  <div class="ft-in" style="flex-direction:column;align-items:center;text-align:center;gap:10px">
     <a class="ft-brand" href="#">
       <div class="ft-brand-main">MASESORA</div>
       <span class="ft-brand-sub">Dinamismo Empresarial · Operadora de Sistemas Autónomos</span>
     </a>
-    <ul class="ft-links">
-      <li><a href="https://masfront.onrender.com">La Clínica de Empresas</a></li>
-      <li><a href="https://ese-cc2u.onrender.com">Escáner ESE</a></li>
-      <li><a href="https://wa.me/34609987436" target="_blank">💬 609 987 436</a></li>
-      <li><a href="mailto:info@masesora.com">✉️ info@masesora.com</a></li>
-      <li><a href="https://instagram.com/laclinicadeempresas" target="_blank">📸 @laclinicadeempresas</a></li>
-    </ul>
     <div class="ft-legal">© 2026 MASESORA · Todos los derechos reservados</div>
   </div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 // Progress bar
 const pb=document.getElementById('pb');
 window.addEventListener('scroll',()=>{pb.style.width=(window.scrollY/(document.body.scrollHeight-window.innerHeight)*100)+'%'},{passive:true});
@@ -966,8 +1074,4 @@ document.addEventListener('click',function(e){
 
 <script>
 const RESPUESTAS = {
-  que: "MASESORA es una operadora de sistemas autónomos. Construimos micro-sistemas donde trabajan agentes de IA que generan dinero para empresas en sectores con caos, baja digitalización y margen alto. El primer sistema en producción es MAS@FRAME®.",
-  masframe: "MAS@FRAME® es el primer sistema clínico de intervención empresarial. Diagnostica síntomas empresariales, diseña el tratamiento en 7 capas (C0–C6) y certifica el alta con Precision Check automático. Ya está en producción.",
-  como: "Identificamos el sector con mayor oportunidad, diseñamos la arquitectura del sistema, construimos los agentes que ejecutan los procesos y entregamos un sistema operativo que funciona de forma autónoma. El tiempo de entrega depende de la complejidad.",
-  invertir: "Aceptamos socios e inversores. Hay tres formas de participar: trayendo canal o cartera de clientes, co-construyendo un sistema nuevo, o como franquiciado de MAS@FRAME® si tienes una asesoría. Escríbenos a info@masesora.com.",
-  empezar: "Depende de quién eres. Si tienes una empresa con síntomas → empieza con el diagnóstico gratuito en ese-c
+  que: "
