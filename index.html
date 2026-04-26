@@ -16,6 +16,10 @@
   <meta name="twitter:card" content="summary_large_image"/>
   <meta name="twitter:title" content="MASESORA · Dinamismo Empresarial"/>
   <meta name="twitter:description" content="Construimos sistemas autónomos que generan dinero real. MAS@FRAME® ya en producción."/>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg"/>
+  <link rel="alternate icon" href="assets/favicon.svg"/>
+  <link rel="apple-touch-icon" href="assets/favicon.svg"/>
+  <meta name="theme-color" content="#0a0a08"/>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fraunces:ital,wght@0,300;0,700;0,900;1,300;1,700&family=DM+Sans:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet"/>
   <style>
 :root{
@@ -49,6 +53,9 @@ body{font-family:var(--sans);background:var(--bg);color:var(--t);overflow-x:hidd
 /* ── PROGRESS BAR ───────────────────────────────────── */
 #pb{position:fixed;top:0;left:0;height:2px;width:0;background:linear-gradient(90deg,var(--gold),var(--red));z-index:9999;transition:width .1s}
 
+/* ── SECTION DIVIDER ─────────────────────────────────── */
+.sec-divider{height:1px;width:100%;background:linear-gradient(90deg,transparent 10%,rgba(200,168,75,.22) 50%,transparent 90%);margin:0 auto}
+
 /* ── NAV ────────────────────────────────────────────── */
 nav{position:fixed;top:0;left:0;right:0;z-index:200;height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 48px;background:rgba(10,10,8,.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--bdr);transition:border-color .3s}
 .nlogo{text-decoration:none;display:flex;align-items:baseline;gap:6px}
@@ -62,7 +69,26 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:64px;display:flex;ali
 .nbadge::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--tq);animation:pulse 2s infinite}
 .ncta{padding:9px 22px;border-radius:999px;background:var(--gold);color:var(--bg)!important;font-size:.78rem!important;font-weight:700!important;text-decoration:none;letter-spacing:.06em;transition:filter .2s,transform .15s;white-space:nowrap}
 .ncta:hover{filter:brightness(1.1);transform:translateY(-1px)}
-@media(max-width:860px){.nlinks{display:none}nav{padding:0 24px}}
+
+/* ── HAMBURGUESA MÓVIL ─────────────────────────────── */
+.nburger{display:none;background:none;border:none;cursor:pointer;padding:8px;margin-left:4px;color:var(--off)}
+.nburger span{display:block;width:22px;height:2px;background:currentColor;margin:4px 0;transition:transform .25s,opacity .2s}
+.nburger.open span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.nburger.open span:nth-child(2){opacity:0}
+.nburger.open span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+
+@media(max-width:860px){
+  nav{padding:0 24px}
+  .nright{gap:12px}
+  .nburger{display:block}
+  .nbadge{display:none}
+  .ncta{padding:8px 16px;font-size:.7rem!important}
+  .nlinks{display:none;position:fixed;top:64px;left:0;right:0;background:rgba(10,10,8,.97);backdrop-filter:blur(20px);flex-direction:column;gap:0;padding:16px 24px 24px;border-bottom:1px solid var(--goldbdr);box-shadow:0 20px 40px rgba(0,0,0,.5)}
+  .nlinks.open{display:flex}
+  .nlinks li{border-bottom:1px solid rgba(255,255,255,.05);padding:14px 0}
+  .nlinks li:last-child{border-bottom:none}
+  .nlinks a{font-size:.95rem}
+}
 
 /* ── TICKER ─────────────────────────────────────────── */
 .ticker{background:var(--gold);overflow:hidden;height:36px;display:flex;align-items:center}
@@ -309,8 +335,8 @@ footer{padding:44px 48px;background:var(--bg);border-top:1px solid var(--bdr)}
 
 <!-- NAV -->
 <nav id="nav">
-  <a class="nlogo" href="#">
-    <svg class="nlogo-svg" viewBox="0 0 640 130" xmlns="http://www.w3.org/2000/svg">
+  <a class="nlogo" href="#" aria-label="MASESORA · Dinamismo Empresarial">
+    <svg class="nlogo-svg" viewBox="0 0 620 130" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="MASESORA - Dinamismo Empresarial" style="color:#F9F7F2">
       <defs>
         <linearGradient id="ng" x1="0%" y1="100%" x2="100%" y2="0%">
           <stop offset="0%" stop-color="#9A7E3A"/>
@@ -319,9 +345,9 @@ footer{padding:44px 48px;background:var(--bg);border-top:1px solid var(--bdr)}
           <stop offset="100%" stop-color="#B89D52"/>
         </linearGradient>
         <linearGradient id="ngs" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" stop-color="#B89D52"/>
-          <stop offset="50%" stop-color="#C8A84B"/>
-          <stop offset="100%" stop-color="#9A7E3A"/>
+          <stop offset="0%" stop-color="#C8A84B"/>
+          <stop offset="50%" stop-color="#E8C96A"/>
+          <stop offset="100%" stop-color="#C8A84B"/>
         </linearGradient>
       </defs>
       <!-- Ola -->
@@ -335,40 +361,43 @@ footer{padding:44px 48px;background:var(--bg);border-top:1px solid var(--bdr)}
         <circle cx="162" cy="41" r="4" fill="url(#ng)" opacity="0.75"/>
       </g>
       <!-- Wordmark -->
-      <g transform="translate(186,16)">
-        <text x="0" y="60"
-          font-family="'Cormorant Garamond',Georgia,serif"
-          font-size="60" font-weight="700"
-          fill="#F9F7F2" letter-spacing="2">MASESORA</text>
-        <rect x="0" y="70" width="440" height="1" fill="rgba(200,168,75,.3)"/>
-        <text x="0" y="88"
-          font-family="'Cormorant Garamond',Georgia,serif"
-          font-size="11" fill="#C8A84B" letter-spacing="5">DINAMISMO EMPRESARIAL</text>
+      <g transform="translate(188,10)">
+        <text x="0" y="68"
+          font-family="'Cormorant Garamond','Playfair Display',Georgia,serif"
+          font-size="68" font-weight="700"
+          fill="currentColor" letter-spacing="3">MASESORA</text>
+        <rect x="2" y="76" width="406" height="1" fill="rgba(200,168,75,.3)"/>
+        <text x="2" y="100"
+          font-family="'Cormorant Garamond','Playfair Display',Georgia,serif"
+          font-size="18" font-weight="600" fill="url(#ngs)" letter-spacing="8">DINAMISMO EMPRESARIAL</text>
       </g>
     </svg>
   </a>
   <div class="nright">
-    <ul class="nlinks">
-      <li><a href="#puertas">¿COMENZAMOS?</a></li>
-      <li><a href="#detras">DETRÁS DEL DINAMISMO</a></li>
-      <li><a href="#clinica">LA CLÍNICA</a></li>
+    <ul class="nlinks" id="nlinks">
+      <li><a href="#puertas" onclick="closeMenu()">¿COMENZAMOS?</a></li>
+      <li><a href="#detras" onclick="closeMenu()">DETRÁS DEL DINAMISMO</a></li>
+      <li><a href="#clinica" onclick="closeMenu()">LA CLÍNICA</a></li>
     </ul>
     <button class="nbadge nagente" onclick="toggleAgente()" title="Habla con nuestro agente">
-      🤖 Agente activo
+      Agente activo
     </button>
     <a href="https://masfront.onrender.com" class="ncta">Entrar a La Clínica de Empresas →</a>
+    <button class="nburger" id="nburger" onclick="toggleMenu()" aria-label="Menú" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
 
 <!-- TICKER -->
 <div class="ticker" style="margin-top:64px">
   <div class="ticker-inner">
-    <span class="ticker-item">DINAMISMO EMPRESARIAL</span><span class="ticker-sep">✦</span>
-    <span class="ticker-item">SISTEMA MASFRAME</span><span class="ticker-sep">✦</span>
-    <span class="ticker-item">SISTEMA MARBITRAGE · COSTA BLANCA</span><span class="ticker-sep">✦</span>
-    <span class="ticker-item">DINAMISMO EMPRESARIAL</span><span class="ticker-sep">✦</span>
-    <span class="ticker-item">SISTEMA MASFRAME</span><span class="ticker-sep">✦</span>
-    <span class="ticker-item">SISTEMA MARBITRAGE · COSTA BLANCA</span><span class="ticker-sep">✦</span>
+    <span class="ticker-item">DINAMISMO EMPRESARIAL</span><span class="ticker-sep">·</span>
+    <span class="ticker-item">SISTEMA MASFRAME</span><span class="ticker-sep">·</span>
+    <span class="ticker-item">SISTEMA MARBITRAGE · COSTA BLANCA</span><span class="ticker-sep">·</span>
+    <span class="ticker-item">DINAMISMO EMPRESARIAL</span><span class="ticker-sep">·</span>
+    <span class="ticker-item">SISTEMA MASFRAME</span><span class="ticker-sep">·</span>
+    <span class="ticker-item">SISTEMA MARBITRAGE · COSTA BLANCA</span><span class="ticker-sep">·</span>
   </div>
 </div>
 
@@ -404,13 +433,14 @@ footer{padding:44px 48px;background:var(--bg);border-top:1px solid var(--bdr)}
       <div class="hstat"><div class="hstat-n">∞</div><div class="hstat-l">Sistemas por construir</div></div>
       <div class="hstat"><div class="hstat-n">360M</div><div class="hstat-l">Pymes en el mundo</div></div>
       <div class="hstat"><div class="hstat-n">5.4B</div><div class="hstat-l">Usuarios de internet</div></div>
-      <div class="hstat"><div class="hstat-n">2</div><div class="hstat-l">Sistemas creados</div></div></div>
+      <div class="hstat"><div class="hstat-n">100<span>%</span></div><div class="hstat-l">Garantía de margen</div></div></div>
 
 
     </div>
 
 </section>
 
+<div class="sec-divider" aria-hidden="true"></div>
 
 <!-- LA CLINICA DE EMPRESAS -->
 <section id="clinica" style="scroll-margin-top:66px;padding:0;overflow:hidden">
@@ -708,6 +738,8 @@ footer{padding:44px 48px;background:var(--bg);border-top:1px solid var(--bdr)}
   </div>
 </section>
 
+<div class="sec-divider" aria-hidden="true"></div>
+
 <!-- ── B — MASESORA + SISTEMAS ───────────────────────── -->
 
 
@@ -723,7 +755,6 @@ footer{padding:44px 48px;background:var(--bg);border-top:1px solid var(--bdr)}
       <!-- PUERTA 1: PYMES -->
       <div class="puerta rv">
         <div class="puerta-top">
-          <span class="puerta-ic">🏥</span>
           <div class="puerta-label">Para Autónomos o pymes en riesgo</div>
           <h3 class="puerta-t">Cuyo negocio está en una etapa comprometida.</h3>
           <p class="puerta-d">
@@ -756,7 +787,6 @@ footer{padding:44px 48px;background:var(--bg);border-top:1px solid var(--bdr)}
       <!-- PUERTA 2: CONSTRUCTORES -->
       <div class="puerta rv d2">
         <div class="puerta-top">
-          <span class="puerta-ic">⚙️</span>
           <div class="puerta-label"> PARA AUTONOMOS O PYMES EN DESARROLLO </div>
           <h3 class="puerta-t"> Necesito dedicar tiempo a mi negocio, no a su gestión.
 
@@ -778,7 +808,7 @@ footer{padding:44px 48px;background:var(--bg);border-top:1px solid var(--bdr)}
         </div>
         <div class="puerta-bottom">
           <div class="puerta-cta">
-            <a href="/tu-solucion.html" style="text-decoration:none">
+            <a href="tu-solucion.html" style="text-decoration:none">
               <span class="puerta-cta-text">QUIERO VER MI SOLUCIÓN</span>
             </a>
             <span class="puerta-arrow" style="color:var(--tq)">→</span>
@@ -789,7 +819,6 @@ footer{padding:44px 48px;background:var(--bg);border-top:1px solid var(--bdr)}
       <!-- PUERTA 3: INVERSORES -->
       <div class="puerta rv d3">
         <div class="puerta-top">
-          <span class="puerta-ic">🚀</span>
           <div class="puerta-label">EN BÚSQUEDA DE NUEVOS NEGOCIOS</div>
           <h3 class="puerta-t">Tengo capital o canal. Quiero participar en los sistemas.</h3>
           <p class="puerta-d">
@@ -824,13 +853,54 @@ Si quieres dar pasos al futuro del emprendimiento, asociarte o invertir. Masesor
   </div>
 </section>
 
+<div class="sec-divider" aria-hidden="true"></div>
+
+<!-- ── PRUEBA SOCIAL · CASO REAL ─────────────────────── -->
+<section id="caso" style="background:var(--bg2);padding:80px 48px;position:relative;overflow:hidden">
+  <div class="si" style="max-width:980px;margin:0 auto">
+    <div class="ey rv" style="text-align:center">Resultados clínicos</div>
+    <h2 class="h2 rv" style="text-align:center;margin-bottom:48px">CLIENTES<br><em>OPINAN.</em></h2>
+    <blockquote class="rv d1" style="position:relative;padding:28px 32px;background:var(--bg);border-left:3px solid var(--gold);border-radius:0 12px 12px 0;font-family:'Fraunces',serif;font-size:1.15rem;line-height:1.6;color:var(--off);font-weight:300;font-style:italic;max-width:760px;margin:0 auto 32px">
+      «Pasamos por La Clínica de Empresas. Teníamos que mejorar en la especialidad Unidad de Procesos y tratamos 2 síntomas con los que mejoramos la productividad un <strong style="color:var(--gold2);font-style:normal">17%</strong> en un mes y los procesos un <strong style="color:var(--gold2);font-style:normal">62%</strong>.»
+      <footer style="margin-top:18px;font-family:'IBM Plex Mono',monospace;font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--t3);font-style:normal;font-weight:500">— Cliente · Sector taller mecánico · MARINA BAIXA</footer>
+    </blockquote>
+    <div class="rv d2 caso-stats" style="display:grid;grid-template-columns:repeat(4,1fr);gap:14px;max-width:760px;margin:0 auto">
+      <div style="text-align:center;padding:18px 12px;border:1px solid var(--bdr);border-radius:12px;background:var(--bg)">
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:2.2rem;color:var(--gold);line-height:1">17<span style="font-size:.55em">%</span></div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:.55rem;color:var(--t3);letter-spacing:.14em;text-transform:uppercase;margin-top:6px">Productividad</div>
+      </div>
+      <div style="text-align:center;padding:18px 12px;border:1px solid var(--bdr);border-radius:12px;background:var(--bg)">
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:2.2rem;color:var(--gold);line-height:1">62<span style="font-size:.55em">%</span></div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:.55rem;color:var(--t3);letter-spacing:.14em;text-transform:uppercase;margin-top:6px">Procesos</div>
+      </div>
+      <div style="text-align:center;padding:18px 12px;border:1px solid var(--bdr);border-radius:12px;background:var(--bg)">
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:2.2rem;color:var(--gold);line-height:1">2</div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:.55rem;color:var(--t3);letter-spacing:.14em;text-transform:uppercase;margin-top:6px">Síntomas</div>
+      </div>
+      <div style="text-align:center;padding:18px 12px;border:1px solid var(--bdr);border-radius:12px;background:var(--bg)">
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:2.2rem;color:var(--gold);line-height:1">1<span style="font-size:.55em">M</span></div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:.55rem;color:var(--t3);letter-spacing:.14em;text-transform:uppercase;margin-top:6px">Tiempo</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+@media(max-width:600px){
+  #caso .caso-stats{grid-template-columns:repeat(2,1fr)}
+}
+</style>
+
+<div class="sec-divider" aria-hidden="true"></div>
+
 <!-- ── DETRÁS DEL DINAMISMO ──────────────────────────── -->
 <section id="detras" style="background:var(--bg);padding:100px 48px;position:relative;overflow:hidden;border-top:1px solid var(--bdr)">
   <div style="position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(200,168,75,.3),transparent)"></div>
   <div class="si" style="display:grid;grid-template-columns:minmax(0,260px) minmax(0,1fr);gap:60px;align-items:center;max-width:1080px;margin:0 auto">
     <div class="rv" style="display:flex;justify-content:center">
-      <div style="width:240px;height:240px;border-radius:50%;overflow:hidden;border:2px solid var(--gold);box-shadow:0 20px 60px rgba(200,168,75,.2);background:var(--bg2)">
-        <img src="assets/maite.png" alt="Maite Cabezuelos · Fundadora de MASESORA" style="width:100%;height:100%;object-fit:cover;display:block" loading="lazy"/>
+      <div style="width:240px;height:240px;border-radius:50%;overflow:hidden;border:2px solid var(--gold);box-shadow:0 20px 60px rgba(200,168,75,.2);background:linear-gradient(135deg,#1a1a17,#0a0a08);position:relative">
+        <img src="./assets/maite.webp" alt="Maite Cabezuelos · Fundadora de MASESORA" style="width:100%;height:100%;object-fit:cover;display:block" loading="eager" decoding="async" onerror="this.onerror=null;this.src='./assets/maite.png';"/>
+        <div style="display:none;position:absolute;inset:0;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:5rem;color:var(--gold);letter-spacing:.04em">MC</div>
       </div>
     </div>
     <div class="rv d1">
@@ -878,7 +948,7 @@ Si quieres dar pasos al futuro del emprendimiento, asociarte o invertir. Masesor
     </div>
     <div class="man-actions rv d3" style="display:flex;flex-direction:column;align-items:center;gap:0">
       <!-- Botón principal clínica -->
-      <a href="/tu-solucion.html" class="btn-primary"
+      <a href="tu-solucion.html" class="btn-primary"
         style="font-size:1rem;padding:18px 42px;letter-spacing:.06em;
         box-shadow:0 12px 36px rgba(200,168,75,.35);margin-bottom:20px">
         VER MI SOLUCIÓN 
@@ -887,32 +957,17 @@ Si quieres dar pasos al futuro del emprendimiento, asociarte o invertir. Masesor
       <div style="width:1px;height:20px;background:rgba(200,168,75,.2);margin-bottom:20px"></div>
       <!-- Contacto -->
       <a href="tel:+34609987436"
-        style="display:flex;align-items:center;gap:12px;text-decoration:none;
-        margin-bottom:12px;transition:transform .2s"
+        style="display:flex;flex-direction:column;align-items:center;text-decoration:none;
+        margin-bottom:18px;transition:transform .2s"
         onmouseover="this.style.transform='scale(1.04)'"
         onmouseout="this.style.transform='scale(1)'">
-        <span style="width:40px;height:40px;border-radius:50%;
-          background:rgba(200,168,75,.12);border:1px solid rgba(200,168,75,.3);
-          display:flex;align-items:center;justify-content:center;font-size:1.1rem">📞</span>
-        <div style="text-align:left">
-          <div style="font-family:'IBM Plex Mono',monospace;font-size:.56rem;
-            color:rgba(255,255,255,.3);letter-spacing:.18em;text-transform:uppercase;margin-bottom:2px">Llamada directa</div>
-          <div style="font-family:'Cormorant Garamond',serif;font-size:1.4rem;
-            font-weight:700;color:var(--gold2);letter-spacing:.04em;line-height:1">609 987 436</div>
-        </div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:.56rem;
+          color:rgba(255,255,255,.3);letter-spacing:.18em;text-transform:uppercase;margin-bottom:6px">Llamada directa</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:1.6rem;
+          font-weight:700;color:var(--gold2);letter-spacing:.04em;line-height:1">609 987 436</div>
       </a>
-      <a href="mailto:info@masesora.com" style="display:flex;align-items:center;gap:10px;text-decoration:none;margin-bottom:10px;transition:opacity .2s" onmouseover="this.style.opacity='.7'" onmouseout="this.style.opacity='1'">
-        <span style="font-size:.85rem">✉️</span>
-        <span style="font-family:'DM Sans',sans-serif;font-size:.82rem;color:rgba(255,255,255,.45)">info@masesora.com</span>
-      </a>
-      <a href="https://instagram.com/laclinicadeempresas" target="_blank"
-        style="display:flex;align-items:center;gap:10px;text-decoration:none;
-        transition:opacity .2s"
-        onmouseover="this.style.opacity='.7'" onmouseout="this.style.opacity='1'">
-        <span style="font-size:.85rem">📸</span>
-        <span style="font-family:'DM Sans',sans-serif;font-size:.82rem;
-          color:rgba(255,255,255,.45)">@laclinicadeempresas</span>
-      </a>
+      <a href="mailto:info@masesora.com" style="text-decoration:none;margin-bottom:10px;transition:opacity .2s;font-family:'DM Sans',sans-serif;font-size:.82rem;color:rgba(255,255,255,.45)" onmouseover="this.style.opacity='.7'" onmouseout="this.style.opacity='1'">info@masesora.com</a>
+      <a href="https://instagram.com/laclinicadeempresas" target="_blank" rel="noopener" style="text-decoration:none;transition:opacity .2s;font-family:'DM Sans',sans-serif;font-size:.82rem;color:rgba(255,255,255,.45)" onmouseover="this.style.opacity='.7'" onmouseout="this.style.opacity='1'">@laclinicadeempresas</a>
     </div>
     
   </div>
@@ -926,10 +981,10 @@ Si quieres dar pasos al futuro del emprendimiento, asociarte o invertir. Masesor
       <span class="ft-brand-sub">Dinamismo Empresarial · Operadora de Sistemas Autónomos</span>
     </a>
     <ul class="ft-links" style="justify-content:center;flex-wrap:wrap">
-      <li><a href="/legal/privacidad.html" target="_blank" rel="noopener">Política de Privacidad</a></li>
-      <li><a href="/legal/aviso-legal.html" target="_blank" rel="noopener">Aviso Legal</a></li>
-      <li><a href="/legal/cookies.html" target="_blank" rel="noopener">Política de Cookies</a></li>
-      <li><a href="/legal/terminos.html" target="_blank" rel="noopener">Términos y Condiciones</a></li>
+      <li><a href="legal/privacidad.html" target="_blank" rel="noopener">Política de Privacidad</a></li>
+      <li><a href="legal/aviso-legal.html" target="_blank" rel="noopener">Aviso Legal</a></li>
+      <li><a href="legal/cookies.html" target="_blank" rel="noopener">Política de Cookies</a></li>
+      <li><a href="legal/terminos.html" target="_blank" rel="noopener">Términos y Condiciones</a></li>
     </ul>
     <div class="ft-legal">© 2026 MASESORA · María Teresa Cabezuelos Morcillo · NIF 74860612M · Todos los derechos reservados</div>
   </div>
@@ -960,6 +1015,22 @@ window.addEventListener('scroll',()=>{
   nav.style.borderBottomColor=window.scrollY>60?'rgba(200,168,75,.2)':'rgba(255,255,255,.08)';
 },{passive:true});
 
+// ── HAMBURGUESA MÓVIL ───────────────────────────────
+function toggleMenu(){
+  var ul=document.getElementById('nlinks');
+  var btn=document.getElementById('nburger');
+  if(!ul||!btn)return;
+  var isOpen=ul.classList.toggle('open');
+  btn.classList.toggle('open',isOpen);
+  btn.setAttribute('aria-expanded',isOpen?'true':'false');
+}
+function closeMenu(){
+  var ul=document.getElementById('nlinks');
+  var btn=document.getElementById('nburger');
+  if(ul)ul.classList.remove('open');
+  if(btn){btn.classList.remove('open');btn.setAttribute('aria-expanded','false')}
+}
+
 // ── AGENTE TOGGLE ────────────────────────────────────
 function toggleAgente(){
   var modal=document.getElementById('agenteModal');
@@ -987,10 +1058,9 @@ document.addEventListener('click',function(e){
 <!-- ── MODAL AGENTE ────────────────────────────────── -->
 <div id="agenteModal">
   <div id="agenteBox" style="pointer-events:all;width:360px;background:#0a1220;border:1px solid rgba(10,191,188,.25);border-radius:18px;overflow:hidden;box-shadow:0 24px 64px rgba(0,0,0,.5);transform:translateY(20px);opacity:0;transition:transform .35s cubic-bezier(.22,1,.36,1),opacity .35s">
-    <!-- Header -->
     <div style="display:flex;align-items:center;justify-content:space-between;padding:14px 18px;background:rgba(10,191,188,.06);border-bottom:1px solid rgba(10,191,188,.12)">
       <div style="display:flex;align-items:center;gap:10px">
-        <div style="width:36px;height:36px;border-radius:50%;background:rgba(10,191,188,.1);border:1px solid rgba(10,191,188,.3);display:flex;align-items:center;justify-content:center;font-size:1.1rem">🤖</div>
+        <div style="width:36px;height:36px;border-radius:50%;background:rgba(10,191,188,.1);border:1px solid rgba(10,191,188,.3);display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:1.1rem;color:#0ABFBC;letter-spacing:.04em">M</div>
         <div>
           <div style="font-family:'IBM Plex Mono',monospace;font-size:.65rem;font-weight:600;color:#0ABFBC;letter-spacing:.1em">AGENTE MASESORA</div>
           <div style="font-size:.65rem;color:rgba(255,255,255,.4);display:flex;align-items:center;gap:5px;margin-top:1px">
@@ -999,16 +1069,13 @@ document.addEventListener('click',function(e){
           </div>
         </div>
       </div>
-      <button onclick="toggleAgente()" style="background:none;border:none;color:rgba(255,255,255,.35);cursor:pointer;font-size:1.1rem;padding:4px">✕</button>
+      <button onclick="toggleAgente()" style="background:none;border:none;color:rgba(255,255,255,.35);cursor:pointer;font-size:1.1rem;padding:4px" aria-label="Cerrar">✕</button>
     </div>
-    <!-- Chat area -->
     <div id="chatArea" style="padding:16px;display:flex;flex-direction:column;gap:12px;max-height:320px;overflow-y:auto">
-      <!-- Mensaje inicial del agente -->
       <div class="amsg-agent">
         Hola. Soy el agente de MASESORA. Puedo explicarte qué hacemos, cómo construimos sistemas autónomos y cómo puedes participar. ¿Qué quieres saber?
       </div>
     </div>
-    <!-- Opciones rápidas -->
     <div id="quickOpts" style="padding:0 14px 14px;display:flex;flex-direction:column;gap:7px">
       <div style="font-family:'IBM Plex Mono',monospace;font-size:.56rem;color:rgba(255,255,255,.25);letter-spacing:.12em;text-transform:uppercase;margin-bottom:2px">Preguntas frecuentes</div>
       <button class="aopt" onclick="agentReply('que')">¿Qué es MASESORA?</button>
@@ -1021,33 +1088,9 @@ document.addEventListener('click',function(e){
 </div>
 
 <style>
-.amsg-agent{
-  background:rgba(10,191,188,.07);border:1px solid rgba(10,191,188,.15);
-  border-radius:12px 12px 12px 4px;padding:11px 14px;
-  font-size:.8rem;line-height:1.65;color:rgba(255,255,255,.8);
-  font-family:'DM Sans',sans-serif;font-weight:300;
-  max-width:90%;
-}
-.amsg-user{
-  background:rgba(196,165,90,.08);border:1px solid rgba(196,165,90,.18);
-  border-radius:12px 12px 4px 12px;padding:11px 14px;
-  font-size:.8rem;line-height:1.65;color:rgba(255,255,255,.75);
-  font-family:'DM Sans',sans-serif;font-weight:300;
-  max-width:90%;align-self:flex-end;
-}
-.amsg-typing{
-  background:rgba(10,191,188,.07);border:1px solid rgba(10,191,188,.15);
-  border-radius:12px;padding:11px 14px;
-  font-family:'IBM Plex Mono',monospace;font-size:.7rem;color:#0ABFBC;
-  letter-spacing:.08em;
-}
-.aopt{
-  width:100%;text-align:left;padding:9px 12px;
-  background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);
-  border-radius:8px;color:rgba(255,255,255,.65);
-  font-family:'DM Sans',sans-serif;font-size:.78rem;font-weight:400;
-  cursor:pointer;transition:background .15s,border-color .15s,color .15s;
-}
+.amsg-agent{background:rgba(10,191,188,.07);border:1px solid rgba(10,191,188,.15);border-radius:12px 12px 12px 4px;padding:11px 14px;font-size:.8rem;line-height:1.65;color:rgba(255,255,255,.8);font-family:'DM Sans',sans-serif;font-weight:300;max-width:90%}
+.amsg-user{background:rgba(196,165,90,.08);border:1px solid rgba(196,165,90,.18);border-radius:12px 12px 4px 12px;padding:11px 14px;font-size:.8rem;line-height:1.65;color:rgba(255,255,255,.75);font-family:'DM Sans',sans-serif;font-weight:300;max-width:90%;align-self:flex-end}
+.aopt{width:100%;text-align:left;padding:9px 12px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:8px;color:rgba(255,255,255,.65);font-family:'DM Sans',sans-serif;font-size:.78rem;font-weight:400;cursor:pointer;transition:background .15s,border-color .15s,color .15s}
 .aopt:hover{background:rgba(10,191,188,.08);border-color:rgba(10,191,188,.25);color:rgba(255,255,255,.9)}
 </style>
 
@@ -1059,13 +1102,12 @@ document.addEventListener('click',function(e){
   </p>
   <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
     <button onclick="acceptCookies()" style="padding:9px 22px;border-radius:999px;background:#C8A84B;color:#0a0a08;font-weight:700;font-size:.78rem;letter-spacing:.05em;border:none;cursor:pointer;font-family:inherit">Entendido</button>
-    <a href="/legal/cookies.html" target="_blank" rel="noopener" style="font-size:.74rem;color:rgba(255,255,255,.5);text-decoration:underline;text-underline-offset:3px">Ver política de cookies</a>
+    <a href="legal/cookies.html" target="_blank" rel="noopener" style="font-size:.74rem;color:rgba(255,255,255,.5);text-decoration:underline;text-underline-offset:3px">Ver política de cookies</a>
   </div>
 </div>
 
 <script>
-/* === AGENT RESPONSES — script preexistente truncado: dejado inerte para no romper JS.
-      Las respuestas del agente deben implementarse en una segunda ronda. === */
+/* === AGENT RESPONSES — script preexistente truncado: implementación mínima inerte === */
 const RESPUESTAS = {};
 function agentReply(key){
   var chat = document.getElementById('chatArea');
