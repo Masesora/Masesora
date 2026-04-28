@@ -1,0 +1,35 @@
+<svg viewBox="0 0 620 130" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="MASESORA - Dinamismo Empresarial">
+  <defs>
+    <linearGradient id="gm2" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="#9A7E3A"/>
+      <stop offset="35%"  stop-color="#C8A84B"/>
+      <stop offset="65%"  stop-color="#E8C96A"/>
+      <stop offset="100%" stop-color="#B89D52"/>
+    </linearGradient>
+    <linearGradient id="gs2" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="#B89D52"/>
+      <stop offset="50%"  stop-color="#C8A84B"/>
+      <stop offset="100%" stop-color="#9A7E3A"/>
+    </linearGradient>
+  </defs>
+  <!-- Fondo blanco -->
+  <rect width="620" height="130" fill="#FFFFFF" rx="0"/>
+  <g transform="translate(10, 12)">
+    <path d="M 4,92 C 4,92 9,18 30,18 C 51,18 56,76 74,76 C 92,76 97,18 118,18 C 139,18 143,92 143,92"
+      fill="none" stroke="url(#gm2)" stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M 10,97 C 10,97 15,24 34,24 C 53,24 58,82 74,82 C 90,82 95,24 114,24 C 133,24 137,97 137,97"
+      fill="none" stroke="url(#gm2)" stroke-width="2" stroke-linecap="round" opacity="0.22"/>
+    <circle cx="4" cy="92" r="4.5" fill="url(#gm2)"/>
+    <line x1="143" y1="92" x2="160" y2="46" stroke="url(#gm2)" stroke-width="3.5" stroke-linecap="round" opacity="0.75"/>
+    <circle cx="162" cy="41" r="4" fill="url(#gm2)" opacity="0.75"/>
+  </g>
+  <g transform="translate(188, 10)">
+    <text x="0" y="68"
+      font-family="'Cormorant Garamond','Playfair Display',Georgia,serif"
+      font-size="68" font-weight="700" fill="#0F1A35" letter-spacing="3">MASESORA</text>
+    <rect x="2" y="76" width="406" height="1" fill="#0F1A35" opacity="0.08"/>
+    <text x="2" y="100"
+      font-family="'Cormorant Garamond','Playfair Display',Georgia,serif"
+      font-size="18" font-weight="600" fill="url(#gs2)" letter-spacing="8">DINAMISMO EMPRESARIAL</text>
+  </g>
+</svg>
