@@ -25,7 +25,11 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link rel="dns-prefetch" href="https://wa.me"/>
+  <link rel="dns-prefetch" href="https://tusolucion.onrender.com"/>
+  <link rel="dns-prefetch" href="https://ese-cc2u.onrender.com"/>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,700;1,400;1,500;1,700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="preload" as="image" href="assets/maite.webp" fetchpriority="low"/>
 
 <style>
 :root{
@@ -48,8 +52,20 @@
   --mono:'IBM Plex Mono',monospace;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
 body{font-family:var(--sans);background:var(--white);color:var(--text);-webkit-font-smoothing:antialiased;line-height:1.55;overflow-x:hidden}
+
+/* ── ACCESIBILIDAD · FOCUS VISIBLE ── */
+:focus{outline:none}
+:focus-visible{outline:2px solid var(--gold-light);outline-offset:3px;border-radius:4px}
+.btn-primary:focus-visible,.btn-on-navy:focus-visible,.ncta:focus-visible{outline:3px solid var(--white);outline-offset:3px}
+.btn-ghost:focus-visible{outline:2px solid var(--gold-light);outline-offset:3px}
+
+/* Honor preferencia de reducir movimiento */
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+  .hero-wave .wave-group{animation:none!important}
+}
 
 /* ── ANIMACIONES ── */
 @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
@@ -477,13 +493,14 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:48px 40px;borde
     </p>
     <div class="hero-cta-row">
       <a href="https://tusolucion.onrender.com" target="_blank" rel="noopener" class="btn-primary">Valorar mi solución →</a>
+      <a href="https://cal.com/masesora/reunion" target="_blank" rel="noopener" class="btn-ghost" style="border-color:rgba(184,157,82,.45);color:var(--gold-light)">Agendar reunión →</a>
       <a href="https://wa.me/34609987436" target="_blank" rel="noopener" class="btn-ghost">WhatsApp 609 987 436 →</a>
     </div>
     <div class="hero-stats">
-      <div class="hstat"><div class="hstat-n">65<span>%</span></div><div class="hstat-l">PIB pymes españolas</div></div>
-      <div class="hstat"><div class="hstat-n">98<span>%</span></div><div class="hstat-l">Tejido empresarial</div></div>
-      <div class="hstat"><div class="hstat-n">7/10</div><div class="hstat-l">Empleos en pymes</div></div>
-      <div class="hstat"><div class="hstat-n">3,31<span>M</span></div><div class="hstat-l">Empresas activas España 2025</div></div>
+      <div class="hstat"><div class="hstat-n" data-counter="65" data-suffix="%">0<span>%</span></div><div class="hstat-l">PIB pymes españolas</div></div>
+      <div class="hstat"><div class="hstat-n" data-counter="98" data-suffix="%">0<span>%</span></div><div class="hstat-l">Tejido empresarial</div></div>
+      <div class="hstat"><div class="hstat-n" data-fixed="7/10">7/10</div><div class="hstat-l">Empleos en pymes</div></div>
+      <div class="hstat"><div class="hstat-n" data-counter="3.31" data-decimals="2" data-suffix="M">0<span>M</span></div><div class="hstat-l">Empresas activas España 2025</div></div>
     </div>
   </div>
 </section>
@@ -533,7 +550,7 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:48px 40px;borde
 <section class="bio" id="detras">
   <div class="bio-in">
     <div class="bio-photo rv">
-      <img src="./assets/maite.webp" alt="Maite Cabezuelos · Fundadora MASESORA" loading="eager" decoding="async" onerror="this.onerror=null;this.src='./assets/maite.png';"/>
+      <img src="./assets/maite.webp" srcset="./assets/maite.webp 1x, ./assets/maite@2x.webp 2x" alt="Maite Cabezuelos · Fundadora MASESORA" loading="lazy" decoding="async" width="240" height="240" onerror="this.onerror=null;this.src='./assets/maite.png';"/>
       <div class="bio-photo-fallback">MC</div>
     </div>
     <div class="bio-content rv d1">
@@ -648,8 +665,11 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:48px 40px;borde
     <div class="ey-italic rv">El Manifiesto</div>
     <h2 class="rv d1">Te damos los motores. <span>Que devuelven el control</span> a tu negocio.</h2>
     <p class="manifiesto-sub rv d2">MASESORA es DINAMISMO EMPRESARIAL — y juntos, construimos futuro.</p>
-    <div style="display:flex;justify-content:center;gap:14px;flex-wrap:wrap" class="rv d3">
+    <div style="display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin-bottom:14px" class="rv d3">
       <a href="https://tusolucion.onrender.com" target="_blank" rel="noopener" class="btn-on-navy">Valorar mi solución →</a>
+    </div>
+    <div style="display:flex;justify-content:center;gap:14px;flex-wrap:wrap" class="rv d3">
+      <a href="https://cal.com/masesora/reunion" target="_blank" rel="noopener" class="btn-ghost" style="border-color:rgba(184,157,82,.45);color:var(--gold-light)">Agendar reunión →</a>
       <a href="https://wa.me/34609987436" target="_blank" rel="noopener" class="btn-ghost">WhatsApp 609 987 436 →</a>
     </div>
 
@@ -691,6 +711,29 @@ window.addEventListener('scroll',()=>{pb.style.width=(window.scrollY/(document.b
 const rvs=document.querySelectorAll('.rv');
 const ro=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('vi');ro.unobserve(x.target)}})},{threshold:.08,rootMargin:'0px 0px -24px 0px'});
 rvs.forEach(e=>ro.observe(e));
+
+// Counter animation en stats
+function animateCounter(el){
+  if(el.dataset.fixed){return}
+  var target=parseFloat(el.dataset.counter);
+  var decimals=parseInt(el.dataset.decimals||'0',10);
+  var suffix=el.dataset.suffix||'';
+  var duration=1400;
+  var start=performance.now();
+  function step(now){
+    var p=Math.min((now-start)/duration,1);
+    // easeOutCubic
+    var eased=1-Math.pow(1-p,3);
+    var val=target*eased;
+    var formatted=decimals>0?val.toFixed(decimals).replace('.',','):Math.floor(val).toString();
+    el.innerHTML=formatted+(suffix?'<span>'+suffix+'</span>':'');
+    if(p<1)requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
+const counters=document.querySelectorAll('.hstat-n[data-counter]');
+const co=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){animateCounter(x.target);co.unobserve(x.target)}})},{threshold:.4});
+counters.forEach(e=>co.observe(e));
 
 // Nav border on scroll
 const nav=document.getElementById('nav');
@@ -817,6 +860,167 @@ function agentReply(key){
 function acceptCookies(){
   try { localStorage.setItem('mas_cookie_ack','1'); } catch(e){}
   document.getElementById('cookieBanner').style.display='none';
+}
+</script>
+
+<!-- ── SCHEMA.ORG · STRUCTURED DATA ── -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.masesora.com/#organization",
+      "name": "MASESORA",
+      "alternateName": ["MASESORA®", "Masesora"],
+      "url": "https://www.masesora.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.masesora.com/assets/masesora-logo-icon.svg",
+        "width": "240",
+        "height": "240"
+      },
+      "image": "https://www.masesora.com/og-image.jpg",
+      "description": "Constructora de sistemas autónomos para autónomos y micropymes. Diagnóstico clínico, tratamiento estructurado, alta certificada con KPI maestro.",
+      "slogan": "Dinamismo Empresarial",
+      "founder": {
+        "@id": "https://www.masesora.com/#maite"
+      },
+      "email": "info@masesora.com",
+      "telephone": "+34609987436",
+      "sameAs": [
+        "https://instagram.com/laclinicadeempresas"
+      ],
+      "areaServed": "ES",
+      "knowsAbout": [
+        "consultoría empresarial",
+        "sistemas autónomos",
+        "intervención clínica empresarial",
+        "Lean",
+        "Agile",
+        "Project Management",
+        "automatización de procesos",
+        "diagnóstico empresarial",
+        "KPIs"
+      ],
+      "taxID": "74860612M"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://www.masesora.com/#maite",
+      "name": "Maite Cabezuelos",
+      "givenName": "Maite",
+      "familyName": "Cabezuelos Morcillo",
+      "jobTitle": "Fundadora · Dirección Clínica",
+      "worksFor": {
+        "@id": "https://www.masesora.com/#organization"
+      },
+      "image": "https://www.masesora.com/assets/maite.webp",
+      "url": "https://www.masesora.com/#detras",
+      "email": "info@masesora.com",
+      "telephone": "+34609987436",
+      "knowsAbout": [
+        "operaciones",
+        "gestión de crisis",
+        "Lean",
+        "Agile",
+        "Project Management",
+        "turismo",
+        "servicios"
+      ],
+      "description": "Fundadora de MASESORA®. 15 años liderando operaciones y gestión de crisis en turismo y servicios."
+    },
+    {
+      "@type": "Service",
+      "@id": "https://www.masesora.com/#masframe",
+      "name": "MAS@FRAME®",
+      "alternateName": "Sistema Clínico de Intervención Empresarial",
+      "serviceType": "Consultoría Clínica Empresarial",
+      "provider": {
+        "@id": "https://www.masesora.com/#organization"
+      },
+      "description": "Sistema operativo clínico que articula todo el método de trabajo de MASESORA. Diagnóstico, tratamiento estructurado en 7 capas (C0–C6) y alta certificada con KPI maestro.",
+      "url": "https://www.masesora.com/#clinica",
+      "category": "Consultoría empresarial",
+      "areaServed": "ES",
+      "audience": {
+        "@type": "BusinessAudience",
+        "audienceType": "Autónomos y micropymes"
+      },
+      "offers": {
+        "@type": "Offer",
+        "url": "https://ese-cc2u.onrender.com",
+        "priceCurrency": "EUR",
+        "description": "Diagnóstico inicial gratuito · Escáner de Salud Empresarial",
+        "availability": "https://schema.org/InStock"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.masesora.com/#website",
+      "url": "https://www.masesora.com",
+      "name": "MASESORA · Dinamismo Empresarial",
+      "description": "Construimos sistemas autónomos que generan dinero. MAS@FRAME® ya en producción.",
+      "publisher": {
+        "@id": "https://www.masesora.com/#organization"
+      },
+      "inLanguage": "es-ES"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.masesora.com/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Qué es MASESORA?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "MASESORA es una constructora de sistemas autónomos para autónomos y micropymes. Diseñamos, construimos y entregamos sistemas que operan solos. Trabajamos con negocios en activo con baja digitalización para proporcionarles tiempo y rentabilidad."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué es MAS@FRAME®?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "MAS@FRAME® es nuestro primer sistema en producción: la Clínica de Empresas. Diagnostica los síntomas de tu negocio, los trata con un protocolo clínico estructurado en 7 capas (C0–C6), y certifica el alta cuando el problema está resuelto. Con garantía de ROI."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cuánto cuestan los sistemas?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Nuestros sistemas rentabilizan tu tiempo. La inversión depende de la complejidad de la arquitectura necesaria para automatizar tu operativa. Hacemos herramientas concretas desde 100€. Para darte una cifra real, primero realizamos la Valoración de Tu Solución y entregamos un PRD (Documento de Requisitos) con la estimación exacta."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Lleváis la contabilidad o impuestos?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No gestionamos el día a día administrativo básico. Nos enfocamos en el rediseño de procesos, data y tecnología. Si buscas dejar de ser esclavo de tu propia operativa y quieres que tu empresa funcione sin que tengas que estar presente, estamos en el lugar correcto."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Por dónde empiezo?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Por el diagnóstico. Es gratuito, te lleva 5 minutos y al terminar recibes tu PRD personalizado: la hoja de ruta técnica de tu sistema. Sin reuniones, sin compromisos."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Puedo invertir o ser socio?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Buscamos socios que aporten cartera de clientes, sector específico o capital. A cambio: participación operativa y beneficios en el sistema construido. MAS@FRAME® ya tiene clientes reales y Marbitrage opera en Costa Blanca. Si encajas, escríbenos a info@masesora.com con el sector o canal que aportas y te respondemos en 48h."
+          }
+        }
+      ]
+    }
+  ]
 }
 </script>
 
