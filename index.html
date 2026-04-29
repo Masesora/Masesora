@@ -4,11 +4,12 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
   <title>MASESORA · Dinamismo Empresarial</title>
-  <meta name="description" content="Construimos sistemas autónomos que generan dinero. Hacemos que la IA trabaje para tu empresa. Sin miedo, salta al vacío — nosotros te damos los motores."/>
+  <meta name="description" content="MASESORA® — Construimos sistemas autónomos para autónomos y micropymes. Diagnóstico clínico, tratamiento estructurado, alta certificada. Si no proyecta margen positivo, no se inicia."/>
+
   <!-- OG / Social -->
   <meta property="og:type" content="website"/>
   <link rel="canonical" href="https://www.masesora.com"/>
-  <meta property="og:title" content="MASESORA · Construimos sistemas y herramientas que generan dinero"/>
+  <meta property="og:title" content="MASESORA · Construimos sistemas autónomos que generan dinero"/>
   <meta property="og:description" content="MAS@FRAME® — el primer sistema clínico de intervención empresarial. Diagnosticamos, tratamos y certificamos el alta de los síntomas de tu empresa."/>
   <meta property="og:url" content="https://www.masesora.com"/>
   <meta property="og:image" content="https://www.masesora.com/og-image.jpg"/>
@@ -16,989 +17,668 @@
   <meta name="twitter:card" content="summary_large_image"/>
   <meta name="twitter:title" content="MASESORA · Dinamismo Empresarial"/>
   <meta name="twitter:description" content="Construimos sistemas y herramientas que generan dinero. MAS@FRAME® ya en producción."/>
+
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg"/>
   <link rel="alternate icon" href="assets/favicon.svg"/>
   <link rel="apple-touch-icon" href="assets/favicon.svg"/>
-  <meta name="theme-color" content="#0a0a08"/>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fraunces:ital,wght@0,300;0,700;0,900;1,300;1,700&family=DM+Sans:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet"/>
-  <style>
+  <meta name="theme-color" content="#0F1A35"/>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,700;1,400;1,500;1,700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
+
+<style>
 :root{
-  --bg:#0a0a08;--bg2:#111110;--bg3:#1a1a17;
-  --off:#f5f2eb;--off2:#e8e4d8;
-  --gold:#c8a84b;--gold2:#e8c96a;--golddim:rgba(200,168,75,.12);--goldbdr:rgba(200,168,75,.25);
-  --red:#e83c2a;--reddim:rgba(232,60,42,.1);
-  --tq:#0abfbc;--tqdim:rgba(10,191,188,.1);--tqbdr:rgba(10,191,188,.22);
-  --bdr:rgba(255,255,255,.08);--bdr2:rgba(255,255,255,.04);
-  --t:#fff;--t2:rgba(255,255,255,.6);--t3:rgba(255,255,255,.28);--t4:rgba(255,255,255,.1);
-  --bebas:'Bebas Neue',sans-serif;
-  --fraunces:'Fraunces',serif;
+  --navy:#0F1A35;
+  --navy-soft:#1E3060;
+  --navy-deep:#070d1a;
+  --gold:#B89D52;
+  --gold-light:#D4B96A;
+  --gold-soft:#E8C96A;
+  --white:#FFFFFF;
+  --cream:#FAF7F2;
+  --line:#E5E5E5;
+  --text:#0F1A35;
+  --text-soft:#4A4A4A;
+  --text-muted:#8B8B8B;
+  --shadow-md:0 8px 30px -12px rgba(15,26,53,.12);
+  --shadow-lg:0 20px 50px -20px rgba(15,26,53,.18);
+  --serif:'Playfair Display',Georgia,serif;
+  --sans:'Montserrat',sans-serif;
   --mono:'IBM Plex Mono',monospace;
-  --sans:'DM Sans',system-ui,sans-serif;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:var(--sans);background:var(--bg);color:var(--t);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+body{font-family:var(--sans);background:var(--white);color:var(--text);-webkit-font-smoothing:antialiased;line-height:1.55;overflow-x:hidden}
 
-/* ── ANIMATIONS ──────────────────────────────────────── */
-@keyframes fadeUp{from{opacity:0;transform:translateY(32px)}to{opacity:1;transform:translateY(0)}}
-@keyframes fadeIn{from{opacity:0}to{opacity:1}}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+/* ── ANIMACIONES ── */
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
 @keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-@keyframes rotateSlow{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
-@keyframes glowPulse{0%,100%{opacity:.4}50%{opacity:.9}}
-@keyframes lineGrow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
-@keyframes countUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
 @keyframes scanH{0%{transform:translateY(-100%)}100%{transform:translateY(100vh)}}
+@keyframes shimmer{0%{transform:translateX(-100%)}100%{transform:translateX(200%)}}
 
-/* ── PROGRESS BAR ───────────────────────────────────── */
-#pb{position:fixed;top:0;left:0;height:2px;width:0;background:linear-gradient(90deg,var(--gold),var(--red));z-index:9999;transition:width .1s}
+/* ── ANIMACIONES OLA · ECG MONITOR CLÍNICO ── */
+@keyframes waveECG{
+  0%{stroke-dashoffset:400;opacity:0}
+  5%{opacity:1}
+  45%{stroke-dashoffset:0;opacity:.95}
+  72%{stroke-dashoffset:0;opacity:.95}
+  88%{stroke-dashoffset:-400;opacity:0}
+  100%{stroke-dashoffset:-400;opacity:0}
+}
+@keyframes waveEcoECG{
+  0%{stroke-dashoffset:380;opacity:0}
+  6%{opacity:.20}
+  45%{stroke-dashoffset:0;opacity:.20}
+  72%{stroke-dashoffset:0;opacity:.20}
+  88%{stroke-dashoffset:-380;opacity:0}
+  100%{stroke-dashoffset:-380;opacity:0}
+}
+@keyframes riseImpulseECG{
+  0%{stroke-dashoffset:80;opacity:0}
+  40%{stroke-dashoffset:80;opacity:0}
+  55%{stroke-dashoffset:0;opacity:.85}
+  72%{stroke-dashoffset:0;opacity:.85}
+  88%{stroke-dashoffset:-80;opacity:0}
+  100%{stroke-dashoffset:-80;opacity:0}
+}
+@keyframes pulseOrigin{0%,100%{r:5;opacity:.6}10%{r:7;opacity:1}30%{r:5;opacity:.7}}
+@keyframes pulseImpulse{0%,55%,100%{r:4;opacity:.4}65%{r:7;opacity:1}80%{r:4;opacity:.5}}
+@keyframes floatWave{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
 
-/* ── SECTION DIVIDER ─────────────────────────────────── */
-.sec-divider{height:1px;width:100%;background:linear-gradient(90deg,transparent 10%,rgba(200,168,75,.22) 50%,transparent 90%);margin:0 auto}
+/* ── PROGRESS BAR ── */
+#pb{position:fixed;top:0;left:0;height:2px;width:0;background:linear-gradient(90deg,var(--gold-soft),var(--gold));z-index:9999;transition:width .1s}
 
-/* ── NAV ────────────────────────────────────────────── */
-nav{position:fixed;top:0;left:0;right:0;z-index:200;height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 48px;background:rgba(10,10,8,.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--bdr);transition:border-color .3s}
-.nlogo{text-decoration:none;display:flex;align-items:baseline;gap:6px}
-
-
-.nright{display:flex;align-items:center;gap:32px}
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 40px;background:var(--navy);border-bottom:1px solid rgba(184,157,82,.18);transition:border-color .3s}
+.nlogo{text-decoration:none;display:flex;align-items:center}
+.nlogo-svg{height:38px;width:auto;display:block}
+.nright{display:flex;align-items:center;gap:24px}
 .nlinks{display:flex;gap:24px;list-style:none}
-.nlinks a{font-size:.78rem;font-weight:500;color:var(--t2);text-decoration:none;letter-spacing:.04em;transition:color .2s}
-.nlinks a:hover{color:var(--gold)}
-.nbadge{font-family:var(--mono);font-size:.62rem;font-weight:500;color:var(--tq);letter-spacing:.1em;padding:5px 12px;border:1px solid var(--tqbdr);border-radius:999px;background:var(--tqdim);display:flex;align-items:center;gap:6px}
-.nbadge::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--tq);animation:pulse 2s infinite}
-.ncta{padding:9px 22px;border-radius:999px;background:var(--gold);color:var(--bg)!important;font-size:.78rem!important;font-weight:700!important;text-decoration:none;letter-spacing:.06em;transition:filter .2s,transform .15s;white-space:nowrap}
-.ncta:hover{filter:brightness(1.1);transform:translateY(-1px)}
+.nlinks a{font-family:var(--sans);font-size:.84rem;font-weight:400;letter-spacing:.02em;color:var(--gold);text-decoration:none;transition:color .2s,opacity .2s;opacity:.85}
+.nlinks a:hover{color:var(--gold-light);opacity:1}
+.nbadge{font-family:var(--mono);font-size:.6rem;font-weight:500;color:var(--gold-light);letter-spacing:.14em;padding:6px 14px;border:1px solid rgba(184,157,82,.4);border-radius:999px;background:rgba(184,157,82,.08);text-transform:uppercase;display:flex;align-items:center;gap:6px;cursor:pointer;font-family:var(--mono)}
+.nbadge::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--gold-light);animation:pulse 2s infinite}
+.nbadge:hover{background:rgba(184,157,82,.15)}
+.ncta{font-family:var(--sans);padding:9px 22px;border-radius:999px;background:linear-gradient(135deg,var(--gold-soft),var(--gold));color:var(--navy);font-size:.74rem;font-weight:700;letter-spacing:.06em;text-decoration:none;text-transform:uppercase;transition:filter .2s,transform .15s,box-shadow .2s;white-space:nowrap;box-shadow:0 4px 16px -4px rgba(184,157,82,.5)}
+.ncta:hover{filter:brightness(1.08);transform:translateY(-1px);box-shadow:0 8px 24px -4px rgba(184,157,82,.7)}
 
-/* ── HAMBURGUESA MÓVIL ─────────────────────────────── */
-.nburger{display:none;background:none;border:none;cursor:pointer;padding:8px;margin-left:4px;color:var(--off)}
+/* HAMBURGUESA */
+.nburger{display:none;background:none;border:none;cursor:pointer;padding:8px;margin-left:4px;color:var(--gold-light)}
 .nburger span{display:block;width:22px;height:2px;background:currentColor;margin:4px 0;transition:transform .25s,opacity .2s}
 .nburger.open span:nth-child(1){transform:translateY(6px) rotate(45deg)}
 .nburger.open span:nth-child(2){opacity:0}
 .nburger.open span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
 
-@media(max-width:860px){
-  nav{padding:0 24px}
-  .nright{gap:12px}
-  .nburger{display:block}
-  .nbadge{display:none}
-  .ncta{padding:8px 16px;font-size:.7rem!important}
-  .nlinks{display:none;position:fixed;top:64px;left:0;right:0;background:rgba(10,10,8,.97);backdrop-filter:blur(20px);flex-direction:column;gap:0;padding:16px 24px 24px;border-bottom:1px solid var(--goldbdr);box-shadow:0 20px 40px rgba(0,0,0,.5)}
-  .nlinks.open{display:flex}
-  .nlinks li{border-bottom:1px solid rgba(255,255,255,.05);padding:14px 0}
-  .nlinks li:last-child{border-bottom:none}
-  .nlinks a{font-size:.95rem}
-}
-
-/* ── TICKER ─────────────────────────────────────────── */
-.ticker{background:var(--gold);overflow:hidden;height:36px;display:flex;align-items:center}
+/* ── TICKER ── */
+.ticker{margin-top:64px;background:linear-gradient(90deg,var(--gold) 0%,var(--gold-soft) 50%,var(--gold) 100%);overflow:hidden;height:38px;display:flex;align-items:center}
 .ticker-inner{display:flex;white-space:nowrap;animation:ticker 28s linear infinite}
-.ticker-item{font-family:var(--bebas);font-size:1rem;letter-spacing:.14em;color:var(--bg);padding:0 40px}
-.ticker-sep{color:rgba(10,10,8,.4);font-size:.8rem}
+.ticker-item{font-family:var(--sans);font-size:.78rem;font-weight:700;letter-spacing:.18em;color:var(--navy);padding:0 36px;text-transform:uppercase}
+.ticker-sep{color:rgba(15,26,53,.4);padding:0 4px}
 
-/* ── HERO ───────────────────────────────────────────── */
-.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:110px 48px 80px;position:relative;overflow:hidden;background:var(--bg)}
+/* ── HERO (NAVY) ── */
+.hero{background:var(--navy);position:relative;overflow:hidden;padding:120px 40px 80px;min-height:88vh;display:flex;flex-direction:column;justify-content:center;border-bottom:1px solid rgba(184,157,82,.15)}
+.hero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(184,157,82,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(184,157,82,.04) 1px,transparent 1px);background-size:60px 60px;pointer-events:none}
+.hero::after{content:'';position:absolute;top:-20%;right:-10%;width:55%;height:140%;background:linear-gradient(135deg,transparent 0%,rgba(184,157,82,.025) 40%,rgba(184,157,82,.04) 50%,rgba(184,157,82,.025) 60%,transparent 100%);transform:skewX(-8deg);pointer-events:none}
+.scanline{position:absolute;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(184,157,82,.28) 50%,transparent);animation:scanH 12s linear infinite;pointer-events:none}
+.hero-in{max-width:1200px;margin:0 auto;width:100%;position:relative;z-index:1;text-align:center}
 
-/* Grid pattern */
-.hero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(200,168,75,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(200,168,75,.035) 1px,transparent 1px);background-size:80px 80px;pointer-events:none}
+/* OLA ANIMADA */
+.hero-wave{width:140px;height:140px;margin:0 auto 18px;display:block;filter:drop-shadow(0 0 30px rgba(184,157,82,.25));opacity:0;animation:fadeUp .8s ease-out .1s forwards}
+.hero-wave .wave-group{animation:floatWave 4s ease-in-out infinite;transform-origin:80px 80px}
 
-/* Diagonal slash decorativo */
-.hero-slash{position:absolute;top:-10%;right:-5%;width:55%;height:120%;background:linear-gradient(135deg,transparent 0%,rgba(200,168,75,.025) 40%,rgba(200,168,75,.04) 50%,rgba(200,168,75,.025) 60%,transparent 100%);transform:skewX(-8deg);pointer-events:none}
+.hero-eyebrow{font-family:var(--serif);font-style:italic;font-weight:500;font-size:.95rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-light);margin-bottom:24px;animation:fadeUp .8s ease-out both}
+.hero-h1{font-family:var(--sans);font-weight:800;font-size:clamp(2.8rem,7vw,5.8rem);line-height:1.02;letter-spacing:.04em;color:var(--white);margin-bottom:8px;text-transform:uppercase;animation:fadeUp .9s ease-out .15s both}
+.hero-h1 .accent{color:var(--gold);display:inline-block}
+.hero-h1 .small{display:block;font-family:var(--serif);font-style:italic;font-size:.32em;font-weight:400;letter-spacing:.02em;color:rgba(255,255,255,.78);text-transform:none;margin-top:18px}
+.hero-sub{max-width:780px;margin:32px auto 0;font-size:1.08rem;line-height:1.8;color:rgba(255,255,255,.78);font-weight:400;text-align:left;hyphens:auto;animation:fadeUp .9s ease-out .3s both}
+.hero-sub strong{color:var(--white);font-weight:600}
+.hero-quote{max-width:600px;margin:28px auto 0;padding:16px 22px;border-left:3px solid var(--gold);background:rgba(184,157,82,.05);border-radius:0 12px 12px 0;font-family:var(--serif);font-style:italic;font-weight:500;font-size:1.05rem;line-height:1.5;color:var(--gold-light);text-align:left;animation:fadeUp .9s ease-out .45s both}
+.hero-cta-row{display:flex;justify-content:center;align-items:center;gap:14px;margin-top:40px;flex-wrap:wrap;animation:fadeUp .9s ease-out .6s both}
 
-.scanline{position:absolute;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(200,168,75,.2) 30%,rgba(200,168,75,.4) 50%,rgba(200,168,75,.2) 70%,transparent);animation:scanH 9s linear infinite;pointer-events:none}
+/* BOTONES BRILLANTES */
+.btn-primary{font-family:var(--sans);position:relative;overflow:hidden;display:inline-flex;align-items:center;gap:8px;padding:17px 40px;border-radius:999px;background:linear-gradient(135deg,var(--gold-soft) 0%,var(--gold-light) 50%,var(--gold) 100%);color:var(--navy);font-size:.94rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;border:none;cursor:pointer;box-shadow:0 8px 28px -6px rgba(184,157,82,.55),inset 0 1px 0 rgba(255,255,255,.4);transition:transform .25s,box-shadow .25s,filter .25s;z-index:1}
+.btn-primary::before{content:'';position:absolute;top:0;left:0;width:50%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.4),transparent);transform:translateX(-100%);transition:transform .8s}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 14px 40px -6px rgba(184,157,82,.75),inset 0 1px 0 rgba(255,255,255,.5);filter:brightness(1.1)}
+.btn-primary:hover::before{animation:shimmer 1.2s ease forwards}
+.btn-ghost{font-family:var(--sans);display:inline-flex;align-items:center;gap:6px;padding:14px 26px;border-radius:999px;background:transparent;border:1px solid rgba(255,255,255,.22);color:rgba(255,255,255,.85);font-size:.84rem;font-weight:500;letter-spacing:.04em;text-decoration:none;transition:border-color .2s,color .2s,background .2s;white-space:nowrap}
+.btn-ghost:hover{border-color:var(--gold-light);color:var(--gold-light);background:rgba(184,157,82,.08)}
 
-.hero-in{max-width:1280px;margin:0 auto;width:100%;position:relative;z-index:1}
-
-.hero-eyebrow{font-family:var(--mono);font-size:.62rem;font-weight:500;color:var(--gold);letter-spacing:.24em;text-transform:uppercase;margin-bottom:24px;display:flex;align-items:center;gap:12px;animation:fadeUp .6s cubic-bezier(.22,1,.36,1) both}
-.hero-eyebrow::before{content:'';width:32px;height:1px;background:var(--gold)}
-
-.hero-h1{font-family:var(--bebas);font-size:clamp(5rem,10vw,11rem);line-height:.95;letter-spacing:.04em;color:var(--off);margin-bottom:0;animation:fadeUp .7s cubic-bezier(.22,1,.36,1) .08s both}
-.hero-h1 .accent{color:var(--gold);display:block}
-.hero-h1 .small{font-size:.42em;letter-spacing:.08em;color:var(--t2);font-family:var(--fraunces);font-weight:300;font-style:italic;display:block;margin-top:8px}
-
-.hero-split{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,.6fr);gap:60px;align-items:end;margin-top:48px;animation:fadeUp .7s cubic-bezier(.22,1,.36,1) .18s both}
-
-.hero-sub{font-size:1.05rem;line-height:1.8;color:var(--t2);font-weight:300;max-width:560px}
-.hero-sub strong{color:var(--off);font-weight:500}
-
-.hero-cta-block{display:flex;flex-direction:column;gap:12px;align-items:flex-end}
-.btn-primary{display:inline-flex;align-items:center;gap:10px;padding:15px 30px;border-radius:999px;background:var(--gold);color:var(--bg);font-weight:700;font-size:.9rem;letter-spacing:.05em;text-decoration:none;border:none;cursor:pointer;transition:filter .15s,transform .15s;white-space:nowrap}
-.btn-primary:hover{filter:brightness(1.1);transform:translateY(-2px)}
-.btn-ghost{display:inline-flex;align-items:center;gap:8px;padding:15px 26px;border-radius:999px;border:1px solid var(--bdr);color:var(--t2);font-size:.86rem;font-weight:500;text-decoration:none;transition:border-color .2s,color .2s;white-space:nowrap}
-.btn-ghost:hover{border-color:var(--gold);color:var(--gold)}
-.hero-note{font-family:var(--mono);font-size:.58rem;color:var(--t3);letter-spacing:.1em;text-align:right}
-
-/* Stats bar */
-.hero-stats{display:flex;gap:0;margin-top:60px;padding-top:40px;border-top:1px solid var(--bdr);animation:fadeUp .7s cubic-bezier(.22,1,.36,1) .28s both}
-.hstat{flex:1;padding-right:32px;border-right:1px solid var(--bdr)}
-.hstat:last-child{border-right:none;padding-right:0;padding-left:32px}
-.hstat:not(:first-child):not(:last-child){padding:0 32px}
-.hstat-n{font-family:var(--bebas);font-size:3rem;letter-spacing:.04em;color:var(--off);line-height:1}
+.hero-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:60px;padding-top:32px;border-top:1px solid rgba(255,255,255,.12);animation:fadeUp .9s ease-out .8s both}
+.hstat{padding:0 24px;border-right:1px solid rgba(255,255,255,.10)}
+.hstat:last-child{border-right:none}
+.hstat-n{font-family:var(--sans);font-weight:800;font-size:2.6rem;color:var(--white);line-height:1}
 .hstat-n span{color:var(--gold)}
-.hstat-l{font-family:var(--mono);font-size:.6rem;color:var(--t3);letter-spacing:.12em;text-transform:uppercase;margin-top:4px}
+.hstat-l{font-family:var(--mono);font-size:.62rem;font-weight:500;color:rgba(255,255,255,.5);letter-spacing:.14em;text-transform:uppercase;margin-top:6px}
 
-@media(max-width:900px){.hero-split{grid-template-columns:1fr}.hero-cta-block{align-items:flex-start}}
-@media(max-width:640px){.hero{padding:100px 24px 60px}.hero-stats{flex-wrap:wrap}.hstat{min-width:50%}}
-
-/* ── SECTION BASE ───────────────────────────────────── */
-section{padding:100px 48px}
-.si{max-width:1280px;margin:0 auto}
-.ey{font-family:var(--mono);font-size:.6rem;font-weight:500;color:var(--t3);letter-spacing:.24em;text-transform:uppercase;margin-bottom:16px}
-.h2{font-family:var(--bebas);font-size:clamp(3rem,5vw,5.5rem);letter-spacing:.04em;color:var(--off);line-height:.95}
-.h2 em{font-family:var(--fraunces);font-style:italic;color:var(--gold);font-size:.85em}
-.h3{font-family:var(--fraunces);font-size:1.35rem;font-weight:700;color:var(--off);line-height:1.25;margin-bottom:10px}
-.lead{font-size:.96rem;line-height:1.85;color:var(--t2);font-weight:300}
-.claim{font-family:var(--fraunces);font-size:1.5rem;font-weight:300;font-style:italic;color:var(--gold2);line-height:1.4;padding:20px 0;border-top:1px solid var(--goldbdr);border-bottom:1px solid var(--goldbdr);margin:28px 0}
+/* ── SECCIÓN BASE ── */
+section{padding:100px 40px}
+.si{max-width:1200px;margin:0 auto}
+.ey{font-family:var(--mono);font-size:.66rem;font-weight:600;color:var(--gold);letter-spacing:.32em;text-transform:uppercase;margin-bottom:14px}
+.ey-italic{font-family:var(--serif);font-style:italic;font-weight:500;font-size:.95rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
+h2.h2{font-family:var(--sans);font-weight:800;font-size:clamp(2.4rem,5vw,4rem);letter-spacing:.04em;color:var(--navy);line-height:1.05;text-transform:uppercase}
+h2.h2 em{font-family:var(--serif);font-style:italic;font-weight:500;color:var(--gold);text-transform:none;letter-spacing:.02em}
+.lead{font-size:1rem;line-height:1.75;color:var(--text-soft);font-weight:400;max-width:640px;text-align:left}
 
 /* Reveal */
 .rv{opacity:0;transform:translateY(24px);transition:opacity .75s cubic-bezier(.22,1,.36,1),transform .75s cubic-bezier(.22,1,.36,1)}
 .rv.vi{opacity:1;transform:translateY(0)}
 .rv.d1{transition-delay:.1s}.rv.d2{transition-delay:.2s}.rv.d3{transition-delay:.3s}.rv.d4{transition-delay:.4s}
 
-/* ── C — NARRATIVA ──────────────────────────────────── */
-.narrativa{background:var(--bg2);position:relative;overflow:hidden}
-.narrativa::before{content:'';position:absolute;right:-200px;top:50%;transform:translateY(-50%);width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(232,60,42,.04) 0%,transparent 65%);pointer-events:none}
+/* ── PRINCIPIOS (CREAM) ── */
+.principios{background:var(--cream);border-bottom:1px solid var(--line)}
+.principios-header{text-align:center;max-width:680px;margin:0 auto 48px}
+.principios-header .lead{margin:18px auto 0;text-align:center}
+.principios-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px}
+.principio{background:var(--white);padding:30px 28px;border-radius:14px;border:1px solid var(--line);display:flex;gap:20px;align-items:flex-start;transition:transform .25s,box-shadow .25s,border-color .25s;position:relative}
+.principio::before{content:'';position:absolute;top:0;left:0;height:3px;width:32px;background:var(--gold);transition:width .35s}
+.principio:hover{transform:translateY(-4px);box-shadow:var(--shadow-md);border-color:rgba(184,157,82,.4)}
+.principio:hover::before{width:80%}
+.principio-n{font-family:var(--serif);font-style:italic;font-weight:500;font-size:2rem;color:var(--gold);line-height:1;flex-shrink:0;width:54px}
+.principio-t{font-family:var(--sans);font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:6px;line-height:1.3}
+.principio-d{font-size:.86rem;color:var(--text-soft);line-height:1.65;font-weight:400;text-align:left}
 
-.narr-in{display:flex;flex-direction:column;gap:64px;}
+/* ── CASOS (BLANCO) ── */
+.casos{background:var(--white)}
+.casos-header{text-align:center;margin-bottom:48px}
+.caso-quote{position:relative;padding:36px 40px;background:var(--cream);border-left:4px solid var(--gold);border-radius:0 18px 18px 0;font-family:var(--serif);font-style:italic;font-weight:400;font-size:1.18rem;line-height:1.65;color:var(--navy);max-width:820px;margin:0 auto 28px;text-align:left;box-shadow:var(--shadow-md)}
+.caso-quote strong{color:var(--gold);font-weight:700;font-style:normal;font-family:var(--sans)}
+.caso-quote footer{margin-top:18px;font-family:var(--mono);font-size:.7rem;letter-spacing:.06em;color:var(--text-muted);font-style:normal;font-weight:500}
+.caso-secondary{position:relative;padding:28px 32px;background:var(--cream);border-left:3px solid var(--navy-soft);border-radius:0 14px 14px 0;font-family:var(--serif);font-style:italic;font-weight:400;font-size:1.04rem;line-height:1.65;color:var(--navy);max-width:820px;margin:18px auto 0;text-align:left}
+.caso-secondary footer{margin-top:14px;font-family:var(--mono);font-size:.66rem;letter-spacing:.06em;color:var(--text-muted);font-style:normal;font-weight:500}
+.caso-secondary strong{color:var(--gold);font-weight:700;font-style:normal;font-family:var(--sans)}
 
-.narr-timeline{display:flex;flex-direction:column;gap:0;margin-top:24px}
-.narr-item{display:flex;gap:20px;padding:20px 0;border-bottom:1px solid var(--bdr);position:relative;opacity:0;transform:translateX(-16px);transition:opacity .6s,transform .6s}
-.narr-item.vi{opacity:1;transform:translateX(0)}
-.narr-item:last-child{border-bottom:none}
-.narr-year{font-family:var(--bebas);font-size:1rem;letter-spacing:.1em;color:var(--gold);flex-shrink:0;width:56px;padding-top:2px}
-.narr-content-t{font-family:var(--fraunces);font-size:1rem;font-weight:700;color:var(--off);margin-bottom:4px;line-height:1.2}
-.narr-content-d{font-size:.82rem;line-height:1.7;color:var(--t2);font-weight:300}
+/* ── BIO ── */
+.bio{background:var(--white);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:120px 40px}
+.bio-in{display:grid;grid-template-columns:minmax(0,260px) minmax(0,1fr);gap:60px;align-items:center;max-width:1080px;margin:0 auto}
+.bio-photo{width:240px;height:240px;border-radius:50%;background:linear-gradient(135deg,var(--navy),var(--navy-soft));border:2px solid var(--gold);box-shadow:0 20px 50px -15px rgba(15,26,53,.25);overflow:hidden;position:relative}
+.bio-photo img{width:100%;height:100%;object-fit:cover;display:block}
+.bio-photo-fallback{display:none;position:absolute;inset:0;align-items:center;justify-content:center;font-family:var(--sans);font-size:5rem;font-weight:800;color:var(--gold)}
+.bio-content h2.h2{margin-bottom:22px}
+.bio-content .lead{margin-bottom:14px;color:var(--text-soft);max-width:none}
+.bio-content .lead strong{color:var(--navy);font-weight:700}
+.bio-quote{margin-top:18px;padding:14px 0;border-top:1px solid var(--line);font-family:var(--serif);font-style:italic;font-weight:500;color:var(--gold);font-size:1.05rem;line-height:1.5}
 
-.narr-right{padding-top:60px}
-.narr-big{font-family:var(--bebas);font-size:clamp(3.5rem,6vw,6rem);letter-spacing:.04em;color:var(--off);line-height:.95;margin-bottom:20px}
-.narr-big span{color:var(--gold);display:block}
-.poder-list{display:flex;flex-direction:column;gap:12px;margin-top:28px}
-.poder-item{display:flex;gap:14px;padding:16px 18px;border:1px solid var(--bdr);border-radius:12px;background:var(--bdr2);transition:border-color .25s,background .25s}
-.poder-item:hover{border-color:var(--goldbdr);background:var(--golddim)}
-.poder-num{font-family:var(--bebas);font-size:1.4rem;color:var(--gold);flex-shrink:0;width:32px;line-height:1}
-.poder-t{font-family:var(--fraunces);font-size:.95rem;font-weight:700;color:var(--off);margin-bottom:3px}
-.poder-d{font-size:.8rem;line-height:1.65;color:var(--t2);font-weight:300}
-@media(max-width:860px){.narr-in{grid-template-columns:1fr;gap:48px}.narr-right{padding-top:0}}
+/* ── 1er SISTEMA MAS@FRAME (NAVY) ── */
+.masframe-section{background:linear-gradient(135deg,#070d18 0%,#0a1628 40%,#0f1a35 100%);position:relative;overflow:hidden;padding:0;scroll-margin-top:66px}
+.masframe-section::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(184,157,82,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(184,157,82,.04) 1px,transparent 1px);background-size:48px 48px;pointer-events:none}
+.masframe-section .si-mf{position:relative;z-index:1;max-width:1120px;margin:0 auto;padding:90px 40px}
 
-/* ── B — MASESORA + SISTEMAS ────────────────────────── */
-.sistemas{background:var(--bg);position:relative;overflow:hidden}
-.sistemas::after{content:'';position:absolute;left:-300px;bottom:-300px;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(200,168,75,.03) 0%,transparent 65%);pointer-events:none}
+.mfhex-wrap{display:flex;justify-content:center;margin-bottom:20px}
+.mfhex{width:72px;height:72px}
+.mf-eyebrow{font-family:var(--serif);font-style:italic;font-weight:500;font-size:.92rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-light);text-align:center;margin-bottom:14px}
+.mf-h2{font-family:var(--sans);font-weight:800;font-size:clamp(2.4rem,4.5vw,4rem);color:var(--white);line-height:1.02;text-align:center;letter-spacing:.04em;margin-bottom:14px}
+.mf-h2 sup{font-size:.42em;color:var(--gold);font-weight:600;vertical-align:super}
+.mf-lead-center{font-family:var(--sans);font-size:1rem;color:rgba(255,255,255,.72);font-weight:400;line-height:1.75;max-width:780px;margin:0 auto 14px;text-align:left}
+.mf-savemore{text-align:center;margin-bottom:36px;margin-top:10px}
+.mf-savemore a{font-family:var(--mono);font-size:.6rem;color:rgba(184,157,82,.6);letter-spacing:.16em;text-transform:uppercase;text-decoration:none;border:1px solid rgba(184,157,82,.25);padding:6px 14px;border-radius:4px;transition:color .2s,border-color .2s}
+.mf-savemore a:hover{color:var(--gold-light);border-color:var(--gold-light)}
 
-.sist-header{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:80px;align-items:end;margin-bottom:72px}
-.sist-cards{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr) minmax(0,1fr);gap:2px;background:var(--bdr);border:1px solid var(--bdr);border-radius:20px;overflow:hidden}
-.sist-card{background:var(--bg2);padding:36px 30px;position:relative;overflow:hidden;transition:background .2s}
-.sist-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
-.sist-card:nth-child(1)::before{background:linear-gradient(90deg,var(--gold),var(--tq))}
-.sist-card:nth-child(2)::before{background:var(--tq)}
-.sist-card:nth-child(3)::before{background:var(--red)}
-.sist-card:hover{background:rgba(255,255,255,.02)}
-.sist-card-tag{font-family:var(--mono);font-size:.58rem;font-weight:600;color:var(--t3);letter-spacing:.18em;text-transform:uppercase;margin-bottom:16px}
-.sist-card:nth-child(1) .sist-card-tag{color:var(--gold)}
-.sist-card:nth-child(2) .sist-card-tag{color:var(--tq)}
-.sist-card:nth-child(3) .sist-card-tag{color:var(--red)}
-.sist-card-badge{display:inline-block;font-family:var(--mono);font-size:.55rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:3px 8px;border-radius:4px;margin-bottom:14px}
-.sist-card:nth-child(1) .sist-card-badge{background:var(--golddim);border:1px solid var(--goldbdr);color:var(--gold)}
-.sist-card:nth-child(2) .sist-card-badge{background:var(--tqdim);border:1px solid var(--tqbdr);color:var(--tq)}
-.sist-card:nth-child(3) .sist-card-badge{background:var(--reddim);border:1px solid rgba(232,60,42,.25);color:var(--red)}
-.sist-features{display:flex;flex-direction:column;gap:8px;margin-top:16px}
-.sist-feat{display:flex;align-items:flex-start;gap:8px;font-size:.8rem;line-height:1.5;color:var(--t2);font-weight:300}
-.sist-feat::before{content:'→';font-family:var(--mono);font-size:.65rem;color:var(--t3);flex-shrink:0;margin-top:2px}
-.sist-cta{margin-top:20px}
-.sist-card-link{display:inline-flex;align-items:center;gap:7px;font-family:var(--mono);font-size:.62rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;transition:gap .2s}
-.sist-card:nth-child(1) .sist-card-link{color:var(--gold)}
-.sist-card:nth-child(2) .sist-card-link{color:var(--tq)}
-.sist-card:nth-child(3) .sist-card-link{color:var(--red)}
-.sist-card-link:hover{gap:12px}
-@media(max-width:900px){.sist-cards{grid-template-columns:1fr}.sist-header{grid-template-columns:1fr;gap:32px}}
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:0}
+.pillar{padding:30px 24px;background:rgba(255,255,255,.03);border-radius:16px;transition:transform .25s,background .25s;position:relative}
+.pillar.diag{border:1px solid rgba(10,191,188,.18);border-top:3px solid #0ABFBC}
+.pillar.trat{border:1px solid rgba(184,157,82,.22);border-top:3px solid var(--gold)}
+.pillar.alta{border:1px solid rgba(124,92,191,.22);border-top:3px solid #7C5CBF}
+.pillar:hover{transform:translateY(-4px);background:rgba(255,255,255,.06)}
+.pillar-t{font-family:var(--serif);font-style:italic;font-weight:500;font-size:1.4rem;color:var(--white);margin-bottom:10px}
+.pillar-d{font-family:var(--sans);font-size:.86rem;color:rgba(255,255,255,.55);font-weight:300;line-height:1.65;margin:0}
+.pillar-tag{margin-top:14px;font-family:var(--mono);font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600}
+.pillar.diag .pillar-tag{color:#0ABFBC}
+.pillar.trat .pillar-tag{color:var(--gold)}
+.pillar.alta .pillar-tag{color:#7C5CBF}
 
-/* ── A — TRES PUERTAS ───────────────────────────────── */
-.puertas{background:var(--bg2)}
-.puertas-header{text-align:center;margin-bottom:64px}
-.puertas-header .h2{text-align:center}
-.puertas-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
-.puerta{padding:0;border-radius:20px;overflow:hidden;border:1px solid var(--bdr);background:var(--bg3);transition:border-color .25s,transform .2s;cursor:pointer}
-.puerta:hover{transform:translateY(-6px)}
-.puerta-top{padding:36px 30px 28px;border-bottom:1px solid var(--bdr)}
-.puerta:nth-child(1){border-color:var(--goldbdr)}
-.puerta:nth-child(2){border-color:var(--tqbdr)}
-.puerta:nth-child(3){border-color:rgba(232,60,42,.25)}
-.puerta:nth-child(1):hover{border-color:var(--gold)}
-.puerta:nth-child(2):hover{border-color:var(--tq)}
-.puerta:nth-child(3):hover{border-color:var(--red)}
-.puerta-ic{font-size:2.2rem;margin-bottom:18px;display:block}
-.puerta-label{font-family:var(--mono);font-size:.6rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;margin-bottom:8px}
-.puerta:nth-child(1) .puerta-label{color:var(--gold)}
-.puerta:nth-child(2) .puerta-label{color:var(--tq)}
-.puerta:nth-child(3) .puerta-label{color:var(--red)}
-.puerta-t{font-family:var(--fraunces);font-size:1.4rem;font-weight:700;color:var(--off);margin-bottom:10px;line-height:1.2}
-.puerta-d{font-size:.83rem;line-height:1.75;color:var(--t2);font-weight:300}
-.puerta-bottom{padding:20px 30px}
-.puerta-cta{display:flex;align-items:center;justify-content:space-between}
-.puerta-cta-text{font-family:var(--mono);font-size:.62rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase}
-.puerta:nth-child(1) .puerta-cta-text{color:var(--gold)}
-.puerta:nth-child(2) .puerta-cta-text{color:var(--tq)}
-.puerta:nth-child(3) .puerta-cta-text{color:var(--red)}
-.puerta-arrow{font-size:1.1rem;transition:transform .2s}
-.puerta:hover .puerta-arrow{transform:translateX(6px)}
-@media(max-width:860px){.puertas-grid{grid-template-columns:1fr}}
+.mf-divider{width:100%;height:1px;background:linear-gradient(90deg,transparent,rgba(184,157,82,.25),transparent);margin:64px 0}
 
-/* ── MANIFIESTO ─────────────────────────────────────── */
-.manifiesto{background:var(--bg);text-align:center;padding:120px 48px;position:relative;overflow:hidden}
-.manifiesto::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(200,168,75,.05) 0%,transparent 55%);pointer-events:none}
-.man-in{max-width:900px;margin:0 auto;position:relative}
-.man-q{font-family:var(--bebas);font-size:clamp(3rem,6vw,6.5rem);letter-spacing:.04em;color:var(--off);line-height:.95;margin-bottom:24px}
-.man-q span{color:var(--gold)}
-.man-sub{font-family:var(--fraunces);font-size:1.1rem;font-style:italic;font-weight:300;color:var(--t2);line-height:1.8;max-width:640px;margin:0 auto 48px}
-.man-chips{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:40px}
-.chip{font-family:var(--mono);font-size:.6rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding:6px 12px;border-radius:999px}
-.chip-gold{background:var(--golddim);border:1px solid var(--goldbdr);color:var(--gold)}
-.chip-tq{background:var(--tqdim);border:1px solid var(--tqbdr);color:var(--tq)}
-.chip-dim{background:rgba(255,255,255,.04);border:1px solid var(--bdr);color:var(--t3)}
-.man-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:20px}
-.man-note{font-family:var(--mono);font-size:.58rem;color:var(--t3);letter-spacing:.1em;text-transform:uppercase}
+.tl-eyebrow{font-family:var(--mono);font-size:.62rem;color:rgba(255,255,255,.32);letter-spacing:.22em;text-transform:uppercase;text-align:center;margin-bottom:32px;font-weight:500}
+.timeline{display:grid;grid-template-columns:repeat(7,1fr);gap:8px;margin-bottom:40px;position:relative}
+.tl-item{display:flex;flex-direction:column;align-items:center;gap:10px;position:relative}
+.tl-circle{width:46px;height:46px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:.74rem;font-weight:700;border-width:2px;border-style:solid}
+.tl-circle.cyan{background:rgba(10,191,188,.12);border-color:#0ABFBC;color:#0ABFBC}
+.tl-circle.gold{background:rgba(184,157,82,.18);border-color:var(--gold);color:var(--gold-light);box-shadow:0 0 24px rgba(184,157,82,.4);width:54px;height:54px}
+.tl-circle.purple{background:rgba(124,92,191,.12);border-color:#7C5CBF;color:#7C5CBF}
+.tl-circle.purple-glow{box-shadow:0 0 18px rgba(124,92,191,.3)}
+.tl-name{font-family:var(--sans);font-size:.74rem;font-weight:600;color:var(--white)}
+.tl-name.gold{color:var(--gold-light);font-weight:700}
+.tl-name.purple{color:#9F84D6;font-weight:700}
+.tl-desc{font-family:var(--sans);font-size:.66rem;color:rgba(255,255,255,.4);line-height:1.4;text-align:center;max-width:130px}
+.tl-method{position:absolute;top:-22px;font-family:var(--mono);font-size:.54rem;color:var(--gold);letter-spacing:.12em;white-space:nowrap;font-weight:600;left:50%;transform:translateX(-50%)}
+.tl-line-wrap{position:relative;margin-top:-120px;margin-bottom:80px;pointer-events:none;height:2px}
+.tl-line{position:absolute;top:0;left:calc(46px/2 + 8px);right:calc(46px/2 + 8px);height:1px;background:linear-gradient(90deg,#0ABFBC,#0ABFBC 43%,var(--gold) 43%,var(--gold) 71%,#7C5CBF 71%);opacity:.4}
 
-/* ── FOOTER ─────────────────────────────────────────── */
-footer{padding:44px 48px;background:var(--bg);border-top:1px solid var(--bdr)}
-.ft-in{max-width:1280px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
-.ft-brand{text-decoration:none}
-.ft-brand-main{font-family:var(--bebas);font-size:1.4rem;letter-spacing:.12em;color:var(--off)}
-.ft-brand-sub{font-family:var(--mono);font-size:.54rem;color:var(--gold);letter-spacing:.16em;text-transform:uppercase;display:block;margin-top:2px}
-.ft-links{display:flex;gap:20px;list-style:none}
-.ft-links a{font-size:.75rem;color:var(--t3);text-decoration:none;transition:color .2s}
-.ft-links a:hover{color:var(--gold)}
-.ft-legal{font-size:.67rem;color:var(--t3)}
-  .nagente{cursor:pointer;transition:background .2s}.nagente:hover{background:rgba(10,191,188,.18)!important}
-.nlogo-svg{height:54px;width:auto;display:block}
+.mf-roles{margin-top:32px;margin-bottom:32px;display:flex;justify-content:center;flex-wrap:wrap;gap:8px 24px;font-family:var(--mono);font-size:.64rem;color:rgba(255,255,255,.5);letter-spacing:.14em;text-transform:uppercase;font-weight:500}
+.mf-roles strong{font-weight:700}
+.mf-roles strong.cy{color:#3FCFC9}
+.mf-roles strong.gd{color:var(--gold-light)}
 
-/* ── TOOLTIP VER CÓMO FUNCIONA ──────────────────────── */
-.tooltip-wrap{position:relative;display:inline-block}
-.tooltip-trigger{
-  display:inline-flex;align-items:center;gap:8px;
-  padding:15px 26px;border-radius:999px;
-  border:1px solid var(--bdr);color:var(--t2);
-  font-size:.86rem;font-weight:500;cursor:default;
-  transition:border-color .2s,color .2s;white-space:nowrap;
-  font-family:var(--sans);
+.mf-warranty{max-width:780px;margin:36px auto 36px;padding:26px 32px;background:rgba(184,157,82,.07);border:1px solid rgba(184,157,82,.3);border-radius:16px;text-align:left}
+.mf-warranty .ey{color:var(--gold-light);margin-bottom:10px}
+.mf-warranty p{font-family:var(--sans);font-size:.92rem;line-height:1.7;color:rgba(255,255,255,.78);font-weight:400;margin:0}
+.mf-warranty strong{color:var(--white);font-weight:700}
+.mf-warranty em{font-style:italic;color:rgba(255,255,255,.55);font-family:var(--serif);font-weight:400}
+
+.mf-cta{display:flex;justify-content:center;align-items:center;gap:16px;flex-wrap:wrap;margin-top:8px}
+.btn-on-navy{font-family:var(--sans);position:relative;overflow:hidden;display:inline-flex;align-items:center;gap:8px;padding:17px 36px;border-radius:999px;background:linear-gradient(135deg,var(--gold-soft) 0%,var(--gold-light) 50%,var(--gold) 100%);color:var(--navy);font-size:.94rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;box-shadow:0 12px 36px -8px rgba(184,157,82,.55),inset 0 1px 0 rgba(255,255,255,.4);transition:transform .25s,box-shadow .25s,filter .25s}
+.btn-on-navy::before{content:'';position:absolute;top:0;left:0;width:50%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.5),transparent);transform:translateX(-100%);transition:transform .8s}
+.btn-on-navy:hover{transform:translateY(-3px);box-shadow:0 18px 48px -8px rgba(184,157,82,.75);filter:brightness(1.08)}
+.btn-on-navy:hover::before{animation:shimmer 1.2s ease forwards}
+.mf-cta-foot{font-family:var(--serif);font-style:italic;font-weight:500;font-size:1.05rem;color:rgba(184,157,82,.75);letter-spacing:.04em;margin-top:18px;text-align:center}
+.mf-bottom-line{height:1px;background:linear-gradient(90deg,transparent,rgba(184,157,82,.18),transparent)}
+
+/* ── MANIFIESTO (NAVY) ── */
+.manifiesto{background:var(--navy);color:var(--white);text-align:center;padding:120px 40px;position:relative;overflow:hidden;border-top:1px solid rgba(184,157,82,.15)}
+.manifiesto::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 50% 0%,rgba(184,157,82,.06) 0%,transparent 60%);pointer-events:none}
+.manifiesto-in{max-width:920px;margin:0 auto;position:relative;z-index:1}
+.manifiesto .ey-italic{color:var(--gold-light)}
+.manifiesto h2{font-family:var(--sans);font-weight:800;font-size:clamp(2.4rem,5vw,4.4rem);letter-spacing:.04em;line-height:1.05;color:var(--white);margin-bottom:24px;text-transform:uppercase}
+.manifiesto h2 span{font-family:var(--serif);font-style:italic;font-weight:500;background:linear-gradient(135deg,var(--gold-soft),var(--gold-light));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;text-transform:none;letter-spacing:.02em;display:inline-block}
+.manifiesto-sub{font-family:var(--serif);font-style:italic;font-weight:400;font-size:1.1rem;color:rgba(255,255,255,.72);max-width:640px;margin:0 auto 36px;line-height:1.7}
+.manifiesto-contact{margin-top:40px;display:flex;flex-direction:column;align-items:center;gap:14px}
+.manifiesto-contact-divider{width:1px;height:20px;background:rgba(184,157,82,.3)}
+.manifiesto-phone{display:flex;flex-direction:column;align-items:center;text-decoration:none;transition:transform .2s}
+.manifiesto-phone:hover{transform:scale(1.04)}
+.manifiesto-phone-ey{font-family:var(--mono);font-size:.56rem;color:rgba(255,255,255,.3);letter-spacing:.18em;text-transform:uppercase;margin-bottom:6px}
+.manifiesto-phone-num{font-family:var(--serif);font-style:italic;font-weight:600;font-size:1.6rem;color:var(--gold-light);letter-spacing:.04em;line-height:1}
+.manifiesto-link{font-family:var(--sans);font-size:.82rem;color:rgba(255,255,255,.45);text-decoration:none;transition:color .2s}
+.manifiesto-link:hover{color:var(--gold-light)}
+
+/* ── FOOTER (NAVY) ── */
+footer{background:var(--navy);color:rgba(255,255,255,.6);padding:48px 40px;border-top:1px solid rgba(184,157,82,.15)}
+.ft-in{max-width:1200px;margin:0 auto;text-align:center}
+.ft-brand{text-decoration:none;display:inline-block;margin-bottom:14px}
+.ft-brand-name{font-family:var(--sans);font-weight:800;font-size:1.5rem;color:var(--white);letter-spacing:.10em}
+.ft-brand-sub{display:block;font-family:var(--serif);font-style:italic;font-size:.7rem;color:var(--gold-light);letter-spacing:.32em;font-weight:500;text-transform:uppercase;margin-top:4px}
+.ft-links{list-style:none;display:flex;justify-content:center;gap:18px;flex-wrap:wrap;margin:14px 0}
+.ft-links a{font-family:var(--sans);font-size:.74rem;color:rgba(255,255,255,.5);text-decoration:none;transition:color .2s}
+.ft-links a:hover{color:var(--gold-light)}
+.ft-legal{font-family:var(--sans);font-size:.66rem;color:rgba(255,255,255,.4);margin-top:12px;letter-spacing:.04em}
+
+/* ── MODAL AGENTE ── */
+#agenteModal{display:none;position:fixed;inset:0;z-index:500;align-items:flex-end;justify-content:flex-end;padding:24px;pointer-events:none}
+#agenteModal.open{display:flex;pointer-events:all}
+#agenteBox{pointer-events:all;transition:transform .35s cubic-bezier(.22,1,.36,1),opacity .35s}
+.amsg-agent{background:rgba(184,157,82,.07);border:1px solid rgba(184,157,82,.2);border-radius:12px 12px 12px 4px;padding:11px 14px;font-size:.8rem;line-height:1.65;color:rgba(255,255,255,.85);font-family:var(--sans);font-weight:400;max-width:90%}
+.amsg-agent a{color:var(--gold-light);text-decoration:underline}
+.amsg-user{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:12px 12px 4px 12px;padding:11px 14px;font-size:.8rem;line-height:1.65;color:rgba(255,255,255,.75);font-family:var(--sans);font-weight:400;max-width:90%;align-self:flex-end}
+.aopt{width:100%;text-align:left;padding:9px 12px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:8px;color:rgba(255,255,255,.75);font-family:var(--sans);font-size:.78rem;font-weight:400;cursor:pointer;transition:background .15s,border-color .15s,color .15s}
+.aopt:hover{background:rgba(184,157,82,.10);border-color:rgba(184,157,82,.3);color:var(--white)}
+
+/* ── RESPONSIVE ── */
+@media(max-width:1024px){
+  .hero-wave{width:120px;height:120px;margin-bottom:16px}
 }
-.tooltip-wrap:hover .tooltip-trigger{border-color:var(--gold);color:var(--gold)}
-.tooltip-card{
-  display:none;position:absolute;
-  top:calc(100% + 14px);left:0;
-  width:310px;
-  background:#0d1726;
-  border:1px solid rgba(200,168,75,.25);
-  border-radius:16px;padding:22px;
-  box-shadow:0 24px 56px rgba(0,0,0,.6);
-  z-index:200;
+@media(max-width:900px){
+  .hero-stats{grid-template-columns:repeat(2,1fr);gap:24px;padding-top:24px}
+  .hstat{border-right:none;border-bottom:1px solid rgba(255,255,255,.08);padding:14px 16px}
+  .hstat:last-child,.hstat:nth-last-child(2){border-bottom:none}
+  .bio-in{grid-template-columns:1fr;gap:32px;text-align:center}
+  .bio-content .lead{text-align:left;margin-left:auto;margin-right:auto}
+  .bio-quote{text-align:center}
+  .pillars{grid-template-columns:1fr;gap:14px}
+  .timeline{grid-template-columns:repeat(4,1fr);gap:18px;row-gap:32px}
+  .tl-line-wrap{display:none}
+  .nlinks{gap:14px}
+  .nlinks a{font-size:.74rem}
 }
-.tooltip-card::before{
-  content:'';position:absolute;
-  top:-6px;left:32px;
-  width:12px;height:12px;
-  background:#0d1726;
-  border-left:1px solid rgba(200,168,75,.25);
-  border-top:1px solid rgba(200,168,75,.25);
-  transform:rotate(45deg);
+@media(max-width:640px){
+  nav{padding:0 16px;height:60px}
+  .nlogo-svg{height:32px}
+  .nlinks{display:none;position:fixed;top:60px;left:0;right:0;background:rgba(15,26,53,.97);backdrop-filter:blur(20px);flex-direction:column;gap:0;padding:16px 24px 24px;border-bottom:1px solid rgba(184,157,82,.25);box-shadow:0 20px 40px rgba(0,0,0,.5)}
+  .nlinks.open{display:flex}
+  .nlinks li{border-bottom:1px solid rgba(255,255,255,.05);padding:14px 0}
+  .nlinks li:last-child{border-bottom:none}
+  .nlinks a{font-size:.95rem;color:var(--gold-light)}
+  .nburger{display:block}
+  .nbadge{display:none}
+  .ncta{padding:8px 14px;font-size:.62rem}
+  .ticker{margin-top:60px;height:32px}
+  .ticker-item{font-size:.66rem;padding:0 24px}
+  section{padding:70px 22px}
+  .hero{padding:80px 22px 60px;min-height:auto}
+  .hero-wave{width:100px;height:100px;margin-bottom:14px}
+  .hero-eyebrow{font-size:.78rem;letter-spacing:.12em}
+  .hero-h1{font-size:2.3rem;line-height:1.05}
+  .hero-h1 .small{font-size:.42em;margin-top:14px}
+  .hero-sub{font-size:.94rem;line-height:1.65;margin:24px auto 0}
+  .hero-quote{font-size:.95rem;padding:14px 18px}
+  .hero-cta-row{gap:10px;margin-top:32px}
+  .btn-primary{padding:14px 26px;font-size:.84rem;width:100%;justify-content:center}
+  .btn-ghost{padding:12px 22px;font-size:.78rem;width:100%;justify-content:center}
+  .hero-stats{grid-template-columns:repeat(2,1fr);gap:18px;margin-top:40px;padding-top:24px}
+  .hstat{padding:14px 12px}
+  .hstat-n{font-size:1.9rem}
+  .hstat-l{font-size:.55rem}
+  h2.h2{font-size:2.1rem}
+  .principios-grid{gap:14px}
+  .principio{padding:22px 20px;gap:14px}
+  .principio-n{font-size:1.6rem;width:42px}
+  .principio-t{font-size:.95rem}
+  .principio-d{font-size:.82rem}
+  .caso-quote{padding:24px 22px;font-size:1rem;line-height:1.6}
+  .caso-secondary{padding:20px 22px;font-size:.94rem}
+  .bio{padding:80px 22px}
+  .bio-photo{width:200px;height:200px}
+  .bio-photo-fallback{font-size:4rem}
+  .masframe-section .si-mf{padding:70px 22px}
+  .mfhex{width:60px;height:60px}
+  .mf-h2{font-size:2.2rem}
+  .mf-lead-center{font-size:.92rem;text-align:left}
+  .pillar{padding:24px 22px}
+  .pillar-t{font-size:1.2rem}
+  .pillar-d{font-size:.84rem}
+  .timeline{grid-template-columns:repeat(2,1fr);gap:14px;row-gap:28px;margin-bottom:24px}
+  .tl-circle{width:42px;height:42px;font-size:.66rem}
+  .tl-circle.gold{width:48px;height:48px}
+  .tl-method{font-size:.5rem}
+  .tl-name{font-size:.7rem}
+  .tl-desc{font-size:.62rem;max-width:none}
+  .mf-roles{font-size:.58rem;gap:6px 16px}
+  .mf-warranty{padding:20px 22px;margin:28px 0 28px}
+  .mf-warranty p{font-size:.86rem}
+  .mf-cta{flex-direction:column;gap:10px}
+  .btn-on-navy{padding:15px 28px;font-size:.86rem;width:100%;justify-content:center}
+  .manifiesto{padding:80px 22px}
+  .manifiesto h2{font-size:2.1rem;line-height:1.1}
+  .manifiesto-sub{font-size:.95rem}
+  footer{padding:36px 22px}
+  .ft-brand-name{font-size:1.3rem}
+  .ft-links{gap:12px}
+  .ft-links a{font-size:.7rem}
 }
-.tooltip-wrap:hover .tooltip-card{display:flex;flex-direction:column;gap:16px}
-.tt-item{display:flex;gap:12px;align-items:flex-start}
-.tt-step{
-  width:24px;height:24px;border-radius:50%;flex-shrink:0;
-  background:rgba(200,168,75,.1);
-  border:1px solid rgba(200,168,75,.3);
-  display:flex;align-items:center;justify-content:center;
-  font-family:var(--bebas);font-size:.85rem;
-  color:var(--gold);margin-top:1px;
+@media(max-width:380px){
+  .hero-h1{font-size:1.95rem;letter-spacing:.03em}
+  .hero-stats{grid-template-columns:1fr}
+  .hstat{border-bottom:1px solid rgba(255,255,255,.08)}
+  .hstat:last-child{border-bottom:none}
+  h2.h2{font-size:1.85rem}
 }
-.tt-item strong{display:block;font-size:.82rem;
-  color:rgba(255,255,255,.9);margin-bottom:3px;font-family:var(--sans)}
-.tt-item p{font-size:.76rem;color:rgba(255,255,255,.42);
-  font-weight:300;line-height:1.55;margin:0;font-family:var(--sans)}
-
-/* ── AGENTE MODAL FIX ─────────────────────────────── */
-#agenteModal{
-  display:none;position:fixed;inset:0;z-index:500;
-  align-items:flex-end;justify-content:flex-end;padding:24px;
-  pointer-events:none;
-}
-#agenteModal.open{
-  display:flex;pointer-events:all;
-}
-#agenteBox{
-  pointer-events:all;
-  transition:transform .35s cubic-bezier(.22,1,.36,1),opacity .35s;
-}
-
-/* ── REORGANIZACIÓN VISUAL DE SECCIONES (sin alterar el DOM) ─── */
-body{display:flex;flex-direction:column;min-height:100vh}
-nav{order:-2}
-.ticker{order:-1}
-.hero{order:1}
-.puertas{order:2}
-.narrativa{order:3}
-#caso{order:4}
-.manifiesto{order:5}
-#detras{order:6}
-#clinica{order:7}
-footer{order:8}
-.sec-divider{display:none}
-
-/* ── PUERTAS — paleta clara (fondo cream sobre dark mode global) ─── */
-.puertas{background:#FAFAF7!important;color:var(--bg);padding-top:96px;padding-bottom:96px}
-.puertas .puertas-header .ey{color:rgba(11,37,69,.55)!important}
-.puertas .puertas-header .h2{color:#0B2545!important}
-.puertas .puertas-header .h2 em{color:var(--gold)!important}
-.puertas .puerta{background:#FFFFFF!important;border-color:rgba(11,37,69,.08)!important;box-shadow:0 6px 24px rgba(11,37,69,.06)}
-.puertas .puerta:hover{box-shadow:0 16px 40px rgba(11,37,69,.14);transform:translateY(-6px)}
-.puertas .puerta:nth-child(1){border-color:rgba(200,168,75,.35)!important}
-.puertas .puerta:nth-child(2){border-color:rgba(10,191,188,.35)!important}
-.puertas .puerta:nth-child(3){border-color:rgba(232,60,42,.35)!important}
-.puertas .puerta-top{border-bottom-color:rgba(11,37,69,.06)!important}
-.puertas .puerta-t{color:#0B2545!important}
-.puertas .puerta-d{color:rgba(11,37,69,.65)!important}
-.puertas .puerta-top div[style*="color:var(--t2)"]{color:rgba(11,37,69,.6)!important}
 </style>
 </head>
 <body>
 <div id="pb"></div>
 
-<!-- NAV -->
+<!-- ── NAV ── -->
 <nav id="nav">
   <a class="nlogo" href="#" aria-label="MASESORA · Dinamismo Empresarial">
-    <svg class="nlogo-svg" viewBox="0 0 680 130" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="MASESORA - Dinamismo Empresarial" style="color:#F9F7F2">
-      <defs>
-        <linearGradient id="ng" x1="0%" y1="100%" x2="100%" y2="0%">
-          <stop offset="0%" stop-color="#9A7E3A"/>
-          <stop offset="35%" stop-color="#C8A84B"/>
-          <stop offset="65%" stop-color="#E8C96A"/>
-          <stop offset="100%" stop-color="#B89D52"/>
-        </linearGradient>
-        <linearGradient id="ngs" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" stop-color="#C8A84B"/>
-          <stop offset="50%" stop-color="#E8C96A"/>
-          <stop offset="100%" stop-color="#C8A84B"/>
-        </linearGradient>
-      </defs>
-      <!-- Ola -->
-      <g transform="translate(10,12)">
-        <path d="M 4,92 C 4,92 9,18 30,18 C 51,18 56,76 74,76 C 92,76 97,18 118,18 C 139,18 143,92 143,92"
-          fill="none" stroke="url(#ng)" stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round"/>
-        <path d="M 10,97 C 10,97 15,24 34,24 C 53,24 58,82 74,82 C 90,82 95,24 114,24 C 133,24 137,97 137,97"
-          fill="none" stroke="url(#ng)" stroke-width="2" stroke-linecap="round" opacity="0.22"/>
-        <circle cx="4" cy="92" r="4.5" fill="url(#ng)"/>
-        <line x1="143" y1="92" x2="160" y2="46" stroke="url(#ng)" stroke-width="3.5" stroke-linecap="round" opacity="0.75"/>
-        <circle cx="162" cy="41" r="4" fill="url(#ng)" opacity="0.75"/>
-      </g>
-      <!-- Wordmark -->
-      <g transform="translate(188,10)">
-        <text x="0" y="68"
-          font-family="'Cormorant Garamond','Playfair Display',Georgia,serif"
-          font-size="68" font-weight="700"
-          fill="currentColor" letter-spacing="3">MASESORA</text>
-        <rect x="2" y="76" width="406" height="1" fill="rgba(200,168,75,.3)"/>
-        <text x="2" y="100"
-          font-family="'Cormorant Garamond','Playfair Display',Georgia,serif"
-          font-size="18" font-weight="600" fill="url(#ngs)" letter-spacing="8">DINAMISMO EMPRESARIAL</text>
-      </g>
+    <svg class="nlogo-svg" viewBox="0 0 380 80" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="MASESORA" style="color:#FFFFFF">
+      <text x="190" y="56" font-family="'Montserrat',sans-serif" font-weight="800" font-size="46" fill="currentColor" letter-spacing=".10em" text-anchor="middle">MASESORA</text>
     </svg>
   </a>
   <div class="nright">
     <ul class="nlinks" id="nlinks">
-      <li><a href="#principios" onclick="closeMenu()">PRINCIPIOS</a></li>
-      <li><a href="#detras" onclick="closeMenu()">DETRÁS DEL DINAMISMO</a></li>
-      <li><a href="#clinica" onclick="closeMenu()">MAS@FRAME®</a></li>
+      <li><a href="#principios" onclick="closeMenu()">principios</a></li>
+      <li><a href="#detras" onclick="closeMenu()">detrás del dinamismo</a></li>
+      <li><a href="#clinica" onclick="closeMenu()">mas@frame®</a></li>
     </ul>
     <button class="nbadge nagente" onclick="toggleAgente()" title="Habla con nuestro agente">
       Agente activo
     </button>
-    <a href="https://masfront.onrender.com/" class="ncta">Entrar a La Clínica de Empresas →</a>
+    <a href="https://masfront.onrender.com" class="ncta">Acceso clientes →</a>
     <button class="nburger" id="nburger" onclick="toggleMenu()" aria-label="Menú" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
   </div>
 </nav>
 
-<!-- TICKER -->
-<div class="ticker" style="margin-top:64px">
+<!-- ── TICKER ── -->
+<div class="ticker">
   <div class="ticker-inner">
     <span class="ticker-item">DINAMISMO EMPRESARIAL</span><span class="ticker-sep">·</span>
-    <span class="ticker-item">SISTEMA MAS@FRAME</span><span class="ticker-sep">·</span>
-    <span class="ticker-item">SISTEMA TU@SOLUCIÓN</span><span class="ticker-sep">·</span>
+    <span class="ticker-item">SISTEMA MAS@FRAME®</span><span class="ticker-sep">·</span>
+    <span class="ticker-item">MARBITRAGE · COSTA BLANCA</span><span class="ticker-sep">·</span>
     <span class="ticker-item">DINAMISMO EMPRESARIAL</span><span class="ticker-sep">·</span>
-    <span class="ticker-item">SISTEMA MAS@FRAME</span><span class="ticker-sep">·</span>
-    <span class="ticker-item">SISTEMA TU@SOLUCIÓN</span><span class="ticker-sep">·</span>
+    <span class="ticker-item">SISTEMA MAS@FRAME®</span><span class="ticker-sep">·</span>
+    <span class="ticker-item">MARBITRAGE · COSTA BLANCA</span><span class="ticker-sep">·</span>
   </div>
 </div>
 
-<!-- ── HERO ──────────────────────────────────────────── -->
+<!-- ── HERO (NAVY) ── -->
 <section class="hero">
   <div class="scanline"></div>
   <div class="hero-in">
-    <div class="hero-eyebrow">LA CLÍNICA DE EMPRESAS - <span style="color:var(--gold);margin-left:4px">CONSULTORÍA CLÍNICA ESTRATÉGICA</span></div>
+
+    <!-- OLA ANIMADA · ECG MONITOR CLÍNICO -->
+    <svg class="hero-wave" viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="overflow:visible">
+      <defs>
+        <linearGradient id="hwg" x1="0%" y1="100%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#9A7E3A"/>
+          <stop offset="40%" stop-color="#C8A84B"/>
+          <stop offset="70%" stop-color="#E8C96A"/>
+          <stop offset="100%" stop-color="#B89D52"/>
+        </linearGradient>
+        <filter id="hwglow"><feGaussianBlur stdDeviation="2.5" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+      </defs>
+      <g class="wave-group">
+        <path d="M 10,110 C 10,110 16,30 38,30 C 60,30 66,90 82,90 C 98,90 104,30 126,30 C 148,30 152,110 152,110"
+          fill="none" stroke="url(#hwg)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"
+          stroke-dasharray="400" filter="url(#hwglow)"
+          style="animation:waveECG 3.6s cubic-bezier(.22,1,.36,1) infinite"/>
+        <path d="M 15,116 C 15,116 21,36 41,36 C 61,36 67,96 82,96 C 97,96 103,36 123,36 C 143,36 147,116 147,116"
+          fill="none" stroke="url(#hwg)" stroke-width="1.5" stroke-linecap="round"
+          stroke-dasharray="380"
+          style="animation:waveEcoECG 3.6s cubic-bezier(.22,1,.36,1) infinite"/>
+        <circle cx="10" cy="110" r="5" fill="url(#hwg)" style="animation:pulseOrigin 3.6s ease-in-out infinite"/>
+        <line x1="152" y1="110" x2="158" y2="52" stroke="url(#hwg)" stroke-width="3.5" stroke-linecap="round" stroke-dasharray="80"
+          style="animation:riseImpulseECG 3.6s cubic-bezier(.22,1,.36,1) infinite"/>
+        <circle cx="159" cy="48" r="4" fill="url(#hwg)" opacity="0.75" style="animation:pulseImpulse 3.6s ease-in-out infinite"/>
+      </g>
+    </svg>
+
+    <div class="hero-eyebrow">La Clínica de Empresas · Consultoría Clínica Estratégica</div>
     <h1 class="hero-h1">
-      CONSTRUIMOS
-      <span class="accent">SISTEMAS.</span>
+      CONSTRUIMOS <span class="accent">SISTEMAS.</span>
       <span class="small">Sistemas que generan dinero desde su implantación.</span>
     </h1>
-    <div class="hero-split">
-      <div>
-        <!-- Narrativa MASESORA -->
-        <p class="hero-sub" style="margin-bottom:20px">
-          En el universo de la pyme, el caos no es un accidente: es el síntoma de una enfermedad estructural. Masesora nace como la primera CLÍNICA DE EMPRESAS: un espacio donde el diagnóstico es riguroso, el tratamiento es quirúrgico y la recuperación es medible. Intervenimos para dinamizar tu negocio, medimos con <strong>KPIs</strong> — y concluimos cuando se cumple el <strong>objetivo</strong>.
-        </p>
-        <p class="hero-sub" style="margin-bottom:14px;color:rgba(249,247,242,.55)">
-          Nuestra misión es transformar la frustración y el agotamiento en control, claridad y crecimiento. La empresa deja de ser un paciente crónico para convertirse en un autónomo o pyme de alto rendimiento.
-        </p>
-        <p style="font-family:'Fraunces',serif;font-style:italic;font-weight:600;font-size:1.02rem;line-height:1.4;color:var(--gold2);border-left:2px solid var(--gold);padding:8px 0 8px 14px;margin:0 0 22px;max-width:520px">
-          Si un proyecto no proyecta margen positivo, no se inicia.
-        </p>
-        <a href="#principios" style="display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:.68rem;font-weight:600;color:var(--gold);letter-spacing:.16em;text-transform:uppercase;text-decoration:none;transition:gap .2s;margin-bottom:0;" onmouseover="this.style.gap='14px'" onmouseout="this.style.gap='8px'">
-          Cómo trabajamos →
-        </a>
-      </div>
-      <div class="hero-cta-block">
-        <p class="hero-note">Optimizamos tus procesos <br>para que tu negocio se vuelva más rentable.</p>
-      </div>
-    </div>
-    <div style="display:flex;justify-content:center;align-items:center;gap:14px;margin-top:36px;margin-bottom:8px;flex-wrap:wrap">
-      <a href="https://tusolucion.onrender.com" target="_blank" rel="noopener" class="btn-primary" style="font-size:.95rem;padding:16px 36px;letter-spacing:.06em;box-shadow:0 12px 36px rgba(200,168,75,.35)">
-        VALORAR MI SOLUCIÓN →
-      </a>
-      <a href="https://wa.me/34609987436" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;padding:14px 24px;border-radius:999px;border:1px solid var(--bdr);color:var(--t2);font-family:var(--mono);font-size:.74rem;font-weight:500;letter-spacing:.08em;text-decoration:none;transition:border-color .2s,color .2s;white-space:nowrap" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--bdr)';this.style.color='var(--t2)'">
-        WhatsApp 609 987 436 →
-      </a>
+    <p class="hero-sub">
+      En el universo de la pyme, el caos no es accidente: es síntoma de una <strong>enfermedad estructural</strong>. MASESORA nace como la primera Clínica de Empresas: diagnóstico riguroso, tratamiento quirúrgico, recuperación medible. Cada intervención se mide por <strong>KPIs reales</strong> — y solo se cierra cuando el <strong>KPI maestro</strong> se cumple.
+    </p>
+    <p class="hero-quote">
+      Si un proyecto no proyecta margen positivo, no se inicia.
+    </p>
+    <div class="hero-cta-row">
+      <a href="https://tusolucion.onrender.com" target="_blank" rel="noopener" class="btn-primary">Valorar mi solución →</a>
+      <a href="https://wa.me/34609987436" target="_blank" rel="noopener" class="btn-ghost">WhatsApp 609 987 436 →</a>
     </div>
     <div class="hero-stats">
-      <div class="hstat"><div class="hstat-n">65<span>%</span></div><div class="hstat-l"> PIB procede de PYMES españolas</div></div>
-      <div class="hstat"><div class="hstat-n">98<span>%</span></div><div class="hstat-l">Representación Pymes tejido empresarial</div></div>
-      <div class="hstat"><div class="hstat-n">7/10</div><div class="hstat-l"> empleos generados por PYMES</div></div>
-      <div class="hstat"><div class="hstat-n">3,31<span>M</span></div><div class="hstat-l">EMPRESAS ACTIVAS ESPAÑA 2025</div></div></div>
-
-
-    </div>
-
-</section>
-
-<div class="sec-divider" aria-hidden="true"></div>
-
-<!-- LA CLINICA DE EMPRESAS -->
-<section id="clinica" style="scroll-margin-top:66px;padding:0;overflow:hidden">
-<!-- NUEVA SECCIÓN: PROPUESTA A+B — Identidad + Timeline -->
-    <div style="
-      background:linear-gradient(135deg,#070d18 0%,#0a1628 40%,#0f1a35 100%);
-      padding:72px 40px 80px;
-      position:relative;overflow:hidden;
-    ">
-      <!-- Grid pattern -->
-      <div style="position:absolute;inset:0;
-        background-image:linear-gradient(rgba(200,168,75,.04) 1px,transparent 1px),
-          linear-gradient(90deg,rgba(200,168,75,.04) 1px,transparent 1px);
-        background-size:48px 48px;pointer-events:none"></div>
-
-      <div style="position:relative;z-index:1;max-width:1120px;margin:0 auto">
-
-        <!-- ── BLOQUE A: 3 PILARES ───────────────────── -->
-        <div style="text-align:center;margin-bottom:64px">
-          
-          
-          <!-- Logo MAS@FRAME hexágono -->
-          <div style="display:flex;justify-content:center;margin-bottom:20px">
-            <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" style="width:72px;height:72px">
-              <defs>
-                <linearGradient id="mfhg" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stop-color="#C8A84B"/>
-                  <stop offset="50%" stop-color="#E8C96A"/>
-                  <stop offset="100%" stop-color="#B89D52"/>
-                </linearGradient>
-              </defs>
-              <rect width="120" height="120" fill="#0F1A35" rx="24"/>
-              <!-- Hexágono exterior -->
-              <polygon points="60,12 95,31 95,69 60,88 25,69 25,31"
-                fill="none" stroke="url(#mfhg)" stroke-width="2.5" opacity="0.9"/>
-              <!-- Hexágono interior -->
-              <polygon points="60,22 85,36 85,64 60,78 35,64 35,36"
-                fill="none" stroke="url(#mfhg)" stroke-width="1" opacity="0.3"/>
-              <!-- M central -->
-              <text x="60" y="70" font-family="'Cormorant Garamond',Georgia,serif"
-                font-size="36" font-weight="700" fill="#F9F7F2"
-                text-anchor="middle">M</text>
-              <!-- Líneas dinámicas -->
-              <line x1="88" y1="25" x2="105" y2="55" stroke="url(#mfhg)" stroke-width="1.5" opacity="0.4"/>
-              <line x1="91" y1="20" x2="108" y2="48" stroke="url(#mfhg)" stroke-width="0.7" opacity="0.2"/>
-            </svg>
-          </div>
-<p style="font-family:'IBM Plex Mono',monospace;font-size:.66rem;
-            color:#C8A84B;letter-spacing:.22em;text-transform:uppercase;
-            font-weight:600;margin-bottom:14px">Primer Sistema de Intervención Empresarial</p>
-          <h2 style="font-family:'Cormorant Garamond',Georgia,serif;
-            font-size:clamp(2.4rem,4.5vw,4rem);font-weight:700;
-            color:#F9F7F2;line-height:1.02;margin-bottom:14px;letter-spacing:-.01em">
-            MAS@FRAME<sup style="font-size:.45em;color:#C8A84B;font-weight:600">®</sup>
-          </h2>
-          <p style="font-family:'DM Sans',sans-serif;font-size:1rem;
-            color:rgba(255,255,255,.7);font-weight:300;line-height:1.7;
-            max-width:780px;margin:0 auto 14px">
-            MAS@FRAME® es un protocolo clínico para empresas con especialidades y síntomas, corrigiendo tu negocio por capas en un orden exacto de decisiones. Recuperas capacidad, avanzas con evidencia y alcanzas resultados medibles.
-            Detectamos el valor que tu empresa puede recuperar, comprobamos su salud empresarial, diagnosticamos los síntomas, aplicamos tratammiento y certificamos el alta cuando alcanzas el objetivo.
-          </p>
-          <p style="margin-bottom:24px">
-            <a href="https://masframelanding.onrender.com" target="_blank" rel="noopener" style="font-family:'IBM Plex Mono',monospace;font-size:.58rem;color:rgba(200,168,75,.55);letter-spacing:.14em;text-transform:uppercase;text-decoration:none;border:1px solid rgba(200,168,75,.2);padding:5px 12px;border-radius:4px">Saber más sobre MAS@FRAME® ↗</a>
-          </p>
-
-          <!-- 3 columnas -->
-          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:0">
-
-            <div style="padding:28px 24px;background:rgba(255,255,255,.03);
-              border:1px solid rgba(10,191,188,.18);border-radius:16px;
-              border-top:3px solid #0ABFBC;transition:transform .2s"
-              onmouseover="this.style.transform='translateY(-4px)'"
-              onmouseout="this.style.transform='translateY(0)'">
-              
-              <div style="font-family:'Cormorant Garamond',serif;font-size:1.25rem;
-                font-weight:700;color:#F9F7F2;margin-bottom:8px">Diagnóstico</div>
-              <p style="font-size:.82rem;color:rgba(255,255,255,.5);font-weight:300;
-                line-height:1.6;margin:0">
-                El Escáner identifica qué está fallando, qué especialidad necesita intervención. Tú decides qué síntoma resolver. 
-              </p>
-              <div style="margin-top:14px;font-family:'IBM Plex Mono',monospace;
-                font-size:.58rem;color:#0ABFBC;letter-spacing:.12em;text-transform:uppercase">
-                10 especialidades · 30 síntomas
-              </div>
-            </div>
-
-            <div style="padding:28px 24px;background:rgba(255,255,255,.03);
-              border:1px solid rgba(200,168,75,.2);border-radius:16px;
-              border-top:3px solid #C8A84B;transition:transform .2s"
-              onmouseover="this.style.transform='translateY(-4px)'"
-              onmouseout="this.style.transform='translateY(0)'">
-              
-              <div style="font-family:'Cormorant Garamond',serif;font-size:1.25rem;
-                font-weight:700;color:#F9F7F2;margin-bottom:8px">Tratamiento</div>
-              <p style="font-size:.82rem;color:rgba(255,255,255,.5);font-weight:300;
-                line-height:1.6;margin:0">
-                Protocolo estructurado en 7 capas secuenciales para acompañarte en la toma de decisiones óptimas. 
-
-              </p>
-              <div style="margin-top:14px;font-family:'IBM Plex Mono',monospace;
-                font-size:.58rem;color:#C8A84B;letter-spacing:.12em;text-transform:uppercase">
-                Protocolo C0–C6 
-            </div>
-            </div>
-
-            <div style="padding:28px 24px;background:rgba(255,255,255,.03);
-              border:1px solid rgba(124,92,191,.22);border-radius:16px;
-              border-top:3px solid #7C5CBF;transition:transform .2s"
-              onmouseover="this.style.transform='translateY(-4px)'"
-              onmouseout="this.style.transform='translateY(0)'">
-              
-              <div style="font-family:'Cormorant Garamond',serif;font-size:1.25rem;
-                font-weight:700;color:#F9F7F2;margin-bottom:8px">Alta certificada</div>
-              <p style="font-size:.82rem;color:rgba(255,255,255,.5);font-weight:300;
-                line-height:1.6;margin:0">
-                Confirmamos resultados revisando los KPIS del tratamiento.
-              </p>
-              <div style="margin-top:14px;font-family:'IBM Plex Mono',monospace;
-                font-size:.58rem;color:#7C5CBF;letter-spacing:.12em;text-transform:uppercase">
-                Garantía de tratamiento
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-        <!-- Separador -->
-        <div style="width:100%;height:1px;background:linear-gradient(90deg,transparent,rgba(200,168,75,.2),transparent);margin-bottom:64px"></div>
-
-        <!-- ── BLOQUE B: TIMELINE C0–C6 ──────────────── -->
-        <div style="text-align:center;margin-bottom:40px">
-          <p style="font-family:'IBM Plex Mono',monospace;font-size:.6rem;
-            color:rgba(255,255,255,.3);letter-spacing:.2em;text-transform:uppercase;
-            margin-bottom:32px"> Primer Sistema de Intervención Empresarial</p>
-
-          <!-- Timeline -->
-          <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:8px;margin-bottom:40px">
-
-            <!-- C0 -->
-            <div style="display:flex;flex-direction:column;align-items:center;gap:10px">
-              <div style="width:44px;height:44px;border-radius:50%;
-                background:rgba(10,191,188,.12);border:2px solid #0ABFBC;
-                display:flex;align-items:center;justify-content:center;
-                font-family:'IBM Plex Mono',monospace;font-size:.72rem;
-                font-weight:700;color:#0ABFBC">C0</div>
-              <div style="font-size:.72rem;font-weight:600;color:#F9F7F2">Inputs</div>
-              <div style="font-size:.68rem;color:rgba(255,255,255,.35);line-height:1.4">Medición inicial</div>
-            </div>
-
-            <!-- C1 -->
-            <div style="display:flex;flex-direction:column;align-items:center;gap:10px">
-              <div style="width:44px;height:44px;border-radius:50%;
-                background:rgba(10,191,188,.12);border:2px solid #0ABFBC;
-                display:flex;align-items:center;justify-content:center;
-                font-family:'IBM Plex Mono',monospace;font-size:.72rem;
-                font-weight:700;color:#0ABFBC">C1</div>
-              <div style="font-size:.72rem;font-weight:600;color:#F9F7F2">Priorizar</div>
-              <div style="font-size:.68rem;color:rgba(255,255,255,.35);line-height:1.4">Focalizas las causas reales</div>
-            </div>
-
-            <!-- C2 -->
-            <div style="display:flex;flex-direction:column;align-items:center;gap:10px">
-              <div style="width:44px;height:44px;border-radius:50%;
-                background:rgba(10,191,188,.12);border:2px solid #0ABFBC;
-                display:flex;align-items:center;justify-content:center;
-                font-family:'IBM Plex Mono',monospace;font-size:.72rem;
-                font-weight:700;color:#0ABFBC">C2</div>
-              <div style="font-size:.72rem;font-weight:600;color:#F9F7F2">Decisión</div>
-              <div style="font-size:.68rem;color:rgba(255,255,255,.35);line-height:1.4">Compromiso con acciones concretas</div>
-            </div>
-
-            <!-- C3 — Crítica -->
-            <div style="display:flex;flex-direction:column;align-items:center;gap:10px;
-              position:relative">
-              <div style="position:absolute;top:-22px;font-family:'IBM Plex Mono',monospace;
-                font-size:.52rem;color:#C8A84B;letter-spacing:.1em;white-space:nowrap">
-                ★ METODOLOGÍA MASFRAME ★
-              </div>
-              <div style="width:52px;height:52px;border-radius:50%;
-                background:rgba(200,168,75,.15);border:2px solid #C8A84B;
-                box-shadow:0 0 20px rgba(200,168,75,.3);
-                display:flex;align-items:center;justify-content:center;
-                font-family:'IBM Plex Mono',monospace;font-size:.72rem;
-                font-weight:700;color:#C8A84B">C3</div>
-              <div style="font-size:.72rem;font-weight:700;color:#C8A84B">Comprensión</div>
-              <div style="font-size:.68rem;color:rgba(255,255,255,.35);line-height:1.4">Analizas cuellos de botella. </div>
-            </div>
-
-            <!-- C4 -->
-            <div style="display:flex;flex-direction:column;align-items:center;gap:10px">
-              <div style="width:44px;height:44px;border-radius:50%;
-                background:rgba(200,168,75,.12);border:2px solid #C8A84B;
-                display:flex;align-items:center;justify-content:center;
-                font-family:'IBM Plex Mono',monospace;font-size:.72rem;
-                font-weight:700;color:#C8A84B">C4</div>
-              <div style="font-size:.72rem;font-weight:600;color:#F9F7F2">Planificación</div>
-              <div style="font-size:.68rem;color:rgba(255,255,255,.35);line-height:1.4">Defines responsables y fechas</div>
-            </div>
-
-            <!-- C5 -->
-            <div style="display:flex;flex-direction:column;align-items:center;gap:10px">
-              <div style="width:44px;height:44px;border-radius:50%;
-                background:rgba(124,92,191,.12);border:2px solid #7C5CBF;
-                display:flex;align-items:center;justify-content:center;
-                font-family:'IBM Plex Mono',monospace;font-size:.72rem;
-                font-weight:700;color:#7C5CBF">C5</div>
-              <div style="font-size:.72rem;font-weight:600;color:#F9F7F2">Ejecución</div>
-              <div style="font-size:.68rem;color:rgba(255,255,255,.35);line-height:1.4">Haces seguimiento del tratamiento</div>
-            </div>
-
-            <!-- C6 -->
-            <div style="display:flex;flex-direction:column;align-items:center;gap:10px">
-              <div style="width:44px;height:44px;border-radius:50%;
-                background:rgba(124,92,191,.15);border:2px solid #7C5CBF;
-                box-shadow:0 0 16px rgba(124,92,191,.25);
-                display:flex;align-items:center;justify-content:center;
-                font-family:'IBM Plex Mono',monospace;font-size:.72rem;
-                font-weight:700;color:#7C5CBF">C6</div>
-              <div style="font-size:.72rem;font-weight:700;color:#7C5CBF">Alta</div>
-              <div style="font-size:.68rem;color:rgba(255,255,255,.35);line-height:1.4">Revisión de KPIS-Score</div>
-            </div>
-
-          </div>
-
-          <!-- Línea conectora del timeline -->
-          <div style="position:relative;margin-top:-120px;margin-bottom:80px;pointer-events:none;height:2px">
-            <div style="position:absolute;top:0;left:calc(44px/2 + 8px);right:calc(44px/2 + 8px);height:1px;
-              background:linear-gradient(90deg,#0ABFBC,#0ABFBC 43%,#C8A84B 43%,#C8A84B 71%,#7C5CBF 71%);
-              opacity:.35"></div>
-          </div>
-
-          <!-- ── ROLES Y EVIDENCIAS ───────────────────── -->
-          <div style="margin-top:32px;margin-bottom:32px;display:flex;justify-content:center;flex-wrap:wrap;gap:8px 24px;font-family:'IBM Plex Mono',monospace;font-size:.62rem;color:rgba(255,255,255,.45);letter-spacing:.14em;text-transform:uppercase">
-            <span><strong style="color:#0ABFBC">Agente de Cambio Interno</strong></span>
-            <span style="opacity:.4">·</span>
-            <span><strong style="color:#C8A84B">Consultor Clínico</strong></span>
-            <span style="opacity:.4">·</span>
-            <span><strong style="color:#7C5CBF"></strong></span>
-            <span style="opacity:.4">·</span>
-            <span>Evidencias documentales</span>
-            <span style="opacity:.4">·</span>
-            <span>Alta certificada</span>
-          </div>
-
-          <!-- ── GARANTÍA HONESTA ─────────────────────── -->
-          <div style="max-width:760px;margin:0 auto 40px;padding:22px 28px;background:rgba(200,168,75,.06);border:1px solid rgba(200,168,75,.25);border-radius:14px;text-align:left">
-            <div style="font-family:'IBM Plex Mono',monospace;font-size:.6rem;color:#C8A84B;letter-spacing:.18em;text-transform:uppercase;font-weight:600;margin-bottom:8px">
-              Garantía Clínica MAS@FRAME® 
-            </div>
-            <p style="font-family:'DM Sans',sans-serif;font-size:.86rem;line-height:1.65;color:rgba(255,255,255,.75);font-weight:300;margin:0">
-              Extensión clínica gratuita si el KPI maestro no se ha alcanzado.  <strong style="color:#fff"></strong>. 
-              <br><span style="font-size:.75rem;color:rgba(255,255,255,.45);font-style:italic">Imcluso, te garantizamos la devolución íntegra del importe tras 3 meses adicionales.</span>
-            </p>
-          </div>
-
-          <!-- ── 2 CTAs ──────────────────────────────── -->
-          <div style="display:flex;justify-content:center;align-items:center;gap:16px;flex-wrap:wrap;margin-top:8px">
-            <a href="https://ese-cc2u.onrender.com" target="_blank" rel="noopener"
-              style="display:inline-flex;align-items:center;gap:10px;
-              padding:16px 32px;border-radius:999px;
-              background:linear-gradient(135deg,#D4B96A,#B89D52);
-              color:#0F1A35;font-weight:700;font-size:.92rem;
-              letter-spacing:.04em;text-decoration:none;
-              box-shadow:0 12px 36px rgba(200,168,75,.35);
-              transition:transform .15s,filter .15s"
-              onmouseover="this.style.transform='translateY(-3px)';this.style.filter='brightness(1.08)'"
-              onmouseout="this.style.transform='translateY(0)';this.style.filter='none'">
-              Comprobar la SALUD DE MI EMPRESA →
-            </a>
-            <a href="https://masfront.onrender.com/login" target="_blank" rel="noopener"
-              style="display:inline-flex;align-items:center;gap:8px;
-              padding:14px 24px;border-radius:999px;
-              border:1px solid rgba(255,255,255,.18);
-              color:rgba(255,255,255,.75);font-family:'DM Sans',sans-serif;
-              font-size:.82rem;font-weight:500;letter-spacing:.04em;
-              text-decoration:none;transition:border-color .2s,color .2s"
-              onmouseover="this.style.borderColor='#C8A84B';this.style.color='#C8A84B'"
-              onmouseout="this.style.borderColor='rgba(255,255,255,.18)';this.style.color='rgba(255,255,255,.75)'">
-              LA CLINICA DE EMPRESAS →
-            </a>
-          </div>
-          <p style="font-family:'Cormorant Garamond',Georgia,serif;font-size:1.05rem;
-            font-weight:600;color:rgba(200,168,75,.7);letter-spacing:.04em;
-            font-style:italic;margin-top:18px;text-align:center">
-            Gratuito · 10 minutos · Código de acceso
-          </p>
-
-        </div>
-      </div>
+      <div class="hstat"><div class="hstat-n">65<span>%</span></div><div class="hstat-l">PIB pymes españolas</div></div>
+      <div class="hstat"><div class="hstat-n">98<span>%</span></div><div class="hstat-l">Tejido empresarial</div></div>
+      <div class="hstat"><div class="hstat-n">7/10</div><div class="hstat-l">Empleos en pymes</div></div>
+      <div class="hstat"><div class="hstat-n">3,31<span>M</span></div><div class="hstat-l">Empresas activas España 2025</div></div>
     </div>
   </div>
-
-  <!-- Línea inferior -->
-  <div style="height:1px;background:linear-gradient(90deg,transparent,rgba(200,168,75,.15),transparent)"></div>
 </section>
 
-
-
-<!-- ── C — PRINCIPIOS OPERATIVOS ─────────────────────── -->
-<section class="narrativa" id="principios">
+<!-- ── PRINCIPIOS (CREAM) ── -->
+<section class="principios" id="principios">
   <div class="si">
-    <div class="narr-in" style="max-width:880px;margin:0 auto">
-      <div>
-        <div class="ey rv">Cómo trabajamos</div>
-        <h2 class="h2 rv">6 PRINCIPIOS<br><em>CLÍNICOS.</em></h2>
-        <p class="lead rv" style="margin:16px 0 32px;max-width:680px">
-          Todos los roles del sistema MASESORA trabajan bajo los mismos principios.
-          Garantizan consistencia, rigor y resultados replicables.
-        </p>
-        <div class="narr-timeline">
-          <div class="narr-item">
-  <div class="narr-year">01</div>
-  <div>
-    <div class="narr-content-t">Diagnóstico antes que intervención.</div>
-    <div class="narr-content-d">Nunca se actúa sin identificar el síntoma raíz.</div>
-  </div>
-</div>
-
-<div class="narr-item">
-  <div class="narr-year">02</div>
-  <div>
-    <div class="narr-content-t">Evidencia antes que opinión.</div>
-    <div class="narr-content-d">Todo se mide. Todo se documenta. Las decisiones se basan en datos.</div>
-  </div>
-</div>
-
-<div class="narr-item">
-  <div class="narr-year">03</div>
-  <div>
-    <div class="narr-content-t">Criterio antes que ocurrencia.</div>
-    <div class="narr-content-d">Las decisiones se toman dentro del protocolo, no fuera de él.</div>
-  </div>
-</div>
-
-<div class="narr-item">
-  <div class="narr-year">04</div>
-  <div>
-    <div class="narr-content-t">El orden decide el resultado.</div>
-    <div class="narr-content-d">La capacidad se recupera a capas.</div>
-  </div>
-</div>
-
-<div class="narr-item">
-  <div class="narr-year">05</div>
-  <div>
-    <div class="narr-content-t">Responsabilidad compartida.</div>
-    <div class="narr-content-d">Asignamos un Agente de Cambio Interno para garantizar continuidad y evidencia. Tú decides qué información compartir; nosotros guiamos el proceso clínico.</div>
-  </div>
-</div>
-
-<div class="narr-item">
-  <div class="narr-year">06</div>
-  <div>
-    <div class="narr-content-t">Garantía de resultado.</div>
-    <div class="narr-content-d">Si no se cumple el KPI maestro, se activa la garantía clínica. El resultado no se promete: se certifica.</div>
-  </div>
-</div>
-
-        </div>
-      </div>
+    <div class="principios-header">
+      <div class="ey-italic rv">Cómo trabajamos</div>
+      <h2 class="h2 rv">6 Principios <em>Clínicos.</em></h2>
+      <p class="lead rv">Todos los roles del sistema MASESORA trabajan bajo los mismos principios. Garantizan consistencia, rigor y resultados replicables.</p>
+    </div>
+    <div class="principios-grid">
+      <div class="principio rv"><div class="principio-n">01</div><div><div class="principio-t">Diagnóstico antes que intervención.</div><div class="principio-d">Nunca se actúa sin identificar el síntoma raíz.</div></div></div>
+      <div class="principio rv d1"><div class="principio-n">02</div><div><div class="principio-t">Evidencia antes que opinión.</div><div class="principio-d">Todo se mide. Todo se documenta. Las decisiones se basan en datos.</div></div></div>
+      <div class="principio rv d2"><div class="principio-n">03</div><div><div class="principio-t">Criterio antes que ocurrencia.</div><div class="principio-d">Las decisiones se toman dentro del protocolo, no fuera de él.</div></div></div>
+      <div class="principio rv d2"><div class="principio-n">04</div><div><div class="principio-t">El orden decide el resultado.</div><div class="principio-d">La capacidad se recupera a capas.</div></div></div>
+      <div class="principio rv d3"><div class="principio-n">05</div><div><div class="principio-t">Responsabilidad compartida.</div><div class="principio-d">Asignamos un Agente de Cambio Interno para garantizar continuidad y evidencia.</div></div></div>
+      <div class="principio rv d3"><div class="principio-n">06</div><div><div class="principio-t">Garantía de resultado.</div><div class="principio-d">Si no se cumple el KPI maestro, se activa la garantía clínica. El resultado no se promete: se certifica.</div></div></div>
     </div>
   </div>
 </section>
 
-<!-- ── PRUEBA SOCIAL · CASO REAL ─────────────────────── -->
-<section id="caso" style="background:var(--bg2);padding:80px 48px;position:relative;overflow:hidden">
-  <div class="si" style="max-width:980px;margin:0 auto">
-    <div class="ey rv" style="text-align:center">Resultados clínicos</div>
-    <h2 class="h2 rv" style="text-align:center;margin-bottom:48px">CLIENTES<br><em>DE IMPACTO</em></h2>
-    <blockquote class="rv d1" style="position:relative;padding:28px 32px;background:var(--bg);border-left:3px solid var(--gold);border-radius:0 12px 12px 0;font-family:'Fraunces',serif;font-size:1.15rem;line-height:1.6;color:var(--off);font-weight:300;font-style:italic;max-width:760px;margin:0 auto 32px">
-      «Pasamos por La Clínica de Empresas. Teníamos que mejorar en la especialidad Unidad de Procesos y tratamos 2 síntomas con los que mejoramos la productividad un <strong style="color:var(--gold2);font-style:normal">17%</strong> en un mes y los procesos un <strong style="color:var(--gold2);font-style:normal">62%</strong>.»
-      <footer style="margin-top:18px;font-family:'IBM Plex Mono',monospace;font-size:.62rem;letter-spacing:.06em;text-transform:none;color:var(--t3);font-style:normal;font-weight:500">— Cliente · Sector taller mecánico · Marina Baixa</footer>
-    </blockquote>
-    <div class="rv d2 caso-stats" style="display:grid;grid-template-columns:repeat(4,1fr);gap:14px;max-width:760px;margin:0 auto">
-      <div style="text-align:center;padding:18px 12px;border:1px solid var(--bdr);border-radius:12px;background:var(--bg)">
-        <div style="font-family:'Bebas Neue',sans-serif;font-size:2.2rem;color:var(--gold);line-height:1">17<span style="font-size:.55em">%</span></div>
-        <div style="font-family:'IBM Plex Mono',monospace;font-size:.55rem;color:var(--t3);letter-spacing:.14em;text-transform:uppercase;margin-top:6px">Productividad</div>
-      </div>
-      <div style="text-align:center;padding:18px 12px;border:1px solid var(--bdr);border-radius:12px;background:var(--bg)">
-        <div style="font-family:'Bebas Neue',sans-serif;font-size:2.2rem;color:var(--gold);line-height:1">62<span style="font-size:.55em">%</span></div>
-        <div style="font-family:'IBM Plex Mono',monospace;font-size:.55rem;color:var(--t3);letter-spacing:.14em;text-transform:uppercase;margin-top:6px">Procesos</div>
-      </div>
-      <div style="text-align:center;padding:18px 12px;border:1px solid var(--bdr);border-radius:12px;background:var(--bg)">
-        <div style="font-family:'Bebas Neue',sans-serif;font-size:2.2rem;color:var(--gold);line-height:1">2</div>
-        <div style="font-family:'IBM Plex Mono',monospace;font-size:.55rem;color:var(--t3);letter-spacing:.14em;text-transform:uppercase;margin-top:6px">Síntomas</div>
-      </div>
-      <div style="text-align:center;padding:18px 12px;border:1px solid var(--bdr);border-radius:12px;background:var(--bg)">
-        <div style="font-family:'Bebas Neue',sans-serif;font-size:2.2rem;color:var(--gold);line-height:1">1<span style="font-size:.55em"> MES</span></div>
-        <div style="font-family:'IBM Plex Mono',monospace;font-size:.55rem;color:var(--t3);letter-spacing:.14em;text-transform:uppercase;margin-top:6px">Tiempo</div>
-      </div>
+<!-- ── CASOS REALES (BLANCO) ── -->
+<section class="casos" id="casos">
+  <div class="si">
+    <div class="casos-header">
+      <div class="ey-italic rv">Resultados clínicos</div>
+      <h2 class="h2 rv">Clientes <em>opinan.</em></h2>
     </div>
-
-    <!-- Testimonio 2 -->
-    <blockquote class="rv d3" style="position:relative;padding:24px 30px;background:var(--bg);border-left:3px solid var(--tq);border-radius:0 12px 12px 0;font-family:'Fraunces',serif;font-size:1.05rem;line-height:1.6;color:var(--off);font-weight:300;font-style:italic;max-width:760px;margin:48px auto 0">
-      «Construyeron una herramienta con mis patrones, con fichas de medida para mis clientes e histórico de pedidos. Después incluso añadimos un módulo de pago. <strong style="color:var(--tq);font-style:normal">¡Estamos encantadas!</strong>»
-      <footer style="margin-top:14px;font-family:'IBM Plex Mono',monospace;font-size:.6rem;letter-spacing:.06em;text-transform:none;color:var(--t3);font-style:normal;font-weight:500">— Cliente · Sector confección artesanal · Marina Baixa</footer>
+    <blockquote class="caso-quote rv d1">
+      «Pasamos por La Clínica de Empresas. Teníamos que mejorar en la especialidad Unidad de Procesos y tratamos 2 síntomas con los que mejoramos la productividad un <strong>17%</strong> en un mes y los procesos un <strong>62%</strong>.»
+      <footer>— Cliente · Sector taller mecánico · Marina Baixa</footer>
     </blockquote>
-
-    <!-- Testimonio 3 -->
-    <blockquote class="rv d3" style="position:relative;padding:24px 30px;background:var(--bg);border-left:3px solid var(--red);border-radius:0 12px 12px 0;font-family:'Fraunces',serif;font-size:1.05rem;line-height:1.6;color:var(--off);font-weight:300;font-style:italic;max-width:760px;margin:24px auto 0">
-      «Me ayudaron a resolver problemas con el stock del almacén. Aprender a <strong style="color:#e87b6a;font-style:normal">gestionar los proveedores</strong> me ha dado años de vida.»
-      <footer style="margin-top:14px;font-family:'IBM Plex Mono',monospace;font-size:.6rem;letter-spacing:.06em;text-transform:none;color:var(--t3);font-style:normal;font-weight:500">— Cliente · Sector iluminación y decoración · Marina Baixa</footer>
+    <blockquote class="caso-secondary rv d2">
+      «Construyeron una herramienta con mis patrones, fichas de medida e histórico de pedidos. Después incluso añadimos un módulo de pago. <strong>¡Estamos encantadas!</strong>»
+      <footer>— Cliente · Sector confección artesanal · Marina Baixa</footer>
+    </blockquote>
+    <blockquote class="caso-secondary rv d3">
+      «Me ayudaron a resolver problemas con el stock del almacén. Aprender a <strong>gestionar los proveedores</strong> me ha dado años de vida.»
+      <footer>— Cliente · Sector iluminación y decoración · Marina Baixa</footer>
     </blockquote>
   </div>
 </section>
 
-<style>
-@media(max-width:600px){
-  #caso .caso-stats{grid-template-columns:repeat(2,1fr)}
-}
-</style>
+<!-- ── BIO (BLANCO) ── -->
+<section class="bio" id="detras">
+  <div class="bio-in">
+    <div class="bio-photo rv">
+      <img src="./assets/maite.webp" alt="Maite Cabezuelos · Fundadora MASESORA" loading="eager" decoding="async" onerror="this.onerror=null;this.src='./assets/maite.png';"/>
+      <div class="bio-photo-fallback">MC</div>
+    </div>
+    <div class="bio-content rv d1">
+      <div class="ey-italic">Detrás del Dinamismo Empresarial</div>
+      <h2 class="h2">Maite <em>Cabezuelos.</em></h2>
+      <p class="lead">Fundadora de <strong>MASESORA®</strong>. Con 15 años liderando operaciones y gestión de crisis en turismo y servicios, mi enfoque combina Lean, Agile y Project Management con un propósito claro: <strong>simplificar</strong>.</p>
+      <p class="lead">Mi valor no reside en una metodología compleja, sino en la capacidad de ir a la raíz del problema y de trabajar contigo para que tu negocio vuelva a brillar. Construyo soluciones para negocios reales — <strong>escucho la necesidad y te entrego la herramienta exacta</strong>.</p>
+      <p class="bio-quote">Unamos tu experiencia y mi visión estratégica para alcanzar tu próximo éxito.</p>
+    </div>
+  </div>
+</section>
 
-<div class="sec-divider" aria-hidden="true"></div>
+<!-- ── 1er SISTEMA MAS@FRAME (NAVY) ── -->
+<section class="masframe-section" id="clinica">
+  <div class="si-mf">
 
-<!-- ── MANIFIESTO / CTA FINAL ────────────────────────── -->
-<section class="manifiesto">
-  <div class="man-in">
-    <div class="ey rv" style="color:var(--gold)">El manifiesto</div>
-    <h2 class="man-q rv d1">
-      TE DAMOS LOS MOTORES.<br>
-      <span>QUE DEVUELVEN</span><br>
-      EL CONTROL<br>
-      A TU NEGOCIO.
-    </h2>
-    <p class="man-sub rv d2">
-      MASESORA es DINAMISMO EMPRESARIAL y juntos, construimos futuro.
+    <div class="mfhex-wrap rv">
+      <svg class="mfhex" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="mfhg" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#C8A84B"/>
+            <stop offset="50%" stop-color="#E8C96A"/>
+            <stop offset="100%" stop-color="#B89D52"/>
+          </linearGradient>
+        </defs>
+        <rect width="120" height="120" fill="#0F1A35" rx="24"/>
+        <polygon points="60,12 95,31 95,69 60,88 25,69 25,31" fill="none" stroke="url(#mfhg)" stroke-width="2.5" opacity="0.9"/>
+        <polygon points="60,22 85,36 85,64 60,78 35,64 35,36" fill="none" stroke="url(#mfhg)" stroke-width="1" opacity="0.3"/>
+        <text x="60" y="70" font-family="'Montserrat',sans-serif" font-size="36" font-weight="800" fill="#F9F7F2" text-anchor="middle">M</text>
+        <line x1="88" y1="25" x2="105" y2="55" stroke="url(#mfhg)" stroke-width="1.5" opacity="0.4"/>
+        <line x1="91" y1="20" x2="108" y2="48" stroke="url(#mfhg)" stroke-width="0.7" opacity="0.2"/>
+      </svg>
+    </div>
+
+    <div class="mf-eyebrow rv">Primer Sistema de Intervención Empresarial</div>
+    <h2 class="mf-h2 rv">MAS@FRAME<sup>®</sup></h2>
+    <p class="mf-lead-center rv d1">
+      MAS@FRAME® es un protocolo clínico para empresas con especialidades y síntomas, corrigiendo tu negocio por capas en un orden exacto de decisiones. Recuperas capacidad, avanzas con evidencia y alcanzas resultados medibles.
     </p>
-    <div class="man-chips rv d3">
-      <a href="https://ese-cc2u.onrender.com" target="_blank" class="chip chip-tq" style="text-decoration:none;cursor:pointer">Diagnóstico de salud empresarial</a>
-      <span class="chip chip-dim">Marbitrage</span>
-      <span class="chip chip-gold">MAS@FRAME® v1.0</span>
-    </div>
-    <div class="man-actions rv d3" style="display:flex;flex-direction:column;align-items:center;gap:0">
-      <!-- Botón principal -->
-      <a href="https://tusolucion.onrender.com" target="_blank" rel="noopener" class="btn-primary"
-        style="font-size:1rem;padding:18px 42px;letter-spacing:.06em;
-        box-shadow:0 12px 36px rgba(200,168,75,.35);margin-bottom:14px">
-        VALORAR MI SOLUCIÓN →
-      </a>
-      <!-- WhatsApp directo -->
-      <p style="font-family:'IBM Plex Mono',monospace;font-size:.62rem;color:rgba(255,255,255,.4);letter-spacing:.12em;text-transform:uppercase;margin-bottom:8px">¿Prefieres hablar directamente?</p>
-      <a href="https://wa.me/34609987436" target="_blank" rel="noopener"
-        style="display:inline-flex;align-items:center;gap:8px;padding:12px 26px;border-radius:999px;border:1px solid rgba(255,255,255,.18);color:rgba(255,255,255,.85);font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:500;letter-spacing:.04em;text-decoration:none;margin-bottom:24px;transition:border-color .2s,color .2s"
-        onmouseover="this.style.borderColor='#C8A84B';this.style.color='#C8A84B'"
-        onmouseout="this.style.borderColor='rgba(255,255,255,.18)';this.style.color='rgba(255,255,255,.85)'">
-        WhatsApp 609 987 436 →
-      </a>
-      <!-- Separador -->
-      <div style="width:1px;height:20px;background:rgba(200,168,75,.2);margin-bottom:20px"></div>
-      <!-- Contacto -->
-      <a href="https://instagram.com/laclinicadeempresas" target="_blank" rel="noopener"
-        style="display:flex;flex-direction:column;align-items:center;text-decoration:none;
-        margin-bottom:18px;transition:transform .2s"
-        onmouseover="this.style.transform='scale(1.04)'"
-        onmouseout="this.style.transform='scale(1)'">
-        <div style="font-family:'IBM Plex Mono',monospace;font-size:.56rem;
-          color:rgba(255,255,255,.3);letter-spacing:.18em;text-transform:uppercase;margin-bottom:6px">Síguenos</div>
-        <div style="font-family:'Cormorant Garamond',serif;font-size:1.6rem;
-          font-weight:700;color:var(--gold2);letter-spacing:.04em;line-height:1">@laclinicadeempresas</div>
-      </a>
-      <a href="mailto:info@masesora.com" style="text-decoration:none;margin-bottom:10px;transition:opacity .2s;font-family:'DM Sans',sans-serif;font-size:.82rem;color:rgba(255,255,255,.45)" onmouseover="this.style.opacity='.7'" onmouseout="this.style.opacity='1'">info@masesora.com</a>
+    <p class="mf-lead-center rv d1">
+      Detectamos el valor que tu empresa puede recuperar, comprobamos su salud empresarial, diagnosticamos los síntomas, aplicamos tratamiento y certificamos el alta cuando alcanzas el objetivo.
+    </p>
+    <div class="mf-savemore rv d2">
+      <a href="https://masframelanding.onrender.com" target="_blank" rel="noopener">Saber más sobre MAS@FRAME® ↗</a>
     </div>
 
-  </div>
-</section>
-
-<div class="sec-divider" aria-hidden="true"></div>
-
-<!-- ── DETRÁS DEL DINAMISMO ──────────────────────────── -->
-<section id="detras" style="background:var(--bg);padding:100px 48px;position:relative;overflow:hidden;border-top:1px solid var(--bdr)">
-  <div style="position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(200,168,75,.3),transparent)"></div>
-  <div class="si" style="display:grid;grid-template-columns:minmax(0,260px) minmax(0,1fr);gap:60px;align-items:center;max-width:1080px;margin:0 auto">
-    <div class="rv" style="display:flex;justify-content:center">
-      <div style="width:240px;height:240px;border-radius:50%;overflow:hidden;border:2px solid var(--gold);box-shadow:0 20px 60px rgba(200,168,75,.2);background:linear-gradient(135deg,#1a1a17,#0a0a08);position:relative">
-        <img src="./assets/maite.webp" alt="Maite Cabezuelos · Fundadora de MASESORA" style="width:100%;height:100%;object-fit:cover;display:block" loading="eager" decoding="async" onerror="this.onerror=null;this.src='./assets/maite.png';"/>
-        <div style="display:none;position:absolute;inset:0;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:5rem;color:var(--gold);letter-spacing:.04em">MC</div>
+    <div class="pillars">
+      <div class="pillar diag rv">
+        <div class="pillar-t">Diagnóstico</div>
+        <p class="pillar-d">El Escáner identifica qué está fallando, qué especialidad necesita intervención. Tú decides qué síntoma resolver.</p>
+        <div class="pillar-tag">10 especialidades · 30 síntomas</div>
+      </div>
+      <div class="pillar trat rv d1">
+        <div class="pillar-t">Tratamiento</div>
+        <p class="pillar-d">Protocolo estructurado en 7 capas secuenciales para acompañarte en la toma de decisiones óptimas.</p>
+        <div class="pillar-tag">Protocolo C0–C6</div>
+      </div>
+      <div class="pillar alta rv d2">
+        <div class="pillar-t">Alta certificada</div>
+        <p class="pillar-d">Confirmamos resultados revisando los KPIs del tratamiento.</p>
+        <div class="pillar-tag">Garantía de tratamiento</div>
       </div>
     </div>
-    <div class="rv d1">
-      <div class="ey">Detrás del dinamismo empresarial</div>
-      <h2 class="h2" style="margin-bottom:24px">MAITE<br><em>CABEZUELOS.</em></h2>
-      <p class="lead" style="margin-bottom:18px">
-        Fundadora de <strong style="color:var(--off)">MASESORA</strong>. Con 15 años liderando operaciones y gestión de crisis en turismo y servicios, mi enfoque combina Lean, Agile y Project Management con un propósito claro: simplificar.
+
+    <div class="mf-divider"></div>
+
+    <div class="tl-eyebrow">El protocolo · 7 capas · sin excepciones</div>
+
+    <div class="timeline">
+      <div class="tl-item"><div class="tl-circle cyan">C0</div><div class="tl-name">Inputs</div><div class="tl-desc">Medición inicial</div></div>
+      <div class="tl-item"><div class="tl-circle cyan">C1</div><div class="tl-name">Priorizar</div><div class="tl-desc">Focalizas las causas reales</div></div>
+      <div class="tl-item"><div class="tl-circle cyan">C2</div><div class="tl-name">Decisión</div><div class="tl-desc">Compromiso con acciones concretas</div></div>
+      <div class="tl-item"><div class="tl-method">★ METODOLOGÍA MAS@FRAME ★</div><div class="tl-circle gold">C3</div><div class="tl-name gold">Comprensión</div><div class="tl-desc">Analizas cuellos de botella</div></div>
+      <div class="tl-item"><div class="tl-circle gold" style="width:46px;height:46px;box-shadow:none">C4</div><div class="tl-name">Planificación</div><div class="tl-desc">Defines responsables y fechas</div></div>
+      <div class="tl-item"><div class="tl-circle purple">C5</div><div class="tl-name">Ejecución</div><div class="tl-desc">Haces seguimiento del tratamiento</div></div>
+      <div class="tl-item"><div class="tl-circle purple purple-glow">C6</div><div class="tl-name purple">Alta</div><div class="tl-desc">Revisión de KPIs · Score</div></div>
+    </div>
+
+    <div class="tl-line-wrap"><div class="tl-line"></div></div>
+
+    <div class="mf-roles">
+      <span><strong class="cy">Agente de Cambio Interno</strong></span>
+      <span style="opacity:.4">·</span>
+      <span><strong class="gd">Consultor Clínico</strong></span>
+      <span style="opacity:.4">·</span>
+      <span>Evidencias documentales</span>
+      <span style="opacity:.4">·</span>
+      <span>Alta certificada</span>
+    </div>
+
+    <div class="mf-warranty">
+      <div class="ey">Garantía Clínica MAS@FRAME®</div>
+      <p>
+        Extensión clínica gratuita si el KPI maestro no se ha alcanzado. <strong>Si el protocolo no funciona, no lo pagas.</strong>
+        <br><em>Incluso, te garantizamos la devolución íntegra del importe tras 3 meses adicionales.</em>
       </p>
-      <p class="lead" style="margin-bottom:18px">
-        Mi valor no reside en una metodología compleja, sino en la capacidad de ir a la raíz del problema y de trabajar contigo para que tu negocio vuelva a brillar. Construyo soluciones para negocios reales — <strong style="color:var(--off)">escucho la necesidad y te entrego la herramienta exacta</strong>.
-      </p>
-      <p class="lead" style="color:var(--gold2);font-style:italic;font-family:var(--fraunces);font-size:1.05rem;margin:0">
-        Unamos tu experiencia y mi visión estratégica para alcanzar tu próximo éxito.
-      </p>
+    </div>
+
+    <div class="mf-cta">
+      <a href="https://ese-cc2u.onrender.com" target="_blank" rel="noopener" class="btn-on-navy">Comprobar la salud de mi empresa →</a>
+      <a href="https://masfront.onrender.com/login" target="_blank" rel="noopener" class="btn-ghost">La Clínica de Empresas →</a>
+    </div>
+    <p class="mf-cta-foot">Gratuito · 10 minutos · Código de acceso</p>
+
+  </div>
+  <div class="mf-bottom-line"></div>
+</section>
+
+<!-- ── MANIFIESTO (NAVY) ── -->
+<section class="manifiesto">
+  <div class="manifiesto-in">
+    <div class="ey-italic rv">El Manifiesto</div>
+    <h2 class="rv d1">Te damos los motores. <span>Que devuelven el control</span> a tu negocio.</h2>
+    <p class="manifiesto-sub rv d2">MASESORA es DINAMISMO EMPRESARIAL — y juntos, construimos futuro.</p>
+    <div style="display:flex;justify-content:center;gap:14px;flex-wrap:wrap" class="rv d3">
+      <a href="https://tusolucion.onrender.com" target="_blank" rel="noopener" class="btn-on-navy">Valorar mi solución →</a>
+      <a href="https://wa.me/34609987436" target="_blank" rel="noopener" class="btn-ghost">WhatsApp 609 987 436 →</a>
+    </div>
+
+    <div class="manifiesto-contact">
+      <div class="manifiesto-contact-divider"></div>
+      <a href="https://instagram.com/laclinicadeempresas" target="_blank" rel="noopener" class="manifiesto-phone">
+        <div class="manifiesto-phone-ey">Síguenos</div>
+        <div class="manifiesto-phone-num">@laclinicadeempresas</div>
+      </a>
+      <a href="mailto:info@masesora.com" class="manifiesto-link">info@masesora.com</a>
     </div>
   </div>
 </section>
 
-<style>
-@media(max-width:760px){
-  #detras .si{grid-template-columns:1fr!important;gap:32px!important;text-align:center}
-  #detras h2{text-align:center}
-  #detras .ey{text-align:center}
-}
-</style>
-
-<div class="sec-divider" aria-hidden="true"></div>
-
-<!-- FOOTER -->
+<!-- ── FOOTER (NAVY) ── -->
 <footer>
-  <div class="ft-in" style="flex-direction:column;align-items:center;text-align:center;gap:14px">
+  <div class="ft-in">
     <a class="ft-brand" href="#">
-      <div class="ft-brand-main">MASESORA</div>
-      <span class="ft-brand-sub">Dinamismo Empresarial · Operadora de Sistemas Autónomos</span>
+      <div class="ft-brand-name">MASESORA</div>
+      <span class="ft-brand-sub">Dinamismo Empresarial</span>
     </a>
-    <ul class="ft-links" style="justify-content:center;flex-wrap:wrap">
+    <ul class="ft-links">
       <li><a href="legal/privacidad.html" target="_blank" rel="noopener">Política de Privacidad</a></li>
       <li><a href="legal/aviso-legal.html" target="_blank" rel="noopener">Aviso Legal</a></li>
       <li><a href="legal/cookies.html" target="_blank" rel="noopener">Política de Cookies</a></li>
       <li><a href="legal/terminos.html" target="_blank" rel="noopener">Términos y Condiciones</a></li>
       <li><a href="https://qrtarjetavisita.onrender.com" target="_blank" rel="noopener">Tarjeta de visita ↗</a></li>
     </ul>
-    <div class="ft-legal">© 2026 MASESORA · María Teresa Cabezuelos Morcillo · NIF 74860612M · Todos los derechos reservados</div>
+    <div class="ft-legal">© 2026 MASESORA® · María Teresa Cabezuelos Morcillo · NIF 74860612M · Todos los derechos reservados</div>
   </div>
 </footer>
 
@@ -1012,22 +692,13 @@ const rvs=document.querySelectorAll('.rv');
 const ro=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('vi');ro.unobserve(x.target)}})},{threshold:.08,rootMargin:'0px 0px -24px 0px'});
 rvs.forEach(e=>ro.observe(e));
 
-// Timeline items stagger
-const items=document.querySelectorAll('.narr-item');
-const io=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){const i=Array.from(items).indexOf(x.target);setTimeout(()=>x.target.classList.add('vi'),i*130);io.unobserve(x.target)}})},{threshold:.1});
-items.forEach(e=>io.observe(e));
-
-// Counters (ver función ac() actualizada abajo)
-const co=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){ac(x.target);co.unobserve(x.target)}})},{threshold:.5});
-document.querySelectorAll('[data-target]').forEach(e=>co.observe(e));
-
-// Nav
+// Nav border on scroll
 const nav=document.getElementById('nav');
 window.addEventListener('scroll',()=>{
-  nav.style.borderBottomColor=window.scrollY>60?'rgba(200,168,75,.2)':'rgba(255,255,255,.08)';
+  nav.style.borderBottomColor=window.scrollY>60?'rgba(184,157,82,.35)':'rgba(184,157,82,.18)';
 },{passive:true});
 
-// ── HAMBURGUESA MÓVIL ───────────────────────────────
+// HAMBURGUESA MÓVIL
 function toggleMenu(){
   var ul=document.getElementById('nlinks');
   var btn=document.getElementById('nburger');
@@ -1043,7 +714,7 @@ function closeMenu(){
   if(btn){btn.classList.remove('open');btn.setAttribute('aria-expanded','false')}
 }
 
-// ── AGENTE TOGGLE ────────────────────────────────────
+// AGENTE TOGGLE
 function toggleAgente(){
   var modal=document.getElementById('agenteModal');
   var box=document.getElementById('agenteBox');
@@ -1067,21 +738,21 @@ document.addEventListener('click',function(e){
 });
 </script>
 
-<!-- ── MODAL AGENTE ────────────────────────────────── -->
+<!-- ── MODAL AGENTE ── -->
 <div id="agenteModal">
-  <div id="agenteBox" style="pointer-events:all;width:360px;background:#0a1220;border:1px solid rgba(10,191,188,.25);border-radius:18px;overflow:hidden;box-shadow:0 24px 64px rgba(0,0,0,.5);transform:translateY(20px);opacity:0;transition:transform .35s cubic-bezier(.22,1,.36,1),opacity .35s">
-    <div style="display:flex;align-items:center;justify-content:space-between;padding:14px 18px;background:rgba(10,191,188,.06);border-bottom:1px solid rgba(10,191,188,.12)">
+  <div id="agenteBox" style="pointer-events:all;width:360px;background:#0F1A35;border:1px solid rgba(184,157,82,.3);border-radius:18px;overflow:hidden;box-shadow:0 24px 64px rgba(0,0,0,.5);transform:translateY(20px);opacity:0;transition:transform .35s cubic-bezier(.22,1,.36,1),opacity .35s">
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:14px 18px;background:rgba(184,157,82,.08);border-bottom:1px solid rgba(184,157,82,.2)">
       <div style="display:flex;align-items:center;gap:10px">
-        <div style="width:36px;height:36px;border-radius:50%;background:rgba(10,191,188,.1);border:1px solid rgba(10,191,188,.3);display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:1.1rem;color:#0ABFBC;letter-spacing:.04em">M</div>
+        <div style="width:36px;height:36px;border-radius:50%;background:rgba(184,157,82,.12);border:1px solid rgba(184,157,82,.4);display:flex;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.1rem;color:#D4B96A;letter-spacing:.04em">M</div>
         <div>
-          <div style="font-family:'IBM Plex Mono',monospace;font-size:.65rem;font-weight:600;color:#0ABFBC;letter-spacing:.1em">AGENTE MASESORA</div>
-          <div style="font-size:.65rem;color:rgba(255,255,255,.4);display:flex;align-items:center;gap:5px;margin-top:1px">
-            <span style="width:5px;height:5px;border-radius:50%;background:#0ABFBC;display:inline-block;animation:pulse 2s infinite"></span>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:.65rem;font-weight:600;color:#D4B96A;letter-spacing:.1em">AGENTE MASESORA</div>
+          <div style="font-size:.65rem;color:rgba(255,255,255,.5);display:flex;align-items:center;gap:5px;margin-top:1px;font-family:'Montserrat',sans-serif">
+            <span style="width:5px;height:5px;border-radius:50%;background:#D4B96A;display:inline-block;animation:pulse 2s infinite"></span>
             Activo · Demo
           </div>
         </div>
       </div>
-      <button onclick="toggleAgente()" style="background:none;border:none;color:rgba(255,255,255,.35);cursor:pointer;font-size:1.1rem;padding:4px" aria-label="Cerrar">✕</button>
+      <button onclick="toggleAgente()" style="background:none;border:none;color:rgba(255,255,255,.5);cursor:pointer;font-size:1.1rem;padding:4px" aria-label="Cerrar">✕</button>
     </div>
     <div id="chatArea" style="padding:16px;display:flex;flex-direction:column;gap:12px;max-height:320px;overflow-y:auto">
       <div class="amsg-agent">
@@ -1089,7 +760,7 @@ document.addEventListener('click',function(e){
       </div>
     </div>
     <div id="quickOpts" style="padding:0 14px 14px;display:flex;flex-direction:column;gap:7px">
-      <div style="font-family:'IBM Plex Mono',monospace;font-size:.56rem;color:rgba(255,255,255,.25);letter-spacing:.12em;text-transform:uppercase;margin-bottom:2px">Preguntas frecuentes</div>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:.56rem;color:rgba(255,255,255,.35);letter-spacing:.12em;text-transform:uppercase;margin-bottom:2px">Preguntas frecuentes</div>
       <button class="aopt" onclick="agentReply('que')">¿Qué es MASESORA?</button>
       <button class="aopt" onclick="agentReply('masframe')">¿Qué es MAS@FRAME?</button>
       <button class="aopt" onclick="agentReply('precio')">¿Cuánto cuestan los sistemas?</button>
@@ -1100,34 +771,27 @@ document.addEventListener('click',function(e){
   </div>
 </div>
 
-<style>
-.amsg-agent{background:rgba(10,191,188,.07);border:1px solid rgba(10,191,188,.15);border-radius:12px 12px 12px 4px;padding:11px 14px;font-size:.8rem;line-height:1.65;color:rgba(255,255,255,.8);font-family:'DM Sans',sans-serif;font-weight:300;max-width:90%}
-.amsg-user{background:rgba(196,165,90,.08);border:1px solid rgba(196,165,90,.18);border-radius:12px 12px 4px 12px;padding:11px 14px;font-size:.8rem;line-height:1.65;color:rgba(255,255,255,.75);font-family:'DM Sans',sans-serif;font-weight:300;max-width:90%;align-self:flex-end}
-.aopt{width:100%;text-align:left;padding:9px 12px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:8px;color:rgba(255,255,255,.65);font-family:'DM Sans',sans-serif;font-size:.78rem;font-weight:400;cursor:pointer;transition:background .15s,border-color .15s,color .15s}
-.aopt:hover{background:rgba(10,191,188,.08);border-color:rgba(10,191,188,.25);color:rgba(255,255,255,.9)}
-</style>
-
-<!-- ── COOKIE BANNER (RGPD informativo) ─────────────── -->
-<div id="cookieBanner" style="display:none;position:fixed;bottom:24px;left:24px;right:24px;max-width:480px;margin:0 auto;background:#0a1220;border:1px solid rgba(200,168,75,.3);border-radius:14px;padding:20px 22px;box-shadow:0 24px 60px rgba(0,0,0,.6);z-index:600;font-family:'DM Sans',sans-serif">
-  <div style="font-family:'IBM Plex Mono',monospace;font-size:.6rem;color:#C8A84B;letter-spacing:.18em;text-transform:uppercase;margin-bottom:8px;font-weight:600">Aviso de cookies</div>
-  <p style="font-size:.82rem;line-height:1.6;color:rgba(255,255,255,.75);margin:0 0 14px;font-weight:300">
-    Usamos <strong style="color:#fff">solo cookies técnicas estrictamente necesarias</strong> para el funcionamiento del sitio. No utilizamos analítica ni publicidad de terceros.
+<!-- ── COOKIE BANNER (RGPD informativo) ── -->
+<div id="cookieBanner" style="display:none;position:fixed;bottom:24px;left:24px;right:24px;max-width:480px;margin:0 auto;background:#FFFFFF;border:1px solid rgba(184,157,82,.4);border-radius:14px;padding:20px 22px;box-shadow:0 24px 60px rgba(15,26,53,.25);z-index:600;font-family:'Montserrat',sans-serif">
+  <div style="font-family:'IBM Plex Mono',monospace;font-size:.6rem;color:#B89D52;letter-spacing:.18em;text-transform:uppercase;margin-bottom:8px;font-weight:600">Aviso de cookies</div>
+  <p style="font-size:.82rem;line-height:1.6;color:#4A4A4A;margin:0 0 14px;font-weight:400">
+    Usamos <strong style="color:#0F1A35">solo cookies técnicas estrictamente necesarias</strong> para el funcionamiento del sitio. No utilizamos analítica ni publicidad de terceros.
   </p>
   <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
-    <button onclick="acceptCookies()" style="padding:9px 22px;border-radius:999px;background:#C8A84B;color:#0a0a08;font-weight:700;font-size:.78rem;letter-spacing:.05em;border:none;cursor:pointer;font-family:inherit">Entendido</button>
-    <a href="legal/cookies.html" target="_blank" rel="noopener" style="font-size:.74rem;color:rgba(255,255,255,.5);text-decoration:underline;text-underline-offset:3px">Ver política de cookies</a>
+    <button onclick="acceptCookies()" style="padding:9px 22px;border-radius:999px;background:linear-gradient(135deg,#E8C96A,#B89D52);color:#0F1A35;font-weight:700;font-size:.78rem;letter-spacing:.05em;border:none;cursor:pointer;font-family:inherit;box-shadow:0 4px 16px -4px rgba(184,157,82,.5)">Entendido</button>
+    <a href="legal/cookies.html" target="_blank" rel="noopener" style="font-size:.74rem;color:#8B8B8B;text-decoration:underline;text-underline-offset:3px">Ver política de cookies</a>
   </div>
 </div>
 
 <script>
 /* === AGENT RESPONSES === */
 const RESPUESTAS = {
-  que: "MASESORA es una constructora de sistemas autónomos para autónomos y micropymes. Diseñamos, construimos y entregamos sistemas que operan solos. Trabajamos con negocios en activo con baja digitalización para proporcionarles tiempo y rentabilidad. ¿No sabes cómo explicar tu principal problema? Puedes empezar aquí: <a href='https://tusolucion.onrender.com' target='_blank' rel='noopener' style='color:#C8A84B;text-decoration:underline'>Valorar mi solución &rarr;</a>",
+  que: "MASESORA es una constructora de sistemas autónomos para autónomos y micropymes. Diseñamos, construimos y entregamos sistemas que operan solos. Trabajamos con negocios en activo con baja digitalización para proporcionarles tiempo y rentabilidad. ¿No sabes cómo explicar tu principal problema? Puedes empezar aquí: <a href='https://tusolucion.onrender.com' target='_blank' rel='noopener'>Valorar mi solución &rarr;</a>",
   masframe: "MAS@FRAME&reg; es nuestro primer sistema en producción: la Clínica de Empresas. Diagnostica los síntomas de tu negocio, los trata con un protocolo clínico estructurado en 7 capas (C0–C6), y certifica el alta cuando el problema está resuelto. Con garantía de ROI.",
   precio: "Nuestros sistemas rentabilizan tu tiempo. La inversión depende de la complejidad de la arquitectura necesaria para automatizar tu operativa. Hacemos herramientas muy concretas desde 100€. Para darte una cifra real, primero necesitamos realizar la <strong>VALORACIÓN DE TU SOLUCIÓN</strong>. Una vez validada la viabilidad y el 'dolor' de tu negocio, entregamos un PRD (Documento de Requisitos) con la estimación exacta. ¿Tienes 10 minutos para que te presente una alternativa? Luego decides.",
   contabilidad: "No gestionamos el día a día administrativo básico. Nos enfocamos en el rediseño de procesos, data y tecnología. Si buscas dejar de ser esclavo de tu propia operativa y quieres que tu empresa funcione sin que tengas que estar presente, estamos en el lugar correcto. ¿Tu problema es el volumen de trabajo o la falta de control?",
-  empezar: "Por el diagnóstico. Es gratuito, te lleva 5 minutos y al terminar recibes tu PRD personalizado: la hoja de ruta técnica de tu sistema. Sin reuniones, sin compromisos. Pulsa <a href='https://tusolucion.onrender.com' target='_blank' rel='noopener' style='color:#C8A84B;text-decoration:underline'>Valorar mi solución &rarr;</a>",
-  invertir: "Buscamos socios que aporten cartera de clientes, sector específico o capital. A cambio: participación operativa y beneficios en el sistema construido. MAS@FRAME&reg; ya tiene clientes reales y Marbitrage opera en Costa Blanca. Si encajas, escríbenos a <a href='mailto:info@masesora.com' style='color:#C8A84B;text-decoration:underline'>info@masesora.com</a> con el sector o canal que aportas y te respondemos en 48h."
+  empezar: "Por el diagnóstico. Es gratuito, te lleva 5 minutos y al terminar recibes tu PRD personalizado: la hoja de ruta técnica de tu sistema. Sin reuniones, sin compromisos. Pulsa <a href='https://tusolucion.onrender.com' target='_blank' rel='noopener'>Valorar mi solución &rarr;</a>",
+  invertir: "Buscamos socios que aporten cartera de clientes, sector específico o capital. A cambio: participación operativa y beneficios en el sistema construido. MAS@FRAME&reg; ya tiene clientes reales y Marbitrage opera en Costa Blanca. Si encajas, escríbenos a <a href='mailto:info@masesora.com'>info@masesora.com</a> con el sector o canal que aportas y te respondemos en 48h."
 };
 
 function agentReply(key){
@@ -1135,7 +799,7 @@ function agentReply(key){
   if(!chat) return;
   var msg = document.createElement('div');
   msg.className = 'amsg-agent';
-  msg.innerHTML = RESPUESTAS[key] || "Para esta consulta concreta, prefiero responderte por email: <a href='mailto:info@masesora.com' style='color:#C8A84B'>info@masesora.com</a>";
+  msg.innerHTML = RESPUESTAS[key] || "Para esta consulta concreta, prefiero responderte por email: <a href='mailto:info@masesora.com'>info@masesora.com</a>";
   chat.appendChild(msg);
   chat.scrollTop = chat.scrollHeight;
 }
