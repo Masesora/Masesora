@@ -23,6 +23,35 @@
   <link rel="apple-touch-icon" href="assets/favicon.svg"/>
   <meta name="theme-color" content="#0F1A35"/>
 
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-62L9S89H53"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-62L9S89H53');
+
+    // Tracking de clicks delegados a CTAs principales
+    document.addEventListener('DOMContentLoaded', function() {
+      document.addEventListener('click', function(e) {
+        var a = e.target.closest('a');
+        if (!a || !a.href) return;
+        var href = a.href;
+        var from = location.pathname || '/';
+        var label = (a.textContent || '').trim().slice(0,40);
+        if (href.indexOf('tusolucion.onrender.com') !== -1) {
+          gtag('event','clic_construir_solucion',{from:from,label:label});
+        } else if (href.indexOf('cal.com') !== -1) {
+          gtag('event','clic_agendar_reunion',{from:from});
+        } else if (href.indexOf('wa.me') !== -1) {
+          gtag('event','clic_whatsapp',{from:from});
+        } else if (href.indexOf('masframelanding') !== -1) {
+          gtag('event','clic_masframe',{from:from});
+        }
+      });
+    });
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link rel="dns-prefetch" href="https://wa.me"/>
