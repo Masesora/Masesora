@@ -4,7 +4,7 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
   <title>MASESORA · Dinamismo Empresarial</title>
-  <meta name="description" content="MASESORA® — Construimos sistemas autónomos para autónomos y micropymes. Diagnóstico clínico, tratamiento estructurado, alta certificada. Si no proyecta margen positivo, no se inicia."/>
+  <meta name="description" content="Masesora construye sistemas para autónomos y micropymes. Diagnóstico gratuito en 10 minutos y solución a medida. Si no proyecta margen positivo, no se inicia."/>
 
   <!-- OG / Social -->
   <meta property="og:type" content="website"/>
@@ -23,22 +23,130 @@
   <link rel="apple-touch-icon" href="assets/favicon.svg"/>
   <meta name="theme-color" content="#0F1A35"/>
 
-  <!-- Google Analytics 4 -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-62L9S89H53"></script>
+    <!-- ══ CONSENTIMIENTO DE COOKIES · META PIXEL + GOOGLE ANALYTICS 4 ═════
+       Ni el Píxel de Meta (4359415267704371) ni GA4 (G-62L9S89H53) se cargan ni envían nada
+       hasta que la persona pulsa «Aceptar». Mientras tanto window.fbq y window.gtag son
+       funciones vacías. La elección se guarda en localStorage (mas_cookie_consent) y
+       «Configurar cookies» (pie de página) reabre el aviso. Mismo mecanismo que masesora.es.
+  ═══════════════════════════════════════════════════════════════════════ -->
   <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-62L9S89H53');
-  </script>
+  (function(w,d){
+    var FB_ID='4359415267704371', GA_ID='G-62L9S89H53';
+    var KEY='mas_cookie_consent', MAX_AGE=365*24*60*60*1000; // se vuelve a preguntar a los 12 meses
+    var noop=function(){};
+    var realFbq=null, realGtag=null, loaded=false;
 
-  <!-- Meta Pixel -->
-  <script>
-    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init','4359415267704371');
-    fbq('track','PageView');
+    // Estado inicial seguro: sin consentimiento todo son no-ops
+    w.fbq=noop; w.gtag=noop;
+
+    function readChoice(){
+      try{
+        var o=JSON.parse(w.localStorage.getItem(KEY)||'null');
+        if(o && (o.c==='granted'||o.c==='denied') && (Date.now()-o.t)<MAX_AGE) return o.c;
+      }catch(e){}
+      return null;
+    }
+    function saveChoice(c){
+      try{ w.localStorage.setItem(KEY, JSON.stringify({c:c,t:Date.now()})); }catch(e){}
+    }
+
+    function loadTrackers(){
+      w['ga-disable-'+GA_ID]=false;
+      if(loaded){ // ya se habían cargado en esta visita y se reactivan
+        w.fbq=realFbq; w.gtag=realGtag;
+        try{ realFbq('consent','grant'); realGtag('consent','update',{analytics_storage:'granted'}); }catch(e){}
+        return;
+      }
+      loaded=true;
+      // Píxel de Meta (snippet oficial)
+      delete w.fbq;
+      !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+      n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(w,
+      d,'script','https://connect.facebook.net/en_US/fbevents.js');
+      realFbq=w.fbq;
+      realFbq('init', FB_ID);
+      realFbq('track', 'PageView');
+      // Google Analytics 4
+      w.dataLayer=w.dataLayer||[];
+      realGtag=w.gtag=function(){ w.dataLayer.push(arguments); };
+      realGtag('js', new Date());
+      realGtag('config', GA_ID);
+      var g=d.createElement('script');
+      g.async=true; g.src='https://www.googletagmanager.com/gtag/js?id='+GA_ID;
+      d.head.appendChild(g);
+    }
+
+    function clearCookies(){
+      var host=w.location.hostname, parts=host.split('.'), doms=[null,host,'.'+host];
+      for(var i=1;i<parts.length-1;i++){ var dm=parts.slice(i).join('.'); doms.push(dm,'.'+dm); }
+      d.cookie.split(';').forEach(function(c){
+        var n=c.split('=')[0].replace(/^\s+/,'');
+        if(!/^(_ga|_gid|_gat|_fbp|_fbc)/.test(n)) return;
+        doms.forEach(function(dm){
+          d.cookie=n+'=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/'+(dm?'; domain='+dm:'');
+        });
+      });
+    }
+
+    function stopTrackers(){
+      if(loaded){
+        try{ realFbq('consent','revoke'); realGtag('consent','update',{analytics_storage:'denied'}); }catch(e){}
+        w['ga-disable-'+GA_ID]=true;
+      }
+      w.fbq=noop; w.gtag=noop;
+      clearCookies();
+    }
+
+    function apply(c){
+      if(c==='granted') loadTrackers(); else stopTrackers();
+      try{ w.dispatchEvent(new CustomEvent('ese:consent',{detail:c})); }catch(e){}
+    }
+
+    /* ── Banner ── */
+    var banner, state, opener=null, current=readChoice();
+    function el(id){ return d.getElementById(id); }
+    function show(fromUser){
+      banner=banner||el('cookieBanner'); if(!banner) return;
+      state=state||el('cookieState');
+      state.textContent = current==='granted' ? 'Tu elección actual: cookies aceptadas.'
+                        : current==='denied'  ? 'Tu elección actual: cookies rechazadas.' : '';
+      state.style.display = current ? 'block' : 'none';
+      opener = fromUser ? d.activeElement : null;
+      banner.hidden=false;
+      try{ banner.focus({preventScroll:true}); }catch(e){}
+    }
+    function hide(){
+      if(!banner) return;
+      banner.hidden=true;
+      if(opener && opener.focus){ try{ opener.focus(); }catch(e){} }
+      opener=null;
+    }
+    function choose(c){
+      current=c; saveChoice(c); apply(c); hide();
+    }
+
+    w.masCookies={
+      open:function(){ show(true); },
+      accept:function(){ choose('granted'); },
+      reject:function(){ choose('denied'); }
+    };
+
+    apply(current);                       // 'granted' → carga; 'denied'/null → no-ops
+    function init(){
+      banner=el('cookieBanner');
+      el('cookieAccept').addEventListener('click',function(){ choose('granted'); });
+      el('cookieReject').addEventListener('click',function(){ choose('denied'); });
+      d.addEventListener('keydown',function(e){
+        // Escape solo cierra el banner si ya hay una elección guardada (no cuenta como consentimiento)
+        if(e.key==='Escape' && current && banner && !banner.hidden) hide();
+      });
+      if(current===null) show(false);
+    }
+    if(d.readyState==='loading') d.addEventListener('DOMContentLoaded',init); else init();
+  })(window,document);
   </script>
-  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=4359415267704371&ev=PageView&noscript=1"/></noscript>
 
   <!-- Tracking unificado · clicks a GA4 + Meta Pixel -->
   <script>
@@ -66,12 +174,10 @@
     });
   </script>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link rel="dns-prefetch" href="https://wa.me"/>
   <link rel="dns-prefetch" href="https://tusolucion.onrender.com"/>
   <link rel="dns-prefetch" href="https://ese-cc2u.onrender.com"/>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,700;1,400;1,500;1,700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="fonts/fonts.css"/>
   <link rel="preload" as="image" href="assets/maite.webp" fetchpriority="low"/>
 
 <style>
@@ -451,6 +557,42 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:48px 40px;borde
   .hstat:last-child{border-bottom:none}
   h2.h2{font-size:1.85rem}
 }
+
+/* ── BANNER DE COOKIES ───────────────────────────────── */
+.cookie-banner {
+  position:fixed; left:0; right:0; bottom:0; z-index:10000;
+  background:linear-gradient(135deg,#0F1A35,#1a2d5a);
+  border-top:2px solid #B89D52;
+  box-shadow:0 -10px 32px rgba(0,0,0,.45);
+  padding:18px 24px;
+  max-height:90vh; overflow-y:auto;
+}
+.cookie-banner[hidden] { display:none; }
+.cookie-banner:focus { outline:none; }
+.cookie-inner { max-width:1080px; margin:0 auto; display:flex; align-items:center; gap:24px; }
+.cookie-text { flex:1; min-width:0; }
+.cookie-title { font-size:.8rem; font-weight:800; letter-spacing:.08em; text-transform:uppercase; color:#E8C96A; margin-bottom:6px; }
+.cookie-text p { font-size:.82rem; line-height:1.55; color:rgba(255,255,255,.88); }
+.cookie-text p a { color:#E8C96A; text-decoration:underline; text-underline-offset:3px; font-weight:600; }
+.cookie-text p a:hover { color:#fff; }
+.cookie-text p.cookie-state { margin-top:6px; font-weight:600; color:#E8C96A; }
+.cookie-actions { display:flex; gap:12px; flex-shrink:0; }
+/* Aceptar y Rechazar comparten exactamente el mismo estilo (misma prominencia) */
+.cookie-btn {
+  min-width:130px; padding:12px 24px; border-radius:50px;
+  background:#B89D52; color:#0F1A35; border:2px solid #B89D52;
+  font-family:'Montserrat',-apple-system,'Segoe UI',Arial,sans-serif; font-size:.85rem; font-weight:700; letter-spacing:.03em;
+  cursor:pointer; transition:background .15s, border-color .15s;
+}
+.cookie-btn:hover { background:#E8C96A; border-color:#E8C96A; }
+.cookie-btn:focus-visible { outline:2.5px solid #fff; outline-offset:3px; }
+@media(max-width:680px){
+  .cookie-banner { padding:16px 16px calc(16px + env(safe-area-inset-bottom)); }
+  .cookie-inner { flex-direction:column; align-items:stretch; gap:14px; }
+  .cookie-actions { width:100%; }
+  .cookie-btn { flex:1; min-width:0; padding:13px 12px; }
+}
+@media print { .cookie-banner { display:none !important; } }
 </style>
 </head>
 <body>
@@ -752,6 +894,7 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:48px 40px;borde
       <li><a href="legal/privacidad.html" target="_blank" rel="noopener">Política de Privacidad</a></li>
       <li><a href="legal/aviso-legal.html" target="_blank" rel="noopener">Aviso Legal</a></li>
       <li><a href="legal/cookies.html" target="_blank" rel="noopener">Política de Cookies</a></li>
+      <li><a href="#" onclick="masCookies.open();return false;">Configurar cookies</a></li>
       <li><a href="legal/terminos.html" target="_blank" rel="noopener">Términos y Condiciones</a></li>
       <li><a href="https://qrtarjetavisita.onrender.com" target="_blank" rel="noopener">Tarjeta de visita ↗</a></li>
     </ul>
@@ -871,15 +1014,18 @@ document.addEventListener('click',function(e){
   </div>
 </div>
 
-<!-- ── COOKIE BANNER (RGPD informativo) ── -->
-<div id="cookieBanner" style="display:none;position:fixed;bottom:24px;left:24px;right:24px;max-width:480px;margin:0 auto;background:#FFFFFF;border:1px solid rgba(184,157,82,.4);border-radius:14px;padding:20px 22px;box-shadow:0 24px 60px rgba(15,26,53,.25);z-index:600;font-family:'Montserrat',sans-serif">
-  <div style="font-family:'IBM Plex Mono',monospace;font-size:.6rem;color:#B89D52;letter-spacing:.18em;text-transform:uppercase;margin-bottom:8px;font-weight:600">Aviso de cookies</div>
-  <p style="font-size:.82rem;line-height:1.6;color:#4A4A4A;margin:0 0 14px;font-weight:400">
-    Usamos <strong style="color:#0F1A35">solo cookies técnicas estrictamente necesarias</strong> para el funcionamiento del sitio. No utilizamos analítica ni publicidad de terceros.
-  </p>
-  <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
-    <button onclick="acceptCookies()" style="padding:9px 22px;border-radius:999px;background:linear-gradient(135deg,#E8C96A,#B89D52);color:#0F1A35;font-weight:700;font-size:.78rem;letter-spacing:.05em;border:none;cursor:pointer;font-family:inherit;box-shadow:0 4px 16px -4px rgba(184,157,82,.5)">Entendido</button>
-    <a href="legal/cookies.html" target="_blank" rel="noopener" style="font-size:.74rem;color:#8B8B8B;text-decoration:underline;text-underline-offset:3px">Ver política de cookies</a>
+<!-- ── BANNER DE COOKIES ── -->
+<div id="cookieBanner" class="cookie-banner" role="dialog" aria-modal="false" aria-label="Consentimiento de cookies" aria-describedby="cookieDesc" tabindex="-1" hidden>
+  <div class="cookie-inner">
+    <div class="cookie-text">
+      <div class="cookie-title">Cookies</div>
+      <p id="cookieDesc">Usamos cookies propias y de terceros (Meta y Google Analytics) para medir cómo se usa esta página. Puedes aceptarlas o rechazarlas (el escáner funciona igual) y cambiarlo cuando quieras en «Configurar cookies», al final de la página. Más información en la <a href="#" onclick="abrirLegal('cookies');return false;">Política de Cookies</a>.</p>
+      <p class="cookie-state" id="cookieState" aria-live="polite" style="display:none"></p>
+    </div>
+    <div class="cookie-actions">
+      <button type="button" class="cookie-btn" id="cookieReject">Rechazar</button>
+      <button type="button" class="cookie-btn" id="cookieAccept">Aceptar</button>
+    </div>
   </div>
 </div>
 
@@ -902,21 +1048,6 @@ function agentReply(key){
   msg.innerHTML = RESPUESTAS[key] || "Para esta consulta concreta, prefiero responderte por email: <a href='mailto:info@masesora.com'>info@masesora.com</a>";
   chat.appendChild(msg);
   chat.scrollTop = chat.scrollHeight;
-}
-
-/* === COOKIE BANNER === */
-(function(){
-  try {
-    if(!localStorage.getItem('mas_cookie_ack')){
-      document.getElementById('cookieBanner').style.display='block';
-    }
-  } catch(e){
-    document.getElementById('cookieBanner').style.display='block';
-  }
-})();
-function acceptCookies(){
-  try { localStorage.setItem('mas_cookie_ack','1'); } catch(e){}
-  document.getElementById('cookieBanner').style.display='none';
 }
 </script>
 
