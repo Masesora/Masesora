@@ -99,10 +99,7 @@
       clearCookies();
     }
 
-    function apply(c){
-      if(c==='granted') loadTrackers(); else stopTrackers();
-      try{ w.dispatchEvent(new CustomEvent('ese:consent',{detail:c})); }catch(e){}
-    }
+    function apply(c){ if(c==='granted') loadTrackers(); else stopTrackers(); }
 
     /* ── Banner ── */
     var banner, state, opener=null, current=readChoice();
@@ -376,9 +373,7 @@ h2.h2 em{font-family:var(--serif);font-style:italic;font-weight:500;color:var(--
 .mf-h2{font-family:var(--sans);font-weight:800;font-size:clamp(2.4rem,4.5vw,4rem);color:var(--white);line-height:1.02;text-align:center;letter-spacing:.04em;margin-bottom:14px}
 .mf-h2 sup{font-size:.42em;color:var(--gold);font-weight:600;vertical-align:super}
 .mf-lead-center{font-family:var(--sans);font-size:1rem;color:rgba(255,255,255,.72);font-weight:400;line-height:1.75;max-width:780px;margin:0 auto 14px;text-align:left}
-.mf-savemore{text-align:center;margin-bottom:36px;margin-top:10px}
-.mf-savemore a{font-family:var(--mono);font-size:.6rem;color:rgba(184,157,82,.6);letter-spacing:.16em;text-transform:uppercase;text-decoration:none;border:1px solid rgba(184,157,82,.25);padding:6px 14px;border-radius:4px;transition:color .2s,border-color .2s}
-.mf-savemore a:hover{color:var(--gold-light);border-color:var(--gold-light)}
+.mf-cta-wrap{text-align:center;margin-top:24px;margin-bottom:36px}
 
 .pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:0}
 .pillar{padding:30px 24px;background:rgba(255,255,255,.03);border-radius:16px;transition:transform .25s,background .25s;position:relative}
@@ -614,7 +609,7 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:48px 40px;borde
     <button class="nbadge nagente" onclick="toggleAgente()" title="Habla con nuestro agente">
       Agente activo
     </button>
-    <a href="https://masfront.onrender.com" class="ncta">Acceso clientes →</a>
+    <a href="https://laclinicadempresas.masesora.com" class="ncta">Acceso clientes →</a>
     <button class="nburger" id="nburger" onclick="toggleMenu()" aria-label="Menú" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
@@ -627,9 +622,9 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:48px 40px;borde
     <span class="ticker-item">DINAMISMO EMPRESARIAL</span><span class="ticker-sep">·</span>
     <span class="ticker-item">SISTEMA MAS@FRAME®</span><span class="ticker-sep">·</span>
     <span class="ticker-item">CONSTRUCTORES DE SISTEMAS</span><span class="ticker-sep">·</span>
-    <span class="ticker-item">DINAMISMO EMPRESARIALs</span><span class="ticker-sep">·</span>
+    <span class="ticker-item">DINAMISMO EMPRESARIAL</span><span class="ticker-sep">·</span>
     <span class="ticker-item">SISTEMA TuSolución®</span><span class="ticker-sep">·</span>
-    <span class="ticker-item">@laclinicadempresas DE SISTEMAS</span><span class="ticker-sep">·</span>
+    <span class="ticker-item">@laclinicadeempresas</span><span class="ticker-sep">·</span>
   </div>
 </div>
 
@@ -681,34 +676,13 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:48px 40px;borde
       <a href="https://cal.com/masesora/reunion" target="_blank" rel="noopener" class="btn-ghost" style="border-color:rgba(184,157,82,.45);color:var(--gold-light)">Agendar reunión →</a>
       <a href="https://wa.me/34609987436" target="_blank" rel="noopener" class="btn-ghost">WhatsApp 609 987 436 →</a>
     </div>
-<div class="hero-stats">
-
-  <!-- COLUMNA 1 — DATO REAL -->
-  <div class="hstat">
-    <div class="hstat-n" data-counter="65" data-suffix="%">0<span>%</span></div>
-    <div class="hstat-l">PIB pymes españolas</div>
+    <div class="hero-stats">
+      <div class="hstat"><div class="hstat-n" data-counter="65" data-suffix="%">0<span>%</span></div><div class="hstat-l">PIB pymes españolas</div></div>
+      <div class="hstat"><div class="hstat-n" data-counter="98" data-suffix="%">0<span>%</span></div><div class="hstat-l">Tejido empresarial</div></div>
+      <div class="hstat"><div class="hstat-n" data-fixed="7/10">7/10</div><div class="hstat-l">Empleos en pymes</div></div>
+      <div class="hstat"><div class="hstat-n" data-counter="3.31" data-decimals="2" data-suffix="M">0<span>M</span></div><div class="hstat-l">Empresas activas España 2025</div></div>
+    </div>
   </div>
-
-  <!-- COLUMNA 2 — MENSAJE COMERCIAL BASADO EN C1 -->
-  <div class="hstat">
-    <div class="hstat-n" data-fixed="">→</div>
-    <div class="hstat-l">La mayoría opera sin sistemas. Diferénciate.</div>
-  </div>
-
-  <!-- COLUMNA 3 — DATO REAL -->
-  <div class="hstat">
-    <div class="hstat-n" data-fixed="7/10">7/10</div>
-    <div class="hstat-l">Empleos en pymes</div>
-  </div>
-
-  <!-- COLUMNA 4 — MENSAJE COMERCIAL BASADO EN C3 -->
-  <div class="hstat">
-    <div class="hstat-n" data-fixed="">→</div>
-    <div class="hstat-l">Tu negocio es relevante. Ponlo en primera línea.</div>
-  </div>
-
-</div>
-
 
 
 
@@ -794,7 +768,7 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:48px 40px;borde
       <h2 class="h2">Maite <em>Cabezuelos.</em></h2>
       <p class="lead">Fundadora de <strong>MASESORA®</strong>. Con 15 años liderando operaciones y gestión de crisis en turismo y servicios, mi enfoque combina Lean, Agile y Project Management con un propósito claro: <strong>simplificar</strong>.</p>
       <p class="lead">Mi valor no reside en una metodología compleja, sino en la capacidad de ir a la raíz del problema y de trabajar contigo para que tu negocio vuelva a brillar. Construyo soluciones para negocios reales — <strong>escucho la necesidad y te entrego la herramienta exacta</strong>.</p>
-      <p class="bio-quote">Mis clientes y amigos han confiando en su experiencia y mi visión estratégica para alcanzar sus objetivos. ¿Y tú, visualizas tu próximo éxito? Yo te ayudo a construirlo</p>
+      <p class="bio-quote">Mis clientes y amigos han confiado en mi experiencia y mi visión estratégica para alcanzar sus objetivos. ¿Y tú, visualizas tu próximo éxito? Yo te ayudo a construirlo</p>
     </div>
      
   </div>
@@ -850,7 +824,7 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:48px 40px;borde
       <span style="display:inline-block;padding:10px 22px;border-radius:999px;border:1.5px solid var(--gold);color:var(--gold-light);font-size:.74rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase">Beta privada · Lista de acceso abierta</span>
     </div>
 
-    <div class="mf-savemore rv d2" style="margin-top:24px">
+    <div class="mf-cta-wrap rv d2">
       <a href="https://masframelanding.onrender.com" target="_blank" rel="noopener" class="btn-on-navy">Conocer MAS@FRAME® →</a>
     </div>
 
@@ -1019,7 +993,7 @@ document.addEventListener('click',function(e){
   <div class="cookie-inner">
     <div class="cookie-text">
       <div class="cookie-title">Cookies</div>
-      <p id="cookieDesc">Usamos cookies propias y de terceros (Meta y Google Analytics) para medir cómo se usa esta página. Puedes aceptarlas o rechazarlas (el escáner funciona igual) y cambiarlo cuando quieras en «Configurar cookies», al final de la página. Más información en la <a href="#" onclick="abrirLegal('cookies');return false;">Política de Cookies</a>.</p>
+      <p id="cookieDesc">Usamos cookies propias y de terceros (Meta y Google Analytics) para medir cómo se usa esta página. Puedes aceptarlas o rechazarlas (el escáner funciona igual) y cambiarlo cuando quieras en «Configurar cookies», al final de la página. Más información en la <a href="legal/cookies.html" target="_blank" rel="noopener">Política de Cookies</a>.</p>
       <p class="cookie-state" id="cookieState" aria-live="polite" style="display:none"></p>
     </div>
     <div class="cookie-actions">
