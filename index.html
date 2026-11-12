@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>MASESORA · Dinamismo Empresarial</title>
+  <title>MASESORA · Diagnóstico gratuito de tu negocio en 10 minutos</title>
   <meta name="description" content="Masesora construye sistemas para autónomos y micropymes. Diagnóstico gratuito en 10 minutos y solución a medida. Si no proyecta margen positivo, no se inicia."/>
 
   <!-- OG / Social -->
@@ -163,6 +163,9 @@
         } else if (href.indexOf('wa.me') !== -1) {
           if (typeof gtag==='function') gtag('event','clic_whatsapp',{from:from});
           if (typeof fbq==='function') fbq('track','Contact',{content_name:'WhatsApp',from:from});
+        } else if (href.indexOf('masesora.es') !== -1) {
+          if (typeof gtag==='function') gtag('event','clic_escaner',{from:from,label:label});
+          if (typeof fbq==='function') fbq('trackCustom','ClickEscaner',{from:from});
         } else if (href.indexOf('masframelanding') !== -1) {
           if (typeof gtag==='function') gtag('event','clic_masframe',{from:from});
           if (typeof fbq==='function') fbq('trackCustom','ClickMasframe',{from:from});
@@ -173,7 +176,7 @@
 
   <link rel="dns-prefetch" href="https://wa.me"/>
   <link rel="dns-prefetch" href="https://tusolucion.onrender.com"/>
-  <link rel="dns-prefetch" href="https://ese-cc2u.onrender.com"/>
+  <link rel="dns-prefetch" href="https://www.masesora.es"/>
   <link rel="stylesheet" href="fonts/fonts.css"/>
   <link rel="preload" as="image" href="assets/maite.webp" fetchpriority="low"/>
 
@@ -662,7 +665,7 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:48px 40px;borde
 
     <div class="hero-eyebrow">Construimos Sistemas</div>
     <h1 class="hero-h1">
-      LA CLINICA <span class="accent">DE EMPRESAS</span>
+      LA CLÍNICA <span class="accent">DE EMPRESAS</span>
       <span class="small">Transformamos tu caos operativo en un sistema rentable en menos de 10 minutos.</span>
     </h1>
     <p class="hero-sub">
@@ -820,12 +823,9 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:48px 40px;borde
       </div>
     </div>
 
-    <div style="text-align:center;margin-top:40px" class="rv d2">
-      <span style="display:inline-block;padding:10px 22px;border-radius:999px;border:1.5px solid var(--gold);color:var(--gold-light);font-size:.74rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase">Beta privada · Lista de acceso abierta</span>
-    </div>
-
-    <div class="mf-cta-wrap rv d2">
-      <a href="https://masframelanding.onrender.com" target="_blank" rel="noopener" class="btn-on-navy">Conocer MAS@FRAME® →</a>
+    <div class="mf-cta-wrap rv d2" style="display:flex;justify-content:center;align-items:center;gap:14px;flex-wrap:wrap">
+      <a href="https://www.masesora.es/?utm_source=masesora_com&utm_medium=web&utm_campaign=clinica" target="_blank" rel="noopener" class="btn-on-navy">Hacer el diagnóstico gratis →</a>
+      <a href="https://masframelanding.onrender.com" target="_blank" rel="noopener" class="btn-ghost" style="border-color:rgba(184,157,82,.45);color:var(--gold-light)">Conocer MAS@FRAME® →</a>
     </div>
 
   </div>
@@ -1111,7 +1111,7 @@ function agentReply(key){
       },
       "offers": {
         "@type": "Offer",
-        "url": "https://ese-cc2u.onrender.com",
+        "url": "https://www.masesora.es/",
         "priceCurrency": "EUR",
         "description": "Diagnóstico inicial gratuito · Escáner de Salud Empresarial",
         "availability": "https://schema.org/InStock"
