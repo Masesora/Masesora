@@ -1,0 +1,58 @@
+<svg viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0F1A35"/>
+      <stop offset="100%" stop-color="#1a2d5a"/>
+    </linearGradient>
+    <linearGradient id="sc_gld" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E8C96A"/>
+      <stop offset="50%" stop-color="#B89D52"/>
+      <stop offset="100%" stop-color="#9A7E3A"/>
+    </linearGradient>
+    <pattern id="grid" x="0" y="0" width="48" height="48" patternUnits="userSpaceOnUse">
+      <line x1="0" y1="24" x2="48" y2="24" stroke="#B89D52" stroke-width="0.4" opacity="0.06"/>
+      <line x1="24" y1="0" x2="24" y2="48" stroke="#B89D52" stroke-width="0.4" opacity="0.06"/>
+    </pattern>
+    <linearGradient id="logo_gld" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#C8A84B"/>
+      <stop offset="50%" stop-color="#E8C96A"/>
+      <stop offset="100%" stop-color="#B89D52"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Fondo -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+
+  <!-- Franja dorada top -->
+  <rect x="0" y="0" width="1200" height="4" fill="url(#sc_gld)"/>
+
+  <!-- Linea acento izquierda -->
+  <rect x="80" y="80" width="2" height="470" fill="url(#sc_gld)" opacity="0.35"/>
+
+  <!-- EKG decorativo -->
+  <polyline points="860,210 900,210 925,125 950,295 975,210 1000,210 1025,165 1050,255 1075,210 1130,210" fill="none" stroke="url(#sc_gld)" stroke-width="2.5" opacity="0.22" stroke-linecap="round" stroke-linejoin="round"/>
+
+
+  <!-- Tagline -->
+  <text x="100" y="150" font-family="Georgia,serif" font-size="12.5" fill="#B89D52" letter-spacing="5.5" opacity="0.85">MASESORA · DINAMISMO EMPRESARIAL</text>
+
+  <!-- Titular principal -->
+  <text x="100" y="318" font-family="Georgia,serif" font-size="76" font-weight="700" fill="#FFFFFF" letter-spacing="-1.5">La Clínica</text>
+  <text x="100" y="408" font-family="Georgia,serif" font-size="76" font-weight="700" fill="url(#sc_gld)" letter-spacing="-1.5">de Empresas</text>
+
+  <!-- Subtitulo -->
+  <text x="100" y="466" font-family="Georgia,serif" font-size="21" fill="#FFFFFF" opacity="0.52">Diagnóstico y sistemas a medida para autónomos y micropymes</text>
+
+  <!-- Divisor -->
+  <line x1="100" y1="496" x2="420" y2="496" stroke="url(#sc_gld)" stroke-width="1" opacity="0.25"/>
+
+  <!-- Badge -->
+  <rect x="100" y="514" width="270" height="34" rx="6" fill="url(#sc_gld)" opacity="0.12"/>
+  <rect x="100" y="514" width="270" height="34" rx="6" fill="none" stroke="url(#sc_gld)" stroke-width="1" opacity="0.38"/>
+  <text x="235" y="536" font-family="Georgia,serif" font-size="13" font-weight="700" fill="#B89D52" text-anchor="middle" letter-spacing="3.5">DIAGNÓSTICO GRATIS</text>
+
+  <!-- Acento esquina -->
+  <line x1="1090" y1="558" x2="1150" y2="585" stroke="url(#sc_gld)" stroke-width="0.9" opacity="0.22"/>
+  <line x1="1100" y1="550" x2="1156" y2="575" stroke="url(#sc_gld)" stroke-width="0.4" opacity="0.12"/>
+</svg>
